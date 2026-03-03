@@ -59,6 +59,8 @@ function analyzeJavaFile(filePath) {
                         name: fieldName,
                         fieldType: typeText,
                         file: filePath,
+                        startOffset: node.startIndex,
+                        endOffset: node.endIndex,
                     });
                 }
             });
@@ -137,6 +139,8 @@ function analyzeJavaFile(filePath) {
                 calls,
                 reads: [...new Set(reads)],
                 writes: [...new Set(writes)],
+                startOffset: node.startIndex,
+                endOffset: node.endIndex,
             });
         }
     });
@@ -144,55 +148,55 @@ function analyzeJavaFile(filePath) {
 
 function analyzeRepo(rootDir) {
     const ignoreDirs = [
-  "target",
-  ".idea",
-  "generated-sources",
-  "node_modules",
-  "mysql",
-  "data",
-  "docker",
-  ".git",
-  ".mvn"
-];
+        "target",
+        ".idea",
+        "generated-sources",
+        "node_modules",
+        "mysql",
+        "data",
+        "docker",
+        ".git",
+        ".mvn"
+    ];
 
-function walkDir(dir) {
-  let files;
+    function walkDir(dir) {
+        let files;
 
-  try {
-    files = fs.readdirSync(dir);
-  } catch (err) {
-    console.warn(`Skipping unreadable directory: ${dir}`);
-    return;
-  }
+        try {
+            files = fs.readdirSync(dir);
+        } catch (err) {
+            console.warn(`Skipping unreadable directory: ${dir}`);
+            return;
+        }
 
-  for (const file of files) {
-    const fullPath = path.join(dir, file);
+        for (const file of files) {
+            const fullPath = path.join(dir, file);
 
-    // 🔥 Ignore directories by name BEFORE stat
-    if (ignoreDirs.includes(file)) {
-      continue;
+            // 🔥 Ignore directories by name BEFORE stat
+            if (ignoreDirs.includes(file)) {
+                continue;
+            }
+
+            let stat;
+            try {
+                stat = fs.lstatSync(fullPath);
+            } catch (err) {
+                console.warn(`Skipping inaccessible path: ${fullPath}`);
+                continue;
+            }
+
+            // Skip symbolic links (important for sockets)
+            if (stat.isSymbolicLink()) {
+                continue;
+            }
+
+            if (stat.isDirectory()) {
+                walkDir(fullPath);
+            } else if (file.endsWith(".java")) {
+                analyzeJavaFile(fullPath);
+            }
+        }
     }
-
-    let stat;
-    try {
-      stat = fs.lstatSync(fullPath);
-    } catch (err) {
-      console.warn(`Skipping inaccessible path: ${fullPath}`);
-      continue;
-    }
-
-    // Skip symbolic links (important for sockets)
-    if (stat.isSymbolicLink()) {
-      continue;
-    }
-
-    if (stat.isDirectory()) {
-      walkDir(fullPath);
-    } else if (file.endsWith(".java")) {
-      analyzeJavaFile(fullPath);
-    }
-  }
-}
 
     walkDir(rootDir);
 

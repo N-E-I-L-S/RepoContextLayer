@@ -5,14 +5,9 @@ import faiss
 from sentence_transformers import SentenceTransformer
 
 def detect_service(file_path):
-    parts = file_path.replace("\\", "/").split("/")
+    file_path = file_path.replace("\\", "/")  # Normalize for Windows paths
+    return file_path.split("/")[0]
 
-    if "microservices" in parts:
-        idx = parts.index("microservices")
-        if idx + 1 < len(parts):
-            return parts[idx + 1]
-
-    return "unknown"
 def normalize_path(path):
     return path.replace("\\", "/")
 model = SentenceTransformer("BAAI/bge-base-en-v1.5")
