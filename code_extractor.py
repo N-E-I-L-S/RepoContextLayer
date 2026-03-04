@@ -2,75 +2,113 @@ import json
 import os
 from hybrid_search import search
 
-class CodeProvider:
-    def __init__(self, repo_context_path="repo-context.json"):
-        # Load repo-context into memory
-        with open(repo_context_path, "r", encoding="utf-8") as f:
-            self.repo_context = json.load(f)
+with open("repo-context.json", "r", encoding="utf-8") as f:
+    repo_context = json.load(f)
 
-    def get_snippet(self, symbol_id):
-        """Fetch a snippet for a single symbol using startOffset/endOffset"""
-        doc = next((d for d in self.repo_context if d["id"] == symbol_id), None)
-        if not doc:
-            return None
+context_map = {}
 
-        file_path = doc["file"].replace("\\", os.sep)
-        start = doc.get("startOffset")
-        end = doc.get("endOffset")
-        if start is None or end is None:
-            return None
-
-        try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                code = f.read()
-                return code[start:end]
-        except FileNotFoundError:
-            return None
-
-    def get_snippets_for_symbols(self, symbol_ids):
-        """Fetch snippets for multiple symbols"""
-        snippets = {}
-        for sid in symbol_ids:
-            snippet = self.get_snippet(sid)
-            if snippet:
-                snippets[sid] = snippet
-        return snippets
+for item in repo_context:
+    if item["type"] == "method":
+        key = f"{item['class']}::{item['method']}"
+        context_map[key] = item
+    elif item["type"] == "field":
+        key = f"{item['class']}::{item['name']}"
+        context_map[key] = item
 
 
-def fetch_snippets_for_query(user_query):
-    """
-    Run hybrid_search for a user query, fetch all retrieved documents
-    from repo_metadata, then get their code snippets using repo-context
-    """
-    # 1. Run search
-    semantic_hits, _ = search(user_query)
-    if not semantic_hits:
-        print("[!] No search hits found.")
-        return {}
+def extract_snippet_method(file_path, start, end):
+    if not os.path.exists(file_path):
+        return None
 
-    # 2. Collect symbol_ids from search hits
-    symbol_ids = []
-    for hit in semantic_hits:
-        method = hit.get("method")
-        field = hit.get("field")
-        cls = hit.get("class")
-        if method:
-            symbol_ids.append(f"{cls}.{method}")
-        elif field:
-            symbol_ids.append(f"{cls}.{field}")
+    with open(file_path, "r", encoding="utf-8") as f:
+        code = f.read()
 
-    # 3. Initialize provider and fetch snippets
-    provider = CodeProvider("repo-context.json")
-    snippets = provider.get_snippets_for_symbols(symbol_ids)
+    return code[start-1:end]
+
+def extract_snippet_field(file_path, start, end):
+    if not os.path.exists(file_path):
+        return None
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        code = f.read()
+
+    return code[start-50:end+50]
+
+
+def extract_snippets_from_results(query):
+    semantic_hits, expanded_hits = search(query)
+    print("=== Semantic Hits ===")
+    for r in semantic_hits:
+            print(r)
+
+    print("\n=== Expanded Hits ===")
+    for r in expanded_hits:
+        print(r)
+    all_methods = []
+    all_fields = []
+    for result in semantic_hits + expanded_hits:
+        print("RESULT===",result)
+        if result["type"] == "method":
+            node = f"{result['class']}::{result['method']}"
+            all_methods.append(node)
+        elif result["type"] == "field":
+            node = f"{result['class']}::{result['field']}"
+            all_fields.append(node)
+    
+    all_fields = list(set(all_fields))
+    all_methods = list(set(all_methods))
+
+    snippets = []
+
+    for node in all_methods + all_fields:
+        if node not in context_map:
+            continue
+
+        ctx = context_map[node]
+
+        if(ctx["type"] == "method"):
+            snippet = extract_snippet_method(
+            ctx["file"],
+            ctx["startOffset"],
+            ctx["endOffset"]
+            )
+        elif(ctx["type"] == "field"):
+            snippet = extract_snippet_field(
+            ctx["file"],
+            ctx["startOffset"],
+            ctx["endOffset"]
+            )
+
+        if snippet:
+            if(ctx["type"] == "method"):
+                snippets.append({
+                    "id": ctx["id"],
+                    "class": ctx["class"],
+                    "method": ctx["method"],
+                    "file": ctx["file"],
+                    "code": snippet
+                })
+            elif(ctx["type"] == "field"):
+                snippets.append({
+                    "id": ctx["id"],
+                    "class": ctx["class"],
+                    "field": ctx["name"],
+                    "file": ctx["file"],
+                    "code": snippet
+                })
 
     return snippets
 
-
-# Example usage
 if __name__ == "__main__":
-    user_query = "Add one more filter in User Authentication"
-    snippets = fetch_snippets_for_query(user_query)
+    query = "Add one more attributes in Inventory"
 
-    print(f"Fetched {len(snippets)} code snippets for query: '{user_query}'\n")
-    for sid, code in snippets.items():
-        print(f"\n--- {sid} ---\n{code}\n")
+    snippets = extract_snippets_from_results(query)
+
+    print("\n=== Extracted Code Snippets ===\n")
+
+    for s in snippets:
+        if "method" in s:
+            print(f"\n--- {s['class']}::{s['method']} ---")
+        elif "field" in s:
+            print(f"\n--- {s['class']}::{s['field']} ---")
+        print(s["code"])
