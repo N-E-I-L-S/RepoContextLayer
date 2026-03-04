@@ -9,12 +9,12 @@ GRAPH_EXPANSION_DEPTH = 2
 model = SentenceTransformer("BAAI/bge-base-en-v1.5")
 
 # Load FAISS
-index = faiss.read_index("repo_index.faiss")
+index = faiss.read_index("context_data/repo_index.faiss")
 
-with open("repo_metadata.json") as f:
+with open("context_data/repo_metadata.json") as f:
     metadata = json.load(f)
 
-with open("call_graph.json") as f:
+with open("context_data/call_graph.json") as f:
     graph_data = json.load(f)
 
 forward_graph = graph_data["forward"]
@@ -77,7 +77,7 @@ def search(query):
     return semantic_hits, expanded_results
 
 if __name__ == "__main__":
-    semantic, expanded = search("Add one more filter in User Authentication")
+    semantic, expanded = search("Add one more attribute in Inventory")
 
     print("\n=== Semantic Top K (with scores) ===")
     for r in semantic:

@@ -1,3 +1,4 @@
 order-service/mysql/mysql.sock
 node_modules
 .idea
+context_data

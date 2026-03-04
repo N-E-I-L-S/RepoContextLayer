@@ -2,7 +2,7 @@ import json
 import os
 from hybrid_search import search
 
-with open("repo-context.json", "r", encoding="utf-8") as f:
+with open("context_data/repo-context.json", "r", encoding="utf-8") as f:
     repo_context = json.load(f)
 
 context_map = {}
@@ -47,7 +47,6 @@ def extract_snippets_from_results(query):
     all_methods = []
     all_fields = []
     for result in semantic_hits + expanded_hits:
-        print("RESULT===",result)
         if result["type"] == "method":
             node = f"{result['class']}::{result['method']}"
             all_methods.append(node)
@@ -100,7 +99,7 @@ def extract_snippets_from_results(query):
     return snippets
 
 if __name__ == "__main__":
-    query = "Add one more attributes in Inventory"
+    query = "Add one more attribute to create Product entity"
 
     snippets = extract_snippets_from_results(query)
 

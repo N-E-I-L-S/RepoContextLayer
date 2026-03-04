@@ -1,5 +1,6 @@
 @echo off
 
+mkdir context_data
 echo "Starting Code Parser..."
 node analyze-repo.js
 

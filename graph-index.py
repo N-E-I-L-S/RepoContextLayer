@@ -1,6 +1,6 @@
 import json
 
-with open("repo-context.json", "r", encoding="utf-8") as f:
+with open("context_data/repo-context.json", "r", encoding="utf-8") as f:
     repo = json.load(f)
 
 graph = {}
@@ -28,7 +28,7 @@ for item in repo:
                 graph[source].append(target)
                 reverse_graph.setdefault(target, []).append(source)
 
-with open("call_graph.json", "w", encoding="utf-8") as f:
+with open("context_data/call_graph.json", "w", encoding="utf-8") as f:
     json.dump({
         "forward": graph,
         "reverse": reverse_graph

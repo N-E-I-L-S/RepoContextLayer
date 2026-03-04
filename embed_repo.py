@@ -12,7 +12,7 @@ def normalize_path(path):
     return path.replace("\\", "/")
 model = SentenceTransformer("BAAI/bge-base-en-v1.5")
 
-with open("repo-context.json", "r", encoding="utf-8") as f:
+with open("context_data/repo-context.json", "r", encoding="utf-8") as f:
     repo = json.load(f)
 
 documents = []
@@ -170,10 +170,10 @@ index = faiss.IndexFlatIP(dimension)  # cosine similarity (since normalized)
 
 index.add(embeddings)
 
-faiss.write_index(index, "repo_index.faiss")
+faiss.write_index(index, "context_data/repo_index.faiss")
 
 # Save metadata
-with open("repo_metadata.json", "w", encoding="utf-8") as f:
+with open("context_data/repo_metadata.json", "w", encoding="utf-8") as f:
     json.dump(metadata, f, indent=2)
 
 print("✅ Embeddings + FAISS index saved.")

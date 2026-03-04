@@ -5,9 +5,9 @@ from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("BAAI/bge-base-en-v1.5")
 
-index = faiss.read_index("repo_index.faiss")
+index = faiss.read_index("context_data/repo_index.faiss")
 
-with open("repo_metadata.json", "r", encoding="utf-8") as f:
+with open("context_data/repo_metadata.json", "r", encoding="utf-8") as f:
     metadata = json.load(f)
 
 def search(query, top_k=5):

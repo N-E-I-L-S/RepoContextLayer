@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const nodes = JSON.parse(fs.readFileSync("repo-context.json", "utf8"));
+const nodes = JSON.parse(fs.readFileSync("context_data/repo-context.json", "utf8"));
 
 const graph = {};
 
@@ -30,6 +30,6 @@ for (const node of nodes) {
   }
 }
 
-fs.writeFileSync("repo-graph.json", JSON.stringify(graph, null, 2));
+fs.writeFileSync("context_data/repo-graph.json", JSON.stringify(graph, null, 2));
 
 console.log("repo-graph.json generated.");
