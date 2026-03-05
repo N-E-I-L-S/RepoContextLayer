@@ -1,0 +1,1716 @@
+{
+  "ApiGatewayApplication.main": {
+    "id": "ApiGatewayApplication.main",
+    "type": "method",
+    "class": "ApiGatewayApplication",
+    "method": "main",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\ApiGatewayApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 495,
+    "endOffset": 598,
+    "calledBy": []
+  },
+  "AuthFilter.log": {
+    "id": "AuthFilter.log",
+    "type": "field",
+    "class": "AuthFilter",
+    "name": "log",
+    "fieldType": "Logger",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java",
+    "startOffset": 550,
+    "endOffset": 626,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "AuthFilter.validator": {
+    "id": "AuthFilter.validator",
+    "type": "field",
+    "class": "AuthFilter",
+    "name": "validator",
+    "fieldType": "RouteValidator",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java",
+    "startOffset": 632,
+    "endOffset": 681,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "AuthFilter.jwtUtil": {
+    "id": "AuthFilter.jwtUtil",
+    "type": "field",
+    "class": "AuthFilter",
+    "name": "jwtUtil",
+    "fieldType": "JwtUtil",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java",
+    "startOffset": 689,
+    "endOffset": 729,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "AuthFilter.apply": {
+    "id": "AuthFilter.apply",
+    "type": "method",
+    "class": "AuthFilter",
+    "method": "apply",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java",
+    "returnType": "GatewayFilter",
+    "parameters": [
+      "Config"
+    ],
+    "calls": [
+      "JwtUtil.validateToken"
+    ],
+    "reads": [
+      "AuthFilter.validator",
+      "AuthFilter.log",
+      "AuthFilter.jwtUtil"
+    ],
+    "writes": [],
+    "startOffset": 803,
+    "endOffset": 1872,
+    "calledBy": []
+  },
+  "RouteValidator.openApiEndpoints": {
+    "id": "RouteValidator.openApiEndpoints",
+    "type": "field",
+    "class": "RouteValidator",
+    "name": "openApiEndpoints",
+    "fieldType": "List<String>",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java",
+    "startOffset": 318,
+    "endOffset": 503,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "RouteValidator.pathMatcher": {
+    "id": "RouteValidator.pathMatcher",
+    "type": "field",
+    "class": "RouteValidator",
+    "name": "pathMatcher",
+    "fieldType": "AntPathMatcher",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java",
+    "startOffset": 511,
+    "endOffset": 575,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "RouteValidator.isSecured": {
+    "id": "RouteValidator.isSecured",
+    "type": "field",
+    "class": "RouteValidator",
+    "name": "isSecured",
+    "fieldType": "Predicate<ServerHttpRequest>",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java",
+    "startOffset": 583,
+    "endOffset": 856,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "RouteValidator.requestPath": {
+    "id": "RouteValidator.requestPath",
+    "type": "field",
+    "class": "RouteValidator",
+    "name": "requestPath",
+    "fieldType": "Predicate<ServerHttpRequest>",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java",
+    "startOffset": 583,
+    "endOffset": 856,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "JwtUtil.SECRET": {
+    "id": "JwtUtil.SECRET",
+    "type": "field",
+    "class": "JwtUtil",
+    "name": "SECRET",
+    "fieldType": "String",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\util\\JwtUtil.java",
+    "startOffset": 383,
+    "endOffset": 486,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "JwtUtil.validateToken": {
+    "id": "JwtUtil.validateToken",
+    "type": "method",
+    "class": "JwtUtil",
+    "method": "validateToken",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\util\\JwtUtil.java",
+    "returnType": "void",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "JwtUtil.getSignKey"
+    ],
+    "reads": [],
+    "writes": [],
+    "startOffset": 496,
+    "endOffset": 632,
+    "calledBy": [
+      "AuthFilter.apply",
+      "AuthController.validateToken",
+      "AuthService.validateToken"
+    ]
+  },
+  "JwtUtil.getSignKey": {
+    "id": "JwtUtil.getSignKey",
+    "type": "method",
+    "class": "JwtUtil",
+    "method": "getSignKey",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\util\\JwtUtil.java",
+    "returnType": "Key",
+    "parameters": [],
+    "calls": [],
+    "reads": [
+      "JwtUtil.SECRET"
+    ],
+    "writes": [],
+    "startOffset": 644,
+    "endOffset": 782,
+    "calledBy": [
+      "JwtUtil.validateToken",
+      "JwtService.validateToken",
+      "JwtService.createToken"
+    ]
+  },
+  "ApiGatewayApplicationTests.contextLoads": {
+    "id": "ApiGatewayApplicationTests.contextLoads",
+    "type": "method",
+    "class": "ApiGatewayApplicationTests",
+    "method": "contextLoads",
+    "file": "api-gateway\\src\\test\\java\\com\\neil\\gateway\\ApiGatewayApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 177,
+    "endOffset": 208,
+    "calledBy": []
+  },
+  "AuthConfig.userDetailsService": {
+    "id": "AuthConfig.userDetailsService",
+    "type": "method",
+    "class": "AuthConfig",
+    "method": "userDetailsService",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "UserDetailsService",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 1177,
+    "endOffset": 1290,
+    "calledBy": [
+      "AuthConfig.authenticationProvider"
+    ]
+  },
+  "AuthConfig.securityFilterChain": {
+    "id": "AuthConfig.securityFilterChain",
+    "type": "method",
+    "class": "AuthConfig",
+    "method": "securityFilterChain",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "SecurityFilterChain",
+    "parameters": [
+      "HttpSecurity"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 1300,
+    "endOffset": 1659,
+    "calledBy": []
+  },
+  "AuthConfig.passwordEncoder": {
+    "id": "AuthConfig.passwordEncoder",
+    "type": "method",
+    "class": "AuthConfig",
+    "method": "passwordEncoder",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "PasswordEncoder",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 1667,
+    "endOffset": 1772,
+    "calledBy": [
+      "AuthConfig.authenticationProvider"
+    ]
+  },
+  "AuthConfig.authenticationProvider": {
+    "id": "AuthConfig.authenticationProvider",
+    "type": "method",
+    "class": "AuthConfig",
+    "method": "authenticationProvider",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "AuthenticationProvider",
+    "parameters": [],
+    "calls": [
+      "AuthConfig.userDetailsService",
+      "AuthConfig.passwordEncoder"
+    ],
+    "reads": [],
+    "writes": [],
+    "startOffset": 1780,
+    "endOffset": 2132,
+    "calledBy": []
+  },
+  "AuthConfig.authenticationManager": {
+    "id": "AuthConfig.authenticationManager",
+    "type": "method",
+    "class": "AuthConfig",
+    "method": "authenticationManager",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "AuthenticationManager",
+    "parameters": [
+      "AuthenticationConfiguration"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 2140,
+    "endOffset": 2314,
+    "calledBy": []
+  },
+  "CustomUserDetails.username": {
+    "id": "CustomUserDetails.username",
+    "type": "field",
+    "class": "CustomUserDetails",
+    "name": "username",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "startOffset": 324,
+    "endOffset": 354,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "CustomUserDetails.password": {
+    "id": "CustomUserDetails.password",
+    "type": "field",
+    "class": "CustomUserDetails",
+    "name": "password",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "startOffset": 360,
+    "endOffset": 390,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "CustomUserDetails.getAuthorities": {
+    "id": "CustomUserDetails.getAuthorities",
+    "type": "method",
+    "class": "CustomUserDetails",
+    "method": "getAuthorities",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "Collection<? extends GrantedAuthority>",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 535,
+    "endOffset": 648,
+    "calledBy": []
+  },
+  "CustomUserDetails.getPassword": {
+    "id": "CustomUserDetails.getPassword",
+    "type": "method",
+    "class": "CustomUserDetails",
+    "method": "getPassword",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "String",
+    "parameters": [],
+    "calls": [],
+    "reads": [
+      "CustomUserDetails.password"
+    ],
+    "writes": [],
+    "startOffset": 656,
+    "endOffset": 733,
+    "calledBy": [
+      "AuthController.getToken",
+      "AuthService.saveUser"
+    ]
+  },
+  "CustomUserDetails.getUsername": {
+    "id": "CustomUserDetails.getUsername",
+    "type": "method",
+    "class": "CustomUserDetails",
+    "method": "getUsername",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "String",
+    "parameters": [],
+    "calls": [],
+    "reads": [
+      "CustomUserDetails.username"
+    ],
+    "writes": [],
+    "startOffset": 741,
+    "endOffset": 818,
+    "calledBy": [
+      "AuthController.getToken",
+      "AuthController.getToken"
+    ]
+  },
+  "CustomUserDetails.isAccountNonExpired": {
+    "id": "CustomUserDetails.isAccountNonExpired",
+    "type": "method",
+    "class": "CustomUserDetails",
+    "method": "isAccountNonExpired",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "boolean",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 826,
+    "endOffset": 908,
+    "calledBy": []
+  },
+  "CustomUserDetails.isAccountNonLocked": {
+    "id": "CustomUserDetails.isAccountNonLocked",
+    "type": "method",
+    "class": "CustomUserDetails",
+    "method": "isAccountNonLocked",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "boolean",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 916,
+    "endOffset": 997,
+    "calledBy": []
+  },
+  "CustomUserDetails.isCredentialsNonExpired": {
+    "id": "CustomUserDetails.isCredentialsNonExpired",
+    "type": "method",
+    "class": "CustomUserDetails",
+    "method": "isCredentialsNonExpired",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "boolean",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 1005,
+    "endOffset": 1091,
+    "calledBy": []
+  },
+  "CustomUserDetails.isEnabled": {
+    "id": "CustomUserDetails.isEnabled",
+    "type": "method",
+    "class": "CustomUserDetails",
+    "method": "isEnabled",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "boolean",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 1099,
+    "endOffset": 1171,
+    "calledBy": []
+  },
+  "CustomUserDetailsService.userRepository": {
+    "id": "CustomUserDetailsService.userRepository",
+    "type": "field",
+    "class": "CustomUserDetailsService",
+    "name": "userRepository",
+    "fieldType": "UserRepository",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetailsService.java",
+    "startOffset": 524,
+    "endOffset": 578,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "CustomUserDetailsService.loadUserByUsername": {
+    "id": "CustomUserDetailsService.loadUserByUsername",
+    "type": "method",
+    "class": "CustomUserDetailsService",
+    "method": "loadUserByUsername",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetailsService.java",
+    "returnType": "UserDetails",
+    "parameters": [
+      "String"
+    ],
+    "calls": [],
+    "reads": [
+      "CustomUserDetailsService.userRepository"
+    ],
+    "writes": [],
+    "startOffset": 586,
+    "endOffset": 905,
+    "calledBy": []
+  },
+  "AuthController.service": {
+    "id": "AuthController.service",
+    "type": "field",
+    "class": "AuthController",
+    "name": "service",
+    "fieldType": "AuthService",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "startOffset": 587,
+    "endOffset": 631,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "AuthController.authenticationManager": {
+    "id": "AuthController.authenticationManager",
+    "type": "field",
+    "class": "AuthController",
+    "name": "authenticationManager",
+    "fieldType": "AuthenticationManager",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "startOffset": 639,
+    "endOffset": 707,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "AuthController.addNewUser": {
+    "id": "AuthController.addNewUser",
+    "type": "method",
+    "class": "AuthController",
+    "method": "addNewUser",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "returnType": "String",
+    "parameters": [
+      "User"
+    ],
+    "calls": [
+      "AuthService.saveUser"
+    ],
+    "reads": [
+      "AuthController.service"
+    ],
+    "writes": [],
+    "startOffset": 715,
+    "endOffset": 843,
+    "calledBy": []
+  },
+  "AuthController.getToken": {
+    "id": "AuthController.getToken",
+    "type": "method",
+    "class": "AuthController",
+    "method": "getToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "returnType": "String",
+    "parameters": [
+      "AuthRequest"
+    ],
+    "calls": [
+      "CustomUserDetails.getUsername",
+      "CustomUserDetails.getPassword",
+      "AuthService.generateToken",
+      "CustomUserDetails.getUsername"
+    ],
+    "reads": [
+      "AuthController.authenticationManager",
+      "AuthController.service"
+    ],
+    "writes": [],
+    "startOffset": 851,
+    "endOffset": 1367,
+    "calledBy": []
+  },
+  "AuthController.validateToken": {
+    "id": "AuthController.validateToken",
+    "type": "method",
+    "class": "AuthController",
+    "method": "validateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "returnType": "String",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "JwtUtil.validateToken"
+    ],
+    "reads": [
+      "AuthController.service"
+    ],
+    "writes": [],
+    "startOffset": 1375,
+    "endOffset": 1551,
+    "calledBy": []
+  },
+  "AuthRequest.username": {
+    "id": "AuthRequest.username",
+    "type": "field",
+    "class": "AuthRequest",
+    "name": "username",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\dto\\AuthRequest.java",
+    "startOffset": 210,
+    "endOffset": 234,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "AuthRequest.password": {
+    "id": "AuthRequest.password",
+    "type": "field",
+    "class": "AuthRequest",
+    "name": "password",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\dto\\AuthRequest.java",
+    "startOffset": 240,
+    "endOffset": 264,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "User.id": {
+    "id": "User.id",
+    "type": "field",
+    "class": "User",
+    "name": "id",
+    "fieldType": "int",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java",
+    "startOffset": 265,
+    "endOffset": 346,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "User.name": {
+    "id": "User.name",
+    "type": "field",
+    "class": "User",
+    "name": "name",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java",
+    "startOffset": 352,
+    "endOffset": 372,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "User.email": {
+    "id": "User.email",
+    "type": "field",
+    "class": "User",
+    "name": "email",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java",
+    "startOffset": 378,
+    "endOffset": 399,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "User.password": {
+    "id": "User.password",
+    "type": "field",
+    "class": "User",
+    "name": "password",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java",
+    "startOffset": 405,
+    "endOffset": 429,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "IdentityServiceApplication.main": {
+    "id": "IdentityServiceApplication.main",
+    "type": "method",
+    "class": "IdentityServiceApplication",
+    "method": "main",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\IdentityServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 216,
+    "endOffset": 324,
+    "calledBy": []
+  },
+  "AuthService.repository": {
+    "id": "AuthService.repository",
+    "type": "field",
+    "class": "AuthService",
+    "name": "repository",
+    "fieldType": "UserRepository",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "startOffset": 356,
+    "endOffset": 406,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "AuthService.passwordEncoder": {
+    "id": "AuthService.passwordEncoder",
+    "type": "field",
+    "class": "AuthService",
+    "name": "passwordEncoder",
+    "fieldType": "PasswordEncoder",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "startOffset": 412,
+    "endOffset": 468,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "AuthService.jwtService": {
+    "id": "AuthService.jwtService",
+    "type": "field",
+    "class": "AuthService",
+    "name": "jwtService",
+    "fieldType": "JwtService",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "startOffset": 476,
+    "endOffset": 522,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "AuthService.saveUser": {
+    "id": "AuthService.saveUser",
+    "type": "method",
+    "class": "AuthService",
+    "method": "saveUser",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "returnType": "String",
+    "parameters": [
+      "User"
+    ],
+    "calls": [
+      "CustomUserDetails.getPassword"
+    ],
+    "reads": [
+      "AuthService.passwordEncoder",
+      "AuthService.repository"
+    ],
+    "writes": [],
+    "startOffset": 530,
+    "endOffset": 743,
+    "calledBy": [
+      "AuthController.addNewUser"
+    ]
+  },
+  "AuthService.generateToken": {
+    "id": "AuthService.generateToken",
+    "type": "method",
+    "class": "AuthService",
+    "method": "generateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "returnType": "String",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "AuthService.generateToken"
+    ],
+    "reads": [
+      "AuthService.jwtService"
+    ],
+    "writes": [],
+    "startOffset": 751,
+    "endOffset": 856,
+    "calledBy": [
+      "AuthController.getToken",
+      "AuthService.generateToken"
+    ]
+  },
+  "AuthService.validateToken": {
+    "id": "AuthService.validateToken",
+    "type": "method",
+    "class": "AuthService",
+    "method": "validateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "returnType": "void",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "JwtUtil.validateToken"
+    ],
+    "reads": [
+      "AuthService.jwtService"
+    ],
+    "writes": [],
+    "startOffset": 864,
+    "endOffset": 954,
+    "calledBy": []
+  },
+  "JwtService.SECRET": {
+    "id": "JwtService.SECRET",
+    "type": "field",
+    "class": "JwtService",
+    "name": "SECRET",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "startOffset": 451,
+    "endOffset": 554,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "JwtService.validateToken": {
+    "id": "JwtService.validateToken",
+    "type": "method",
+    "class": "JwtService",
+    "method": "validateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "returnType": "void",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "JwtUtil.getSignKey"
+    ],
+    "reads": [],
+    "writes": [],
+    "startOffset": 564,
+    "endOffset": 700,
+    "calledBy": []
+  },
+  "JwtService.generateToken": {
+    "id": "JwtService.generateToken",
+    "type": "method",
+    "class": "JwtService",
+    "method": "generateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "returnType": "String",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "JwtService.createToken"
+    ],
+    "reads": [],
+    "writes": [],
+    "startOffset": 710,
+    "endOffset": 865,
+    "calledBy": []
+  },
+  "JwtService.createToken": {
+    "id": "JwtService.createToken",
+    "type": "method",
+    "class": "JwtService",
+    "method": "createToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "returnType": "String",
+    "parameters": [
+      "Map<String, Object>",
+      "String"
+    ],
+    "calls": [
+      "JwtUtil.getSignKey"
+    ],
+    "reads": [],
+    "writes": [],
+    "startOffset": 873,
+    "endOffset": 1280,
+    "calledBy": [
+      "JwtService.generateToken"
+    ]
+  },
+  "JwtService.getSignKey": {
+    "id": "JwtService.getSignKey",
+    "type": "method",
+    "class": "JwtService",
+    "method": "getSignKey",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "returnType": "Key",
+    "parameters": [],
+    "calls": [],
+    "reads": [
+      "JwtService.SECRET"
+    ],
+    "writes": [],
+    "startOffset": 1288,
+    "endOffset": 1426,
+    "calledBy": []
+  },
+  "IdentityServiceApplicationTests.contextLoads": {
+    "id": "IdentityServiceApplicationTests.contextLoads",
+    "type": "method",
+    "class": "IdentityServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "identity-service\\src\\test\\java\\com\\neil\\identity\\IdentityServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 183,
+    "endOffset": 214,
+    "calledBy": []
+  },
+  "InventoryController.inventoryService": {
+    "id": "InventoryController.inventoryService",
+    "type": "field",
+    "class": "InventoryController",
+    "name": "inventoryService",
+    "fieldType": "InventoryService",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\controller\\InventoryController.java",
+    "startOffset": 402,
+    "endOffset": 460,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "InventoryController.isInStock": {
+    "id": "InventoryController.isInStock",
+    "type": "method",
+    "class": "InventoryController",
+    "method": "isInStock",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\controller\\InventoryController.java",
+    "returnType": "boolean",
+    "parameters": [
+      "String",
+      "Integer"
+    ],
+    "calls": [
+      "InventoryController.isInStock"
+    ],
+    "reads": [
+      "InventoryController.inventoryService"
+    ],
+    "writes": [],
+    "startOffset": 468,
+    "endOffset": 642,
+    "calledBy": [
+      "InventoryController.isInStock",
+      "OrderService.placeOrder"
+    ]
+  },
+  "InventoryController.updateQuantity": {
+    "id": "InventoryController.updateQuantity",
+    "type": "method",
+    "class": "InventoryController",
+    "method": "updateQuantity",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\controller\\InventoryController.java",
+    "returnType": "boolean",
+    "parameters": [
+      "UpdateQuantityRequest"
+    ],
+    "calls": [
+      "InventoryController.updateQuantity"
+    ],
+    "reads": [
+      "InventoryController.inventoryService"
+    ],
+    "writes": [],
+    "startOffset": 650,
+    "endOffset": 838,
+    "calledBy": [
+      "InventoryController.updateQuantity",
+      "OrderService.placeOrder"
+    ]
+  },
+  "InventoryServiceApplication.main": {
+    "id": "InventoryServiceApplication.main",
+    "type": "method",
+    "class": "InventoryServiceApplication",
+    "method": "main",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\InventoryServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 232,
+    "endOffset": 341,
+    "calledBy": []
+  },
+  "Inventory.id": {
+    "id": "Inventory.id",
+    "type": "field",
+    "class": "Inventory",
+    "name": "id",
+    "fieldType": "Long",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\model\\Inventory.java",
+    "startOffset": 327,
+    "endOffset": 409,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "Inventory.skuCode": {
+    "id": "Inventory.skuCode",
+    "type": "field",
+    "class": "Inventory",
+    "name": "skuCode",
+    "fieldType": "String",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\model\\Inventory.java",
+    "startOffset": 415,
+    "endOffset": 438,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "Inventory.quantity": {
+    "id": "Inventory.quantity",
+    "type": "field",
+    "class": "Inventory",
+    "name": "quantity",
+    "fieldType": "Integer",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\model\\Inventory.java",
+    "startOffset": 444,
+    "endOffset": 469,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "InventoryService.inventoryRepository": {
+    "id": "InventoryService.inventoryRepository",
+    "type": "field",
+    "class": "InventoryService",
+    "name": "inventoryRepository",
+    "fieldType": "InventoryRepository",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\serivce\\InventoryService.java",
+    "startOffset": 347,
+    "endOffset": 411,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "InventoryService.isInStock": {
+    "id": "InventoryService.isInStock",
+    "type": "method",
+    "class": "InventoryService",
+    "method": "isInStock",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\serivce\\InventoryService.java",
+    "returnType": "boolean",
+    "parameters": [
+      "String",
+      "Integer"
+    ],
+    "calls": [],
+    "reads": [
+      "InventoryService.inventoryRepository"
+    ],
+    "writes": [],
+    "startOffset": 419,
+    "endOffset": 714,
+    "calledBy": []
+  },
+  "InventoryService.updateQuantity": {
+    "id": "InventoryService.updateQuantity",
+    "type": "method",
+    "class": "InventoryService",
+    "method": "updateQuantity",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\serivce\\InventoryService.java",
+    "returnType": "boolean",
+    "parameters": [
+      "String",
+      "Integer"
+    ],
+    "calls": [],
+    "reads": [
+      "InventoryService.inventoryRepository"
+    ],
+    "writes": [],
+    "startOffset": 722,
+    "endOffset": 1231,
+    "calledBy": []
+  },
+  "InventoryServiceApplicationTests.contextLoads": {
+    "id": "InventoryServiceApplicationTests.contextLoads",
+    "type": "method",
+    "class": "InventoryServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\InventoryServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 296,
+    "endOffset": 327,
+    "calledBy": []
+  },
+  "TestcontainersConfiguration.mysqlContainer": {
+    "id": "TestcontainersConfiguration.mysqlContainer",
+    "type": "method",
+    "class": "TestcontainersConfiguration",
+    "method": "mysqlContainer",
+    "file": "order-service\\src\\test\\java\\com\\neil\\microservices\\order\\TestcontainersConfiguration.java",
+    "returnType": "MySQLContainer<?>",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 431,
+    "endOffset": 570,
+    "calledBy": []
+  },
+  "TestInventoryServiceApplication.main": {
+    "id": "TestInventoryServiceApplication.main",
+    "type": "method",
+    "class": "TestInventoryServiceApplication",
+    "method": "main",
+    "file": "inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\TestInventoryServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 144,
+    "endOffset": 298,
+    "calledBy": []
+  },
+  "NotificationServiceApplication.main": {
+    "id": "NotificationServiceApplication.main",
+    "type": "method",
+    "class": "NotificationServiceApplication",
+    "method": "main",
+    "file": "notification-service\\src\\main\\java\\com\\neil\\notification\\NotificationServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 224,
+    "endOffset": 336,
+    "calledBy": []
+  },
+  "OrderPlacedEvent.orderNumber": {
+    "id": "OrderPlacedEvent.orderNumber",
+    "type": "field",
+    "class": "OrderPlacedEvent",
+    "name": "orderNumber",
+    "fieldType": "String",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\event\\OrderPlacedEvent.java",
+    "startOffset": 251,
+    "endOffset": 278,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "OrderPlacedEvent.email": {
+    "id": "OrderPlacedEvent.email",
+    "type": "field",
+    "class": "OrderPlacedEvent",
+    "name": "email",
+    "fieldType": "String",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\event\\OrderPlacedEvent.java",
+    "startOffset": 224,
+    "endOffset": 245,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "NotificationService.log": {
+    "id": "NotificationService.log",
+    "type": "field",
+    "class": "NotificationService",
+    "name": "log",
+    "fieldType": "Logger",
+    "file": "notification-service\\src\\main\\java\\com\\neil\\notification\\service\\NotificationService.java",
+    "startOffset": 418,
+    "endOffset": 503,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "NotificationService.listen": {
+    "id": "NotificationService.listen",
+    "type": "method",
+    "class": "NotificationService",
+    "method": "listen",
+    "file": "notification-service\\src\\main\\java\\com\\neil\\notification\\service\\NotificationService.java",
+    "returnType": "void",
+    "parameters": [
+      "OrderPlacedEvent"
+    ],
+    "calls": [],
+    "reads": [
+      "NotificationService.log"
+    ],
+    "writes": [],
+    "startOffset": 511,
+    "endOffset": 703,
+    "calledBy": []
+  },
+  "NotificationServiceApplicationTests.contextLoads": {
+    "id": "NotificationServiceApplicationTests.contextLoads",
+    "type": "method",
+    "class": "NotificationServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "notification-service\\src\\test\\java\\com\\neil\\notification\\NotificationServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 191,
+    "endOffset": 222,
+    "calledBy": []
+  },
+  "OrderController.orderService": {
+    "id": "OrderController.orderService",
+    "type": "field",
+    "class": "OrderController",
+    "name": "orderService",
+    "fieldType": "OrderService",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\controller\\OrderController.java",
+    "startOffset": 369,
+    "endOffset": 419,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "OrderController.placeOrder": {
+    "id": "OrderController.placeOrder",
+    "type": "method",
+    "class": "OrderController",
+    "method": "placeOrder",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\controller\\OrderController.java",
+    "returnType": "String",
+    "parameters": [
+      "OrderRequest"
+    ],
+    "calls": [
+      "OrderController.placeOrder"
+    ],
+    "reads": [
+      "OrderController.orderService"
+    ],
+    "writes": [],
+    "startOffset": 427,
+    "endOffset": 760,
+    "calledBy": [
+      "OrderController.placeOrder"
+    ]
+  },
+  "OrderController.TestMapper": {
+    "id": "OrderController.TestMapper",
+    "type": "method",
+    "class": "OrderController",
+    "method": "TestMapper",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\controller\\OrderController.java",
+    "returnType": "String",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 768,
+    "endOffset": 861,
+    "calledBy": []
+  },
+  "Order.id": {
+    "id": "Order.id",
+    "type": "field",
+    "class": "Order",
+    "name": "id",
+    "fieldType": "Long",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "startOffset": 348,
+    "endOffset": 430,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "Order.orderNumber": {
+    "id": "Order.orderNumber",
+    "type": "field",
+    "class": "Order",
+    "name": "orderNumber",
+    "fieldType": "String",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "startOffset": 436,
+    "endOffset": 463,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "Order.price": {
+    "id": "Order.price",
+    "type": "field",
+    "class": "Order",
+    "name": "price",
+    "fieldType": "BigDecimal",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "startOffset": 469,
+    "endOffset": 494,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "Order.quantity": {
+    "id": "Order.quantity",
+    "type": "field",
+    "class": "Order",
+    "name": "quantity",
+    "fieldType": "Integer",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "startOffset": 500,
+    "endOffset": 525,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "Order.skuCode": {
+    "id": "Order.skuCode",
+    "type": "field",
+    "class": "Order",
+    "name": "skuCode",
+    "fieldType": "String",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "startOffset": 531,
+    "endOffset": 554,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "OrderServiceApplication.main": {
+    "id": "OrderServiceApplication.main",
+    "type": "method",
+    "class": "OrderServiceApplication",
+    "method": "main",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\OrderServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 363,
+    "endOffset": 468,
+    "calledBy": []
+  },
+  "OrderService.log": {
+    "id": "OrderService.log",
+    "type": "field",
+    "class": "OrderService",
+    "name": "log",
+    "fieldType": "Logger",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "startOffset": 707,
+    "endOffset": 785,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "OrderService.inventoryClient": {
+    "id": "OrderService.inventoryClient",
+    "type": "field",
+    "class": "OrderService",
+    "name": "inventoryClient",
+    "fieldType": "InventoryClient",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "startOffset": 791,
+    "endOffset": 847,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "OrderService.orderRepository": {
+    "id": "OrderService.orderRepository",
+    "type": "field",
+    "class": "OrderService",
+    "name": "orderRepository",
+    "fieldType": "OrderRepository",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "startOffset": 855,
+    "endOffset": 911,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "OrderService.kafkaTemplate": {
+    "id": "OrderService.kafkaTemplate",
+    "type": "field",
+    "class": "OrderService",
+    "name": "kafkaTemplate",
+    "fieldType": "KafkaTemplate<String, OrderPlacedEvent>",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "startOffset": 919,
+    "endOffset": 997,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "OrderService.placeOrder": {
+    "id": "OrderService.placeOrder",
+    "type": "method",
+    "class": "OrderService",
+    "method": "placeOrder",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "returnType": "void",
+    "parameters": [
+      "OrderRequest"
+    ],
+    "calls": [
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity"
+    ],
+    "reads": [
+      "OrderService.inventoryClient",
+      "OrderService.orderRepository",
+      "OrderService.kafkaTemplate",
+      "OrderService.log"
+    ],
+    "writes": [],
+    "startOffset": 1007,
+    "endOffset": 2544,
+    "calledBy": []
+  },
+  "OrderServiceApplicationTests.contextLoads": {
+    "id": "OrderServiceApplicationTests.contextLoads",
+    "type": "method",
+    "class": "OrderServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "order-service\\src\\test\\java\\com\\neil\\microservices\\order\\OrderServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 288,
+    "endOffset": 319,
+    "calledBy": []
+  },
+  "TestOrderServiceApplication.main": {
+    "id": "TestOrderServiceApplication.main",
+    "type": "method",
+    "class": "TestOrderServiceApplication",
+    "method": "main",
+    "file": "order-service\\src\\test\\java\\com\\neil\\microservices\\order\\TestOrderServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 136,
+    "endOffset": 286,
+    "calledBy": []
+  },
+  "ProductController.productService": {
+    "id": "ProductController.productService",
+    "type": "field",
+    "class": "ProductController",
+    "name": "productService",
+    "fieldType": "ProductService",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\controller\\ProductController.java",
+    "startOffset": 471,
+    "endOffset": 517,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "ProductController.createProduct": {
+    "id": "ProductController.createProduct",
+    "type": "method",
+    "class": "ProductController",
+    "method": "createProduct",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\controller\\ProductController.java",
+    "returnType": "ProductResponse",
+    "parameters": [
+      "ProductRequest"
+    ],
+    "calls": [
+      "ProductController.createProduct"
+    ],
+    "reads": [
+      "ProductController.productService"
+    ],
+    "writes": [],
+    "startOffset": 525,
+    "endOffset": 683,
+    "calledBy": [
+      "ProductController.createProduct"
+    ]
+  },
+  "ProductController.getAllProducts": {
+    "id": "ProductController.getAllProducts",
+    "type": "method",
+    "class": "ProductController",
+    "method": "getAllProducts",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\controller\\ProductController.java",
+    "returnType": "List<ProductResponse>",
+    "parameters": [],
+    "calls": [
+      "ProductController.getAllProducts"
+    ],
+    "reads": [
+      "ProductController.productService"
+    ],
+    "writes": [],
+    "startOffset": 691,
+    "endOffset": 814,
+    "calledBy": [
+      "ProductController.getAllProducts"
+    ]
+  },
+  "Product.id": {
+    "id": "Product.id",
+    "type": "field",
+    "class": "Product",
+    "name": "id",
+    "fieldType": "String",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java",
+    "startOffset": 425,
+    "endOffset": 452,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "Product.name": {
+    "id": "Product.name",
+    "type": "field",
+    "class": "Product",
+    "name": "name",
+    "fieldType": "String",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java",
+    "startOffset": 458,
+    "endOffset": 478,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "Product.description": {
+    "id": "Product.description",
+    "type": "field",
+    "class": "Product",
+    "name": "description",
+    "fieldType": "String",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java",
+    "startOffset": 484,
+    "endOffset": 511,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "Product.price": {
+    "id": "Product.price",
+    "type": "field",
+    "class": "Product",
+    "name": "price",
+    "fieldType": "BigDecimal",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java",
+    "startOffset": 517,
+    "endOffset": 542,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "ProductServiceApplication.main": {
+    "id": "ProductServiceApplication.main",
+    "type": "method",
+    "class": "ProductServiceApplication",
+    "method": "main",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\ProductServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 375,
+    "endOffset": 482,
+    "calledBy": []
+  },
+  "ProductService.productRepository": {
+    "id": "ProductService.productRepository",
+    "type": "field",
+    "class": "ProductService",
+    "name": "productRepository",
+    "fieldType": "ProductRepository",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\service\\ProductService.java",
+    "startOffset": 585,
+    "endOffset": 635,
+    "calls": [],
+    "calledBy": [],
+    "reads": [],
+    "writes": []
+  },
+  "ProductService.createProduct": {
+    "id": "ProductService.createProduct",
+    "type": "method",
+    "class": "ProductService",
+    "method": "createProduct",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\service\\ProductService.java",
+    "returnType": "ProductResponse",
+    "parameters": [
+      "ProductRequest"
+    ],
+    "calls": [],
+    "reads": [
+      "ProductService.productRepository"
+    ],
+    "writes": [],
+    "startOffset": 643,
+    "endOffset": 1185,
+    "calledBy": []
+  },
+  "ProductService.getAllProducts": {
+    "id": "ProductService.getAllProducts",
+    "type": "method",
+    "class": "ProductService",
+    "method": "getAllProducts",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\service\\ProductService.java",
+    "returnType": "List<ProductResponse>",
+    "parameters": [],
+    "calls": [],
+    "reads": [
+      "ProductService.productRepository"
+    ],
+    "writes": [],
+    "startOffset": 1193,
+    "endOffset": 1463,
+    "calledBy": []
+  },
+  "ProductServiceApplicationTests.contextLoads": {
+    "id": "ProductServiceApplicationTests.contextLoads",
+    "type": "method",
+    "class": "ProductServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "product-service\\src\\test\\java\\com\\neil\\microservices\\product\\ProductServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 292,
+    "endOffset": 323,
+    "calledBy": []
+  },
+  "TestcontainersConfiguration.mongoDbContainer": {
+    "id": "TestcontainersConfiguration.mongoDbContainer",
+    "type": "method",
+    "class": "TestcontainersConfiguration",
+    "method": "mongoDbContainer",
+    "file": "product-service\\src\\test\\java\\com\\neil\\microservices\\product\\TestcontainersConfiguration.java",
+    "returnType": "MongoDBContainer",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 432,
+    "endOffset": 569,
+    "calledBy": []
+  },
+  "TestProductServiceApplication.main": {
+    "id": "TestProductServiceApplication.main",
+    "type": "method",
+    "class": "TestProductServiceApplication",
+    "method": "main",
+    "file": "product-service\\src\\test\\java\\com\\neil\\microservices\\product\\TestProductServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 140,
+    "endOffset": 292,
+    "calledBy": []
+  },
+  "ServiceRegistryApplication.main": {
+    "id": "ServiceRegistryApplication.main",
+    "type": "method",
+    "class": "ServiceRegistryApplication",
+    "method": "main",
+    "file": "service-registry\\src\\main\\java\\com\\neil\\Registry\\ServiceRegistryApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 311,
+    "endOffset": 419,
+    "calledBy": []
+  },
+  "ServiceRegistryApplicationTests.contextLoads": {
+    "id": "ServiceRegistryApplicationTests.contextLoads",
+    "type": "method",
+    "class": "ServiceRegistryApplicationTests",
+    "method": "contextLoads",
+    "file": "service-registry\\src\\test\\java\\com\\neil\\Registry\\ServiceRegistryApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "startOffset": 183,
+    "endOffset": 214,
+    "calledBy": []
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "forward": {
+    "ApiGatewayApplication.main": [],
+    "AuthFilter.apply": [
+      "JwtService.validateToken"
+    ],
+    "JwtUtil.validateToken": [
+      "JwtService.getSignKey"
+    ],
+    "JwtUtil.getSignKey": [],
+    "ApiGatewayApplicationTests.contextLoads": [],
+    "AuthConfig.userDetailsService": [],
+    "AuthConfig.securityFilterChain": [],
+    "AuthConfig.passwordEncoder": [],
+    "AuthConfig.authenticationProvider": [
+      "AuthConfig.userDetailsService",
+      "AuthConfig.passwordEncoder"
+    ],
+    "AuthConfig.authenticationManager": [],
+    "CustomUserDetails.getAuthorities": [],
+    "CustomUserDetails.getPassword": [],
+    "CustomUserDetails.getUsername": [],
+    "CustomUserDetails.isAccountNonExpired": [],
+    "CustomUserDetails.isAccountNonLocked": [],
+    "CustomUserDetails.isCredentialsNonExpired": [],
+    "CustomUserDetails.isEnabled": [],
+    "CustomUserDetailsService.loadUserByUsername": [],
+    "AuthController.addNewUser": [
+      "AuthService.saveUser"
+    ],
+    "AuthController.getToken": [
+      "CustomUserDetails.getUsername",
+      "CustomUserDetails.getPassword",
+      "JwtService.generateToken",
+      "CustomUserDetails.getUsername"
+    ],
+    "AuthController.validateToken": [
+      "JwtService.validateToken"
+    ],
+    "IdentityServiceApplication.main": [],
+    "AuthService.saveUser": [
+      "CustomUserDetails.getPassword"
+    ],
+    "AuthService.generateToken": [
+      "JwtService.generateToken"
+    ],
+    "AuthService.validateToken": [
+      "JwtService.validateToken"
+    ],
+    "JwtService.validateToken": [
+      "JwtService.getSignKey"
+    ],
+    "JwtService.generateToken": [
+      "JwtService.createToken"
+    ],
+    "JwtService.createToken": [
+      "JwtService.getSignKey"
+    ],
+    "JwtService.getSignKey": [],
+    "IdentityServiceApplicationTests.contextLoads": [],
+    "InventoryController.isInStock": [
+      "InventoryService.isInStock"
+    ],
+    "InventoryController.updateQuantity": [
+      "InventoryService.updateQuantity"
+    ],
+    "InventoryServiceApplication.main": [],
+    "InventoryService.isInStock": [],
+    "InventoryService.updateQuantity": [],
+    "InventoryServiceApplicationTests.contextLoads": [],
+    "TestcontainersConfiguration.mysqlContainer": [],
+    "TestInventoryServiceApplication.main": [],
+    "NotificationServiceApplication.main": [],
+    "NotificationService.listen": [],
+    "NotificationServiceApplicationTests.contextLoads": [],
+    "OrderController.placeOrder": [
+      "OrderService.placeOrder"
+    ],
+    "OrderController.TestMapper": [],
+    "OrderServiceApplication.main": [],
+    "OrderService.placeOrder": [
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity"
+    ],
+    "OrderServiceApplicationTests.contextLoads": [],
+    "TestOrderServiceApplication.main": [],
+    "ProductController.createProduct": [
+      "ProductService.createProduct"
+    ],
+    "ProductController.getAllProducts": [
+      "ProductService.getAllProducts"
+    ],
+    "ProductServiceApplication.main": [],
+    "ProductService.createProduct": [],
+    "ProductService.getAllProducts": [],
+    "ProductServiceApplicationTests.contextLoads": [],
+    "TestcontainersConfiguration.mongoDbContainer": [],
+    "TestProductServiceApplication.main": [],
+    "ServiceRegistryApplication.main": [],
+    "ServiceRegistryApplicationTests.contextLoads": []
+  },
+  "reverse": {
+    "JwtService.validateToken": [
+      "AuthFilter.apply",
+      "AuthController.validateToken",
+      "AuthService.validateToken"
+    ],
+    "JwtService.getSignKey": [
+      "JwtUtil.validateToken",
+      "JwtService.validateToken",
+      "JwtService.createToken"
+    ],
+    "AuthConfig.userDetailsService": [
+      "AuthConfig.authenticationProvider"
+    ],
+    "AuthConfig.passwordEncoder": [
+      "AuthConfig.authenticationProvider"
+    ],
+    "AuthService.saveUser": [
+      "AuthController.addNewUser"
+    ],
+    "CustomUserDetails.getUsername": [
+      "AuthController.getToken",
+      "AuthController.getToken"
+    ],
+    "CustomUserDetails.getPassword": [
+      "AuthController.getToken",
+      "AuthService.saveUser"
+    ],
+    "JwtService.generateToken": [
+      "AuthController.getToken",
+      "AuthService.generateToken"
+    ],
+    "JwtService.createToken": [
+      "JwtService.generateToken"
+    ],
+    "InventoryService.isInStock": [
+      "InventoryController.isInStock",
+      "OrderService.placeOrder"
+    ],
+    "InventoryService.updateQuantity": [
+      "InventoryController.updateQuantity",
+      "OrderService.placeOrder"
+    ],
+    "OrderService.placeOrder": [
+      "OrderController.placeOrder"
+    ],
+    "ProductService.createProduct": [
+      "ProductController.createProduct"
+    ],
+    "ProductService.getAllProducts": [
+      "ProductController.getAllProducts"
+    ]
+  }
+}

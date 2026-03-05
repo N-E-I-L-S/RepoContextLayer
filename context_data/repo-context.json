@@ -1,0 +1,2869 @@
+[
+  {
+    "id": "ApiGatewayApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "ApiGatewayApplication",
+    "method": "main",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\ApiGatewayApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 14,
+        "column": 1
+      },
+      "end": {
+        "line": 16,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "AuthFilter.log",
+    "type": "field",
+    "layer": "unknown",
+    "class": "AuthFilter",
+    "name": "log",
+    "fieldType": "Logger",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java",
+    "location": {
+      "start": {
+        "line": 16,
+        "column": 4
+      },
+      "end": {
+        "line": 16,
+        "column": 80
+      }
+    }
+  },
+  {
+    "id": "AuthFilter.validator",
+    "type": "field",
+    "layer": "unknown",
+    "class": "AuthFilter",
+    "name": "validator",
+    "fieldType": "RouteValidator",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java",
+    "location": {
+      "start": {
+        "line": 17,
+        "column": 4
+      },
+      "end": {
+        "line": 18,
+        "column": 37
+      }
+    }
+  },
+  {
+    "id": "AuthFilter.jwtUtil",
+    "type": "field",
+    "layer": "unknown",
+    "class": "AuthFilter",
+    "name": "jwtUtil",
+    "fieldType": "JwtUtil",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java",
+    "location": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 21,
+        "column": 28
+      }
+    }
+  },
+  {
+    "id": "AuthFilter.apply",
+    "type": "method",
+    "layer": "unknown",
+    "class": "AuthFilter",
+    "method": "apply",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java",
+    "returnType": "GatewayFilter",
+    "parameters": [
+      "Config"
+    ],
+    "calls": [
+      "test",
+      "getRequest",
+      "containsKey",
+      "getHeaders",
+      "getRequest",
+      "error",
+      "get",
+      "get",
+      "getHeaders",
+      "getRequest",
+      "startsWith",
+      "substring",
+      "validateToken",
+      "println",
+      "filter"
+    ],
+    "reads": [
+      "AuthFilter.validator",
+      "AuthFilter.log",
+      "AuthFilter.jwtUtil"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 4
+      },
+      "end": {
+        "line": 50,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "RouteValidator.openApiEndpoints",
+    "type": "field",
+    "layer": "unknown",
+    "class": "RouteValidator",
+    "name": "openApiEndpoints",
+    "fieldType": "List<String>",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java",
+    "location": {
+      "start": {
+        "line": 13,
+        "column": 4
+      },
+      "end": {
+        "line": 18,
+        "column": 6
+      }
+    }
+  },
+  {
+    "id": "RouteValidator.pathMatcher",
+    "type": "field",
+    "layer": "unknown",
+    "class": "RouteValidator",
+    "name": "pathMatcher",
+    "fieldType": "AntPathMatcher",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java",
+    "location": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 20,
+        "column": 68
+      }
+    }
+  },
+  {
+    "id": "RouteValidator.isSecured",
+    "type": "field",
+    "layer": "unknown",
+    "class": "RouteValidator",
+    "name": "isSecured",
+    "fieldType": "Predicate<ServerHttpRequest>",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java",
+    "location": {
+      "start": {
+        "line": 22,
+        "column": 4
+      },
+      "end": {
+        "line": 27,
+        "column": 6
+      }
+    }
+  },
+  {
+    "id": "RouteValidator.requestPath",
+    "type": "field",
+    "layer": "unknown",
+    "class": "RouteValidator",
+    "name": "requestPath",
+    "fieldType": "Predicate<ServerHttpRequest>",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java",
+    "location": {
+      "start": {
+        "line": 22,
+        "column": 4
+      },
+      "end": {
+        "line": 27,
+        "column": 6
+      }
+    }
+  },
+  {
+    "id": "JwtUtil.SECRET",
+    "type": "field",
+    "layer": "unknown",
+    "class": "JwtUtil",
+    "name": "SECRET",
+    "fieldType": "String",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\util\\JwtUtil.java",
+    "location": {
+      "start": {
+        "line": 18,
+        "column": 4
+      },
+      "end": {
+        "line": 18,
+        "column": 107
+      }
+    }
+  },
+  {
+    "id": "JwtUtil.validateToken",
+    "type": "method",
+    "layer": "unknown",
+    "class": "JwtUtil",
+    "method": "validateToken",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\util\\JwtUtil.java",
+    "returnType": "void",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "parseClaimsJws",
+      "build",
+      "setSigningKey",
+      "parser",
+      "getSignKey"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 21,
+        "column": 4
+      },
+      "end": {
+        "line": 23,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "JwtUtil.getSignKey",
+    "type": "method",
+    "layer": "unknown",
+    "class": "JwtUtil",
+    "method": "getSignKey",
+    "file": "api-gateway\\src\\main\\java\\com\\neil\\gateway\\util\\JwtUtil.java",
+    "returnType": "Key",
+    "parameters": [],
+    "calls": [
+      "decode",
+      "hmacShaKeyFor"
+    ],
+    "reads": [
+      "JwtUtil.SECRET"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 4
+      },
+      "end": {
+        "line": 30,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "ApiGatewayApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "class": "ApiGatewayApplicationTests",
+    "method": "contextLoads",
+    "file": "api-gateway\\src\\test\\java\\com\\neil\\gateway\\ApiGatewayApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 1
+      },
+      "end": {
+        "line": 11,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "AuthConfig.userDetailsService",
+    "type": "method",
+    "layer": "unknown",
+    "class": "AuthConfig",
+    "method": "userDetailsService",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "UserDetailsService",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 4
+      },
+      "end": {
+        "line": 26,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthConfig.securityFilterChain",
+    "type": "method",
+    "layer": "unknown",
+    "class": "AuthConfig",
+    "method": "securityFilterChain",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "SecurityFilterChain",
+    "parameters": [
+      "HttpSecurity"
+    ],
+    "calls": [
+      "build",
+      "authorizeHttpRequests",
+      "csrf",
+      "permitAll",
+      "requestMatchers"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 29,
+        "column": 4
+      },
+      "end": {
+        "line": 36,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthConfig.passwordEncoder",
+    "type": "method",
+    "layer": "unknown",
+    "class": "AuthConfig",
+    "method": "passwordEncoder",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "PasswordEncoder",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 38,
+        "column": 4
+      },
+      "end": {
+        "line": 41,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthConfig.authenticationProvider",
+    "type": "method",
+    "layer": "unknown",
+    "class": "AuthConfig",
+    "method": "authenticationProvider",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "AuthenticationProvider",
+    "parameters": [],
+    "calls": [
+      "setUserDetailsService",
+      "userDetailsService",
+      "setPasswordEncoder",
+      "passwordEncoder"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 43,
+        "column": 4
+      },
+      "end": {
+        "line": 49,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthConfig.authenticationManager",
+    "type": "method",
+    "layer": "unknown",
+    "class": "AuthConfig",
+    "method": "authenticationManager",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java",
+    "returnType": "AuthenticationManager",
+    "parameters": [
+      "AuthenticationConfiguration"
+    ],
+    "calls": [
+      "getAuthenticationManager"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 51,
+        "column": 4
+      },
+      "end": {
+        "line": 54,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetails.username",
+    "type": "field",
+    "layer": "unknown",
+    "class": "CustomUserDetails",
+    "name": "username",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 4
+      },
+      "end": {
+        "line": 12,
+        "column": 34
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetails.password",
+    "type": "field",
+    "layer": "unknown",
+    "class": "CustomUserDetails",
+    "name": "password",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "location": {
+      "start": {
+        "line": 13,
+        "column": 4
+      },
+      "end": {
+        "line": 13,
+        "column": 34
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetails.getAuthorities",
+    "type": "method",
+    "layer": "unknown",
+    "class": "CustomUserDetails",
+    "method": "getAuthorities",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "Collection<? extends GrantedAuthority>",
+    "parameters": [],
+    "calls": [
+      "of"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 23,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetails.getPassword",
+    "type": "method",
+    "layer": "unknown",
+    "class": "CustomUserDetails",
+    "method": "getPassword",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "String",
+    "parameters": [],
+    "calls": [],
+    "reads": [
+      "CustomUserDetails.password"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 25,
+        "column": 4
+      },
+      "end": {
+        "line": 28,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetails.getUsername",
+    "type": "method",
+    "layer": "unknown",
+    "class": "CustomUserDetails",
+    "method": "getUsername",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "String",
+    "parameters": [],
+    "calls": [],
+    "reads": [
+      "CustomUserDetails.username"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 30,
+        "column": 4
+      },
+      "end": {
+        "line": 33,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetails.isAccountNonExpired",
+    "type": "method",
+    "layer": "unknown",
+    "class": "CustomUserDetails",
+    "method": "isAccountNonExpired",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "boolean",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 35,
+        "column": 4
+      },
+      "end": {
+        "line": 38,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetails.isAccountNonLocked",
+    "type": "method",
+    "layer": "unknown",
+    "class": "CustomUserDetails",
+    "method": "isAccountNonLocked",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "boolean",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 40,
+        "column": 4
+      },
+      "end": {
+        "line": 43,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetails.isCredentialsNonExpired",
+    "type": "method",
+    "layer": "unknown",
+    "class": "CustomUserDetails",
+    "method": "isCredentialsNonExpired",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "boolean",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 45,
+        "column": 4
+      },
+      "end": {
+        "line": 48,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetails.isEnabled",
+    "type": "method",
+    "layer": "unknown",
+    "class": "CustomUserDetails",
+    "method": "isEnabled",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java",
+    "returnType": "boolean",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 50,
+        "column": 4
+      },
+      "end": {
+        "line": 53,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetailsService.userRepository",
+    "type": "field",
+    "layer": "unknown",
+    "class": "CustomUserDetailsService",
+    "name": "userRepository",
+    "fieldType": "UserRepository",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetailsService.java",
+    "location": {
+      "start": {
+        "line": 14,
+        "column": 4
+      },
+      "end": {
+        "line": 15,
+        "column": 42
+      }
+    }
+  },
+  {
+    "id": "CustomUserDetailsService.loadUserByUsername",
+    "type": "method",
+    "layer": "unknown",
+    "class": "CustomUserDetailsService",
+    "method": "loadUserByUsername",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetailsService.java",
+    "returnType": "UserDetails",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "findByName",
+      "orElseThrow",
+      "map"
+    ],
+    "reads": [
+      "CustomUserDetailsService.userRepository"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 17,
+        "column": 4
+      },
+      "end": {
+        "line": 21,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthController.service",
+    "type": "field",
+    "layer": "controller",
+    "class": "AuthController",
+    "name": "service",
+    "fieldType": "AuthService",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "location": {
+      "start": {
+        "line": 15,
+        "column": 4
+      },
+      "end": {
+        "line": 16,
+        "column": 32
+      }
+    }
+  },
+  {
+    "id": "AuthController.authenticationManager",
+    "type": "field",
+    "layer": "controller",
+    "class": "AuthController",
+    "name": "authenticationManager",
+    "fieldType": "AuthenticationManager",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "location": {
+      "start": {
+        "line": 18,
+        "column": 4
+      },
+      "end": {
+        "line": 19,
+        "column": 56
+      }
+    }
+  },
+  {
+    "id": "AuthController.addNewUser",
+    "type": "method",
+    "layer": "controller",
+    "class": "AuthController",
+    "method": "addNewUser",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "returnType": "String",
+    "parameters": [
+      "User"
+    ],
+    "calls": [
+      "saveUser"
+    ],
+    "reads": [
+      "AuthController.service"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 21,
+        "column": 4
+      },
+      "end": {
+        "line": 24,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthController.getToken",
+    "type": "method",
+    "layer": "controller",
+    "class": "AuthController",
+    "method": "getToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "returnType": "String",
+    "parameters": [
+      "AuthRequest"
+    ],
+    "calls": [
+      "authenticate",
+      "getUsername",
+      "getPassword",
+      "println",
+      "isAuthenticated",
+      "generateToken",
+      "getUsername"
+    ],
+    "reads": [
+      "AuthController.authenticationManager",
+      "AuthController.service"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 26,
+        "column": 4
+      },
+      "end": {
+        "line": 35,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthController.validateToken",
+    "type": "method",
+    "layer": "controller",
+    "class": "AuthController",
+    "method": "validateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java",
+    "returnType": "String",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "validateToken"
+    ],
+    "reads": [
+      "AuthController.service"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 37,
+        "column": 4
+      },
+      "end": {
+        "line": 41,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthRequest",
+    "type": "dto",
+    "layer": "dto",
+    "class": "AuthRequest",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\dto\\AuthRequest.java",
+    "location": {
+      "start": {
+        "line": 8,
+        "column": 0
+      },
+      "end": {
+        "line": 15,
+        "column": 1
+      }
+    }
+  },
+  {
+    "id": "AuthRequest.username",
+    "type": "field",
+    "layer": "dto",
+    "class": "AuthRequest",
+    "name": "username",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\dto\\AuthRequest.java",
+    "location": {
+      "start": {
+        "line": 13,
+        "column": 4
+      },
+      "end": {
+        "line": 13,
+        "column": 28
+      }
+    }
+  },
+  {
+    "id": "AuthRequest.password",
+    "type": "field",
+    "layer": "dto",
+    "class": "AuthRequest",
+    "name": "password",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\dto\\AuthRequest.java",
+    "location": {
+      "start": {
+        "line": 14,
+        "column": 4
+      },
+      "end": {
+        "line": 14,
+        "column": 28
+      }
+    }
+  },
+  {
+    "id": "User",
+    "type": "model",
+    "layer": "model",
+    "class": "User",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java",
+    "location": {
+      "start": {
+        "line": 8,
+        "column": 0
+      },
+      "end": {
+        "line": 20,
+        "column": 1
+      }
+    }
+  },
+  {
+    "id": "User.id",
+    "type": "field",
+    "layer": "model",
+    "class": "User",
+    "name": "id",
+    "fieldType": "int",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java",
+    "location": {
+      "start": {
+        "line": 14,
+        "column": 4
+      },
+      "end": {
+        "line": 16,
+        "column": 19
+      }
+    }
+  },
+  {
+    "id": "User.name",
+    "type": "field",
+    "layer": "model",
+    "class": "User",
+    "name": "name",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java",
+    "location": {
+      "start": {
+        "line": 17,
+        "column": 4
+      },
+      "end": {
+        "line": 17,
+        "column": 24
+      }
+    }
+  },
+  {
+    "id": "User.email",
+    "type": "field",
+    "layer": "model",
+    "class": "User",
+    "name": "email",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java",
+    "location": {
+      "start": {
+        "line": 18,
+        "column": 4
+      },
+      "end": {
+        "line": 18,
+        "column": 25
+      }
+    }
+  },
+  {
+    "id": "User.password",
+    "type": "field",
+    "layer": "model",
+    "class": "User",
+    "name": "password",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java",
+    "location": {
+      "start": {
+        "line": 19,
+        "column": 4
+      },
+      "end": {
+        "line": 19,
+        "column": 28
+      }
+    }
+  },
+  {
+    "id": "IdentityServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "IdentityServiceApplication",
+    "method": "main",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\IdentityServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 1
+      },
+      "end": {
+        "line": 11,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "UserRepository",
+    "type": "repository",
+    "layer": "repository",
+    "class": "UserRepository",
+    "model": "User",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\repository\\UserRepository.java",
+    "location": {
+      "start": {
+        "line": 8,
+        "column": 0
+      },
+      "end": {
+        "line": 10,
+        "column": 1
+      }
+    }
+  },
+  {
+    "id": "UserRepository.findByName",
+    "type": "method",
+    "layer": "repository",
+    "class": "UserRepository",
+    "method": "findByName",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\repository\\UserRepository.java",
+    "returnType": "Optional<User>",
+    "parameters": [
+      "String"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 4
+      },
+      "end": {
+        "line": 9,
+        "column": 47
+      }
+    }
+  },
+  {
+    "id": "AuthService.repository",
+    "type": "field",
+    "layer": "service",
+    "class": "AuthService",
+    "name": "repository",
+    "fieldType": "UserRepository",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 4
+      },
+      "end": {
+        "line": 12,
+        "column": 38
+      }
+    }
+  },
+  {
+    "id": "AuthService.passwordEncoder",
+    "type": "field",
+    "layer": "service",
+    "class": "AuthService",
+    "name": "passwordEncoder",
+    "fieldType": "PasswordEncoder",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "location": {
+      "start": {
+        "line": 13,
+        "column": 4
+      },
+      "end": {
+        "line": 14,
+        "column": 44
+      }
+    }
+  },
+  {
+    "id": "AuthService.jwtService",
+    "type": "field",
+    "layer": "service",
+    "class": "AuthService",
+    "name": "jwtService",
+    "fieldType": "JwtService",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "location": {
+      "start": {
+        "line": 16,
+        "column": 4
+      },
+      "end": {
+        "line": 17,
+        "column": 34
+      }
+    }
+  },
+  {
+    "id": "AuthService.saveUser",
+    "type": "method",
+    "layer": "service",
+    "class": "AuthService",
+    "method": "saveUser",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "returnType": "String",
+    "parameters": [
+      "User"
+    ],
+    "calls": [
+      "setPassword",
+      "encode",
+      "getPassword",
+      "save"
+    ],
+    "reads": [
+      "AuthService.passwordEncoder",
+      "AuthService.repository"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 19,
+        "column": 4
+      },
+      "end": {
+        "line": 23,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthService.generateToken",
+    "type": "method",
+    "layer": "service",
+    "class": "AuthService",
+    "method": "generateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "returnType": "String",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "generateToken"
+    ],
+    "reads": [
+      "AuthService.jwtService"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 25,
+        "column": 4
+      },
+      "end": {
+        "line": 27,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "AuthService.validateToken",
+    "type": "method",
+    "layer": "service",
+    "class": "AuthService",
+    "method": "validateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java",
+    "returnType": "void",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "validateToken"
+    ],
+    "reads": [
+      "AuthService.jwtService"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 29,
+        "column": 4
+      },
+      "end": {
+        "line": 31,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "JwtService.SECRET",
+    "type": "field",
+    "layer": "service",
+    "class": "JwtService",
+    "name": "SECRET",
+    "fieldType": "String",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "location": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 20,
+        "column": 107
+      }
+    }
+  },
+  {
+    "id": "JwtService.validateToken",
+    "type": "method",
+    "layer": "service",
+    "class": "JwtService",
+    "method": "validateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "returnType": "void",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "parseClaimsJws",
+      "build",
+      "setSigningKey",
+      "parser",
+      "getSignKey"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 4
+      },
+      "end": {
+        "line": 25,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "JwtService.generateToken",
+    "type": "method",
+    "layer": "service",
+    "class": "JwtService",
+    "method": "generateToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "returnType": "String",
+    "parameters": [
+      "String"
+    ],
+    "calls": [
+      "createToken"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 28,
+        "column": 4
+      },
+      "end": {
+        "line": 31,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "JwtService.createToken",
+    "type": "method",
+    "layer": "service",
+    "class": "JwtService",
+    "method": "createToken",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "returnType": "String",
+    "parameters": [
+      "Map<String, Object>",
+      "String"
+    ],
+    "calls": [
+      "compact",
+      "signWith",
+      "expiration",
+      "issuedAt",
+      "subject",
+      "claims",
+      "builder",
+      "currentTimeMillis",
+      "currentTimeMillis",
+      "getSignKey"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 33,
+        "column": 4
+      },
+      "end": {
+        "line": 40,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "JwtService.getSignKey",
+    "type": "method",
+    "layer": "service",
+    "class": "JwtService",
+    "method": "getSignKey",
+    "file": "identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java",
+    "returnType": "Key",
+    "parameters": [],
+    "calls": [
+      "decode",
+      "hmacShaKeyFor"
+    ],
+    "reads": [
+      "JwtService.SECRET"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 42,
+        "column": 4
+      },
+      "end": {
+        "line": 45,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "IdentityServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "class": "IdentityServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "identity-service\\src\\test\\java\\com\\neil\\identity\\IdentityServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 1
+      },
+      "end": {
+        "line": 11,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "InventoryController.inventoryService",
+    "type": "field",
+    "layer": "controller",
+    "class": "InventoryController",
+    "name": "inventoryService",
+    "fieldType": "InventoryService",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\controller\\InventoryController.java",
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 4
+      },
+      "end": {
+        "line": 13,
+        "column": 46
+      }
+    }
+  },
+  {
+    "id": "InventoryController.isInStock",
+    "type": "method",
+    "layer": "controller",
+    "class": "InventoryController",
+    "method": "isInStock",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\controller\\InventoryController.java",
+    "returnType": "boolean",
+    "parameters": [
+      "String",
+      "Integer"
+    ],
+    "calls": [
+      "isInStock"
+    ],
+    "reads": [
+      "InventoryController.inventoryService"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 15,
+        "column": 4
+      },
+      "end": {
+        "line": 18,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "InventoryController.updateQuantity",
+    "type": "method",
+    "layer": "controller",
+    "class": "InventoryController",
+    "method": "updateQuantity",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\controller\\InventoryController.java",
+    "returnType": "boolean",
+    "parameters": [
+      "UpdateQuantityRequest"
+    ],
+    "calls": [
+      "updateQuantity",
+      "skuCode",
+      "quantity"
+    ],
+    "reads": [
+      "InventoryController.inventoryService"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 23,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "InventoryServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "InventoryServiceApplication",
+    "method": "main",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\InventoryServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 1
+      },
+      "end": {
+        "line": 11,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "Inventory",
+    "type": "model",
+    "layer": "model",
+    "class": "Inventory",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\model\\Inventory.java",
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 0
+      },
+      "end": {
+        "line": 21,
+        "column": 1
+      }
+    }
+  },
+  {
+    "id": "Inventory.id",
+    "type": "field",
+    "layer": "model",
+    "class": "Inventory",
+    "name": "id",
+    "fieldType": "Long",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\model\\Inventory.java",
+    "location": {
+      "start": {
+        "line": 16,
+        "column": 4
+      },
+      "end": {
+        "line": 18,
+        "column": 20
+      }
+    }
+  },
+  {
+    "id": "Inventory.skuCode",
+    "type": "field",
+    "layer": "model",
+    "class": "Inventory",
+    "name": "skuCode",
+    "fieldType": "String",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\model\\Inventory.java",
+    "location": {
+      "start": {
+        "line": 19,
+        "column": 4
+      },
+      "end": {
+        "line": 19,
+        "column": 27
+      }
+    }
+  },
+  {
+    "id": "Inventory.quantity",
+    "type": "field",
+    "layer": "model",
+    "class": "Inventory",
+    "name": "quantity",
+    "fieldType": "Integer",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\model\\Inventory.java",
+    "location": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 20,
+        "column": 29
+      }
+    }
+  },
+  {
+    "id": "InventoryRepository",
+    "type": "repository",
+    "layer": "repository",
+    "class": "InventoryRepository",
+    "model": "Inventory",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\repository\\InventoryRepository.java",
+    "location": {
+      "start": {
+        "line": 8,
+        "column": 0
+      },
+      "end": {
+        "line": 12,
+        "column": 1
+      }
+    }
+  },
+  {
+    "id": "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+    "type": "method",
+    "layer": "repository",
+    "class": "InventoryRepository",
+    "method": "existsBySkuCodeAndQuantityIsGreaterThanEqual",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\repository\\InventoryRepository.java",
+    "returnType": "boolean",
+    "parameters": [
+      "String",
+      "Integer"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 4
+      },
+      "end": {
+        "line": 9,
+        "column": 91
+      }
+    }
+  },
+  {
+    "id": "InventoryRepository.findBySkuCode",
+    "type": "method",
+    "layer": "repository",
+    "class": "InventoryRepository",
+    "method": "findBySkuCode",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\repository\\InventoryRepository.java",
+    "returnType": "Optional<Inventory>",
+    "parameters": [
+      "String"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 10,
+        "column": 4
+      },
+      "end": {
+        "line": 10,
+        "column": 54
+      }
+    }
+  },
+  {
+    "id": "InventoryService.inventoryRepository",
+    "type": "field",
+    "layer": "service",
+    "class": "InventoryService",
+    "name": "inventoryRepository",
+    "fieldType": "InventoryRepository",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\serivce\\InventoryService.java",
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 4
+      },
+      "end": {
+        "line": 12,
+        "column": 52
+      }
+    }
+  },
+  {
+    "id": "InventoryService.isInStock",
+    "type": "method",
+    "layer": "service",
+    "class": "InventoryService",
+    "method": "isInStock",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\serivce\\InventoryService.java",
+    "returnType": "boolean",
+    "parameters": [
+      "String",
+      "Integer"
+    ],
+    "calls": [
+      "existsBySkuCodeAndQuantityIsGreaterThanEqual"
+    ],
+    "reads": [
+      "InventoryService.inventoryRepository"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 14,
+        "column": 4
+      },
+      "end": {
+        "line": 18,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "InventoryService.updateQuantity",
+    "type": "method",
+    "layer": "service",
+    "class": "InventoryService",
+    "method": "updateQuantity",
+    "file": "inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\serivce\\InventoryService.java",
+    "returnType": "boolean",
+    "parameters": [
+      "String",
+      "Integer"
+    ],
+    "calls": [
+      "orElseThrow",
+      "findBySkuCode",
+      "getQuantity",
+      "setQuantity",
+      "getQuantity",
+      "save"
+    ],
+    "reads": [
+      "InventoryService.inventoryRepository"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 31,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "InventoryServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "class": "InventoryServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\InventoryServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 1
+      },
+      "end": {
+        "line": 13,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "TestcontainersConfiguration.mysqlContainer",
+    "type": "method",
+    "layer": "unknown",
+    "class": "TestcontainersConfiguration",
+    "method": "mysqlContainer",
+    "file": "inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\TestcontainersConfiguration.java",
+    "returnType": "MySQLContainer<?>",
+    "parameters": [],
+    "calls": [
+      "parse"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 1
+      },
+      "end": {
+        "line": 16,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "TestInventoryServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "TestInventoryServiceApplication",
+    "method": "main",
+    "file": "inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\TestInventoryServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run",
+      "with",
+      "from"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 7,
+        "column": 1
+      },
+      "end": {
+        "line": 9,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "NotificationServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "NotificationServiceApplication",
+    "method": "main",
+    "file": "notification-service\\src\\main\\java\\com\\neil\\notification\\NotificationServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 1
+      },
+      "end": {
+        "line": 11,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "OrderPlacedEvent.orderNumber",
+    "type": "field",
+    "layer": "unknown",
+    "class": "OrderPlacedEvent",
+    "name": "orderNumber",
+    "fieldType": "String",
+    "file": "notification-service\\src\\main\\java\\com\\neil\\notification\\order\\OrderPlacedEvent.java",
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 4
+      },
+      "end": {
+        "line": 11,
+        "column": 31
+      }
+    }
+  },
+  {
+    "id": "OrderPlacedEvent.email",
+    "type": "field",
+    "layer": "unknown",
+    "class": "OrderPlacedEvent",
+    "name": "email",
+    "fieldType": "String",
+    "file": "notification-service\\src\\main\\java\\com\\neil\\notification\\order\\OrderPlacedEvent.java",
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 4
+      },
+      "end": {
+        "line": 12,
+        "column": 25
+      }
+    }
+  },
+  {
+    "id": "NotificationService.log",
+    "type": "field",
+    "layer": "service",
+    "class": "NotificationService",
+    "name": "log",
+    "fieldType": "Logger",
+    "file": "notification-service\\src\\main\\java\\com\\neil\\notification\\service\\NotificationService.java",
+    "location": {
+      "start": {
+        "line": 15,
+        "column": 4
+      },
+      "end": {
+        "line": 15,
+        "column": 89
+      }
+    }
+  },
+  {
+    "id": "NotificationService.listen",
+    "type": "method",
+    "layer": "service",
+    "class": "NotificationService",
+    "method": "listen",
+    "file": "notification-service\\src\\main\\java\\com\\neil\\notification\\service\\NotificationService.java",
+    "returnType": "void",
+    "parameters": [
+      "OrderPlacedEvent"
+    ],
+    "calls": [
+      "info"
+    ],
+    "reads": [
+      "NotificationService.log"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 17,
+        "column": 4
+      },
+      "end": {
+        "line": 21,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "NotificationServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "class": "NotificationServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "notification-service\\src\\test\\java\\com\\neil\\notification\\NotificationServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 1
+      },
+      "end": {
+        "line": 11,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "InventoryClient.isInStock",
+    "type": "method",
+    "layer": "unknown",
+    "class": "InventoryClient",
+    "method": "isInStock",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\client\\InventoryClient.java",
+    "returnType": "boolean",
+    "parameters": [
+      "String",
+      "Integer"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 4
+      },
+      "end": {
+        "line": 13,
+        "column": 84
+      }
+    }
+  },
+  {
+    "id": "InventoryClient.updateQuantity",
+    "type": "method",
+    "layer": "unknown",
+    "class": "InventoryClient",
+    "method": "updateQuantity",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\client\\InventoryClient.java",
+    "returnType": "boolean",
+    "parameters": [
+      "InventoryOrderClientRequest"
+    ],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 15,
+        "column": 4
+      },
+      "end": {
+        "line": 16,
+        "column": 77
+      }
+    }
+  },
+  {
+    "id": "OrderController.orderService",
+    "type": "field",
+    "layer": "controller",
+    "class": "OrderController",
+    "name": "orderService",
+    "fieldType": "OrderService",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\controller\\OrderController.java",
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 4
+      },
+      "end": {
+        "line": 13,
+        "column": 38
+      }
+    }
+  },
+  {
+    "id": "OrderController.placeOrder",
+    "type": "method",
+    "layer": "controller",
+    "class": "OrderController",
+    "method": "placeOrder",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\controller\\OrderController.java",
+    "returnType": "String",
+    "parameters": [
+      "OrderRequest"
+    ],
+    "calls": [
+      "placeOrder",
+      "println"
+    ],
+    "reads": [
+      "OrderController.orderService"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 15,
+        "column": 4
+      },
+      "end": {
+        "line": 25,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "OrderController.TestMapper",
+    "type": "method",
+    "layer": "controller",
+    "class": "OrderController",
+    "method": "TestMapper",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\controller\\OrderController.java",
+    "returnType": "String",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 27,
+        "column": 4
+      },
+      "end": {
+        "line": 30,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "OrderPlacedEvent.email",
+    "type": "field",
+    "layer": "unknown",
+    "class": "OrderPlacedEvent",
+    "name": "email",
+    "fieldType": "String",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\event\\OrderPlacedEvent.java",
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 4
+      },
+      "end": {
+        "line": 11,
+        "column": 25
+      }
+    }
+  },
+  {
+    "id": "OrderPlacedEvent.orderNumber",
+    "type": "field",
+    "layer": "unknown",
+    "class": "OrderPlacedEvent",
+    "name": "orderNumber",
+    "fieldType": "String",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\event\\OrderPlacedEvent.java",
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 4
+      },
+      "end": {
+        "line": 12,
+        "column": 31
+      }
+    }
+  },
+  {
+    "id": "Order",
+    "type": "model",
+    "layer": "model",
+    "class": "Order",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 0
+      },
+      "end": {
+        "line": 27,
+        "column": 1
+      }
+    }
+  },
+  {
+    "id": "Order.id",
+    "type": "field",
+    "layer": "model",
+    "class": "Order",
+    "name": "id",
+    "fieldType": "Long",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "location": {
+      "start": {
+        "line": 18,
+        "column": 4
+      },
+      "end": {
+        "line": 20,
+        "column": 20
+      }
+    }
+  },
+  {
+    "id": "Order.orderNumber",
+    "type": "field",
+    "layer": "model",
+    "class": "Order",
+    "name": "orderNumber",
+    "fieldType": "String",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "location": {
+      "start": {
+        "line": 21,
+        "column": 4
+      },
+      "end": {
+        "line": 21,
+        "column": 31
+      }
+    }
+  },
+  {
+    "id": "Order.price",
+    "type": "field",
+    "layer": "model",
+    "class": "Order",
+    "name": "price",
+    "fieldType": "BigDecimal",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "location": {
+      "start": {
+        "line": 22,
+        "column": 4
+      },
+      "end": {
+        "line": 22,
+        "column": 29
+      }
+    }
+  },
+  {
+    "id": "Order.quantity",
+    "type": "field",
+    "layer": "model",
+    "class": "Order",
+    "name": "quantity",
+    "fieldType": "Integer",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 4
+      },
+      "end": {
+        "line": 23,
+        "column": 29
+      }
+    }
+  },
+  {
+    "id": "Order.skuCode",
+    "type": "field",
+    "layer": "model",
+    "class": "Order",
+    "name": "skuCode",
+    "fieldType": "String",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java",
+    "location": {
+      "start": {
+        "line": 24,
+        "column": 4
+      },
+      "end": {
+        "line": 24,
+        "column": 27
+      }
+    }
+  },
+  {
+    "id": "OrderServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "OrderServiceApplication",
+    "method": "main",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\OrderServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 1
+      },
+      "end": {
+        "line": 14,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "OrderRepository",
+    "type": "repository",
+    "layer": "repository",
+    "class": "OrderRepository",
+    "model": "Order",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\repository\\OrderRepository.java",
+    "location": {
+      "start": {
+        "line": 6,
+        "column": 0
+      },
+      "end": {
+        "line": 7,
+        "column": 1
+      }
+    }
+  },
+  {
+    "id": "OrderService.log",
+    "type": "field",
+    "layer": "service",
+    "class": "OrderService",
+    "name": "log",
+    "fieldType": "Logger",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "location": {
+      "start": {
+        "line": 19,
+        "column": 4
+      },
+      "end": {
+        "line": 19,
+        "column": 82
+      }
+    }
+  },
+  {
+    "id": "OrderService.inventoryClient",
+    "type": "field",
+    "layer": "service",
+    "class": "OrderService",
+    "name": "inventoryClient",
+    "fieldType": "InventoryClient",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "location": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 21,
+        "column": 44
+      }
+    }
+  },
+  {
+    "id": "OrderService.orderRepository",
+    "type": "field",
+    "layer": "service",
+    "class": "OrderService",
+    "name": "orderRepository",
+    "fieldType": "OrderRepository",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "location": {
+      "start": {
+        "line": 23,
+        "column": 4
+      },
+      "end": {
+        "line": 24,
+        "column": 44
+      }
+    }
+  },
+  {
+    "id": "OrderService.kafkaTemplate",
+    "type": "field",
+    "layer": "service",
+    "class": "OrderService",
+    "name": "kafkaTemplate",
+    "fieldType": "KafkaTemplate<String, OrderPlacedEvent>",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "location": {
+      "start": {
+        "line": 26,
+        "column": 4
+      },
+      "end": {
+        "line": 27,
+        "column": 66
+      }
+    }
+  },
+  {
+    "id": "OrderService.placeOrder",
+    "type": "method",
+    "layer": "service",
+    "class": "OrderService",
+    "method": "placeOrder",
+    "file": "order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java",
+    "returnType": "void",
+    "parameters": [
+      "OrderRequest"
+    ],
+    "calls": [
+      "isInStock",
+      "skuCode",
+      "quantity",
+      "setOrderNumber",
+      "toString",
+      "randomUUID",
+      "setPrice",
+      "price",
+      "setSkuCode",
+      "skuCode",
+      "setQuantity",
+      "quantity",
+      "save",
+      "email",
+      "userDetails",
+      "getOrderNumber",
+      "println",
+      "send",
+      "info",
+      "skuCode",
+      "quantity",
+      "updateQuantity",
+      "info",
+      "skuCode",
+      "skuCode"
+    ],
+    "reads": [
+      "OrderService.inventoryClient",
+      "OrderService.orderRepository",
+      "OrderService.kafkaTemplate",
+      "OrderService.log"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 30,
+        "column": 4
+      },
+      "end": {
+        "line": 59,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "OrderServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "class": "OrderServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "order-service\\src\\test\\java\\com\\neil\\microservices\\order\\OrderServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 1
+      },
+      "end": {
+        "line": 13,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "TestcontainersConfiguration.mysqlContainer",
+    "type": "method",
+    "layer": "unknown",
+    "class": "TestcontainersConfiguration",
+    "method": "mysqlContainer",
+    "file": "order-service\\src\\test\\java\\com\\neil\\microservices\\order\\TestcontainersConfiguration.java",
+    "returnType": "MySQLContainer<?>",
+    "parameters": [],
+    "calls": [
+      "parse"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 1
+      },
+      "end": {
+        "line": 16,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "TestOrderServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "TestOrderServiceApplication",
+    "method": "main",
+    "file": "order-service\\src\\test\\java\\com\\neil\\microservices\\order\\TestOrderServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run",
+      "with",
+      "from"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 7,
+        "column": 1
+      },
+      "end": {
+        "line": 9,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "ProductController.productService",
+    "type": "field",
+    "layer": "controller",
+    "class": "ProductController",
+    "name": "productService",
+    "fieldType": "ProductService",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\controller\\ProductController.java",
+    "location": {
+      "start": {
+        "line": 16,
+        "column": 4
+      },
+      "end": {
+        "line": 17,
+        "column": 34
+      }
+    }
+  },
+  {
+    "id": "ProductController.createProduct",
+    "type": "method",
+    "layer": "controller",
+    "class": "ProductController",
+    "method": "createProduct",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\controller\\ProductController.java",
+    "returnType": "ProductResponse",
+    "parameters": [
+      "ProductRequest"
+    ],
+    "calls": [
+      "createProduct"
+    ],
+    "reads": [
+      "ProductController.productService"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 19,
+        "column": 4
+      },
+      "end": {
+        "line": 22,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "ProductController.getAllProducts",
+    "type": "method",
+    "layer": "controller",
+    "class": "ProductController",
+    "method": "getAllProducts",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\controller\\ProductController.java",
+    "returnType": "List<ProductResponse>",
+    "parameters": [],
+    "calls": [
+      "getAllProducts"
+    ],
+    "reads": [
+      "ProductController.productService"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 24,
+        "column": 4
+      },
+      "end": {
+        "line": 27,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "Product",
+    "type": "model",
+    "layer": "model",
+    "class": "Product",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java",
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 0
+      },
+      "end": {
+        "line": 24,
+        "column": 1
+      }
+    }
+  },
+  {
+    "id": "Product.id",
+    "type": "field",
+    "layer": "model",
+    "class": "Product",
+    "name": "id",
+    "fieldType": "String",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java",
+    "location": {
+      "start": {
+        "line": 18,
+        "column": 4
+      },
+      "end": {
+        "line": 19,
+        "column": 22
+      }
+    }
+  },
+  {
+    "id": "Product.name",
+    "type": "field",
+    "layer": "model",
+    "class": "Product",
+    "name": "name",
+    "fieldType": "String",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java",
+    "location": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 20,
+        "column": 24
+      }
+    }
+  },
+  {
+    "id": "Product.description",
+    "type": "field",
+    "layer": "model",
+    "class": "Product",
+    "name": "description",
+    "fieldType": "String",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java",
+    "location": {
+      "start": {
+        "line": 21,
+        "column": 4
+      },
+      "end": {
+        "line": 21,
+        "column": 31
+      }
+    }
+  },
+  {
+    "id": "Product.price",
+    "type": "field",
+    "layer": "model",
+    "class": "Product",
+    "name": "price",
+    "fieldType": "BigDecimal",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java",
+    "location": {
+      "start": {
+        "line": 22,
+        "column": 4
+      },
+      "end": {
+        "line": 22,
+        "column": 29
+      }
+    }
+  },
+  {
+    "id": "ProductServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "ProductServiceApplication",
+    "method": "main",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\ProductServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 1
+      },
+      "end": {
+        "line": 13,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "ProductRepository",
+    "type": "repository",
+    "layer": "repository",
+    "class": "ProductRepository",
+    "model": null,
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\repository\\ProductRepository.java",
+    "location": {
+      "start": {
+        "line": 7,
+        "column": 0
+      },
+      "end": {
+        "line": 9,
+        "column": 1
+      }
+    }
+  },
+  {
+    "id": "ProductService.productRepository",
+    "type": "field",
+    "layer": "service",
+    "class": "ProductService",
+    "name": "productRepository",
+    "fieldType": "ProductRepository",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\service\\ProductService.java",
+    "location": {
+      "start": {
+        "line": 19,
+        "column": 4
+      },
+      "end": {
+        "line": 19,
+        "column": 54
+      }
+    }
+  },
+  {
+    "id": "ProductService.createProduct",
+    "type": "method",
+    "layer": "service",
+    "class": "ProductService",
+    "method": "createProduct",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\service\\ProductService.java",
+    "returnType": "ProductResponse",
+    "parameters": [
+      "ProductRequest"
+    ],
+    "calls": [
+      "build",
+      "price",
+      "description",
+      "id",
+      "name",
+      "builder",
+      "name",
+      "id",
+      "description",
+      "price",
+      "save",
+      "info",
+      "getId",
+      "getName",
+      "getDescription",
+      "getPrice"
+    ],
+    "reads": [
+      "ProductService.productRepository"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 21,
+        "column": 4
+      },
+      "end": {
+        "line": 31,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "ProductService.getAllProducts",
+    "type": "method",
+    "layer": "service",
+    "class": "ProductService",
+    "method": "getAllProducts",
+    "file": "product-service\\src\\main\\java\\com\\neil\\microservices\\product\\service\\ProductService.java",
+    "returnType": "List<ProductResponse>",
+    "parameters": [],
+    "calls": [
+      "toList",
+      "map",
+      "stream",
+      "findAll",
+      "getId",
+      "getName",
+      "getDescription",
+      "getPrice"
+    ],
+    "reads": [
+      "ProductService.productRepository"
+    ],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 33,
+        "column": 4
+      },
+      "end": {
+        "line": 37,
+        "column": 5
+      }
+    }
+  },
+  {
+    "id": "ProductServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "class": "ProductServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "product-service\\src\\test\\java\\com\\neil\\microservices\\product\\ProductServiceApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 1
+      },
+      "end": {
+        "line": 13,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "TestcontainersConfiguration.mongoDbContainer",
+    "type": "method",
+    "layer": "service",
+    "class": "TestcontainersConfiguration",
+    "method": "mongoDbContainer",
+    "file": "product-service\\src\\test\\java\\com\\neil\\microservices\\product\\TestcontainersConfiguration.java",
+    "returnType": "MongoDBContainer",
+    "parameters": [],
+    "calls": [
+      "parse"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 12,
+        "column": 1
+      },
+      "end": {
+        "line": 16,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "TestProductServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "TestProductServiceApplication",
+    "method": "main",
+    "file": "product-service\\src\\test\\java\\com\\neil\\microservices\\product\\TestProductServiceApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run",
+      "with",
+      "from"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 7,
+        "column": 1
+      },
+      "end": {
+        "line": 9,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "ServiceRegistryApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "class": "ServiceRegistryApplication",
+    "method": "main",
+    "file": "service-registry\\src\\main\\java\\com\\neil\\Registry\\ServiceRegistryApplication.java",
+    "returnType": "void",
+    "parameters": [
+      "String[]"
+    ],
+    "calls": [
+      "run"
+    ],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 11,
+        "column": 1
+      },
+      "end": {
+        "line": 13,
+        "column": 2
+      }
+    }
+  },
+  {
+    "id": "ServiceRegistryApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "class": "ServiceRegistryApplicationTests",
+    "method": "contextLoads",
+    "file": "service-registry\\src\\test\\java\\com\\neil\\Registry\\ServiceRegistryApplicationTests.java",
+    "returnType": "void",
+    "parameters": [],
+    "calls": [],
+    "reads": [],
+    "writes": [],
+    "location": {
+      "start": {
+        "line": 9,
+        "column": 1
+      },
+      "end": {
+        "line": 11,
+        "column": 2
+      }
+    }
+  }
+]
