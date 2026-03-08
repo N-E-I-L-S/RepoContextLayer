@@ -144,4 +144,6 @@ Resolve Dependency Injection                       |
 
 
 ## To Do:
-Implement BM25 for keyword matching
+1. Implement BM25 for keyword matching
+2. User Query intent detection
+3. Retrieval strategy based on query intent
