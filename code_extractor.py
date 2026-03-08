@@ -70,7 +70,7 @@ def extract_snippets_from_results(query):
 
 if __name__ == "__main__":
 
-    query = "Add one more attribute to Product entity"
+    query = "change return type of placeOrder to return boolean"
 
     snippets = extract_snippets_from_results(query)
 
