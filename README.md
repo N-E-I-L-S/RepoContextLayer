@@ -53,6 +53,7 @@ Resolve Dependency Injection                       |
         Relevant files and indices
                     ↓
             Relevant Code snippets
+```
 
 ## Sample
 ### Input Query - "change return type of placeOrder to return boolean"
