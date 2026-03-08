@@ -1,0 +1,329 @@
+{
+  "..\\api-gateway\\src\\main\\java\\com\\neil\\gateway\\ApiGatewayApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication",
+    "SpringBootApplication": "org.springframework.boot.autoconfigure.SpringBootApplication",
+    "EnableDiscoveryClient": "org.springframework.cloud.client.discovery.EnableDiscoveryClient",
+    "RouteLocator": "org.springframework.cloud.gateway.route.RouteLocator",
+    "RouteLocatorBuilder": "org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder",
+    "Bean": "org.springframework.context.annotation.Bean"
+  },
+  "..\\api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java": {
+    "JwtUtil": "com.neil.gateway.util.JwtUtil",
+    "Logger": "org.slf4j.Logger",
+    "LoggerFactory": "org.slf4j.LoggerFactory",
+    "Autowired": "org.springframework.beans.factory.annotation.Autowired",
+    "GatewayFilter": "org.springframework.cloud.gateway.filter.GatewayFilter",
+    "AbstractGatewayFilterFactory": "org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory",
+    "HttpHeaders": "org.springframework.http.HttpHeaders",
+    "Component": "org.springframework.stereotype.Component"
+  },
+  "..\\api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java": {
+    "ServerHttpRequest": "org.springframework.http.server.reactive.ServerHttpRequest",
+    "Component": "org.springframework.stereotype.Component",
+    "AntPathMatcher": "org.springframework.util.AntPathMatcher",
+    "List": "java.util.List",
+    "Predicate": "java.util.function.Predicate"
+  },
+  "..\\api-gateway\\src\\main\\java\\com\\neil\\gateway\\util\\JwtUtil.java": {
+    "Jwts": "io.jsonwebtoken.Jwts",
+    "SignatureAlgorithm": "io.jsonwebtoken.SignatureAlgorithm",
+    "Decoders": "io.jsonwebtoken.io.Decoders",
+    "Keys": "io.jsonwebtoken.security.Keys",
+    "Component": "org.springframework.stereotype.Component",
+    "Key": "java.security.Key",
+    "Date": "java.util.Date",
+    "HashMap": "java.util.HashMap",
+    "Map": "java.util.Map"
+  },
+  "..\\api-gateway\\src\\test\\java\\com\\neil\\gateway\\ApiGatewayApplicationTests.java": {
+    "Test": "org.junit.jupiter.api.Test",
+    "SpringBootTest": "org.springframework.boot.test.context.SpringBootTest"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java": {
+    "Bean": "org.springframework.context.annotation.Bean",
+    "Configuration": "org.springframework.context.annotation.Configuration",
+    "AuthenticationManager": "org.springframework.security.authentication.AuthenticationManager",
+    "AuthenticationProvider": "org.springframework.security.authentication.AuthenticationProvider",
+    "DaoAuthenticationProvider": "org.springframework.security.authentication.dao.DaoAuthenticationProvider",
+    "Customizer": "org.springframework.security.config.Customizer",
+    "AuthenticationConfiguration": "org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration",
+    "HttpSecurity": "org.springframework.security.config.annotation.web.builders.HttpSecurity",
+    "EnableWebSecurity": "org.springframework.security.config.annotation.web.configuration.EnableWebSecurity",
+    "UserDetailsService": "org.springframework.security.core.userdetails.UserDetailsService",
+    "BCryptPasswordEncoder": "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder",
+    "PasswordEncoder": "org.springframework.security.crypto.password.PasswordEncoder",
+    "SecurityFilterChain": "org.springframework.security.web.SecurityFilterChain",
+    "AbstractHttpConfigurer": "org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java": {
+    "User": "com.neil.identity.entity.User",
+    "GrantedAuthority": "org.springframework.security.core.GrantedAuthority",
+    "UserDetails": "org.springframework.security.core.userdetails.UserDetails",
+    "Collection": "java.util.Collection",
+    "List": "java.util.List"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetailsService.java": {
+    "User": "com.neil.identity.entity.User",
+    "UserRepository": "com.neil.identity.repository.UserRepository",
+    "Autowired": "org.springframework.beans.factory.annotation.Autowired",
+    "UserDetails": "org.springframework.security.core.userdetails.UserDetails",
+    "UserDetailsService": "org.springframework.security.core.userdetails.UserDetailsService",
+    "UsernameNotFoundException": "org.springframework.security.core.userdetails.UsernameNotFoundException",
+    "Optional": "java.util.Optional"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java": {
+    "AuthRequest": "com.neil.identity.dto.AuthRequest",
+    "User": "com.neil.identity.entity.User",
+    "AuthService": "com.neil.identity.service.AuthService",
+    "Autowired": "org.springframework.beans.factory.annotation.Autowired",
+    "AuthenticationManager": "org.springframework.security.authentication.AuthenticationManager",
+    "UsernamePasswordAuthenticationToken": "org.springframework.security.authentication.UsernamePasswordAuthenticationToken",
+    "Authentication": "org.springframework.security.core.Authentication",
+    "*": "org.springframework.web.bind.annotation.*"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\dto\\AuthRequest.java": {
+    "AllArgsConstructor": "lombok.AllArgsConstructor",
+    "Data": "lombok.Data",
+    "NoArgsConstructor": "lombok.NoArgsConstructor"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java": {
+    "*": "jakarta.persistence.*",
+    "AllArgsConstructor": "lombok.AllArgsConstructor",
+    "Data": "lombok.Data",
+    "NoArgsConstructor": "lombok.NoArgsConstructor"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\IdentityServiceApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication",
+    "SpringBootApplication": "org.springframework.boot.autoconfigure.SpringBootApplication"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\repository\\UserRepository.java": {
+    "User": "com.neil.identity.entity.User",
+    "JpaRepository": "org.springframework.data.jpa.repository.JpaRepository",
+    "Optional": "java.util.Optional"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java": {
+    "User": "com.neil.identity.entity.User",
+    "UserRepository": "com.neil.identity.repository.UserRepository",
+    "Autowired": "org.springframework.beans.factory.annotation.Autowired",
+    "PasswordEncoder": "org.springframework.security.crypto.password.PasswordEncoder",
+    "Service": "org.springframework.stereotype.Service"
+  },
+  "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java": {
+    "Claims": "io.jsonwebtoken.Claims",
+    "Jws": "io.jsonwebtoken.Jws",
+    "Jwts": "io.jsonwebtoken.Jwts",
+    "SignatureAlgorithm": "io.jsonwebtoken.SignatureAlgorithm",
+    "Decoders": "io.jsonwebtoken.io.Decoders",
+    "Keys": "io.jsonwebtoken.security.Keys",
+    "Component": "org.springframework.stereotype.Component",
+    "Key": "java.security.Key",
+    "Date": "java.util.Date",
+    "HashMap": "java.util.HashMap",
+    "Map": "java.util.Map"
+  },
+  "..\\identity-service\\src\\test\\java\\com\\neil\\identity\\IdentityServiceApplicationTests.java": {
+    "Test": "org.junit.jupiter.api.Test",
+    "SpringBootTest": "org.springframework.boot.test.context.SpringBootTest"
+  },
+  "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\controller\\InventoryController.java": {
+    "UpdateQuantityRequest": "com.neil.microservices.inventory.dto.UpdateQuantityRequest",
+    "InventoryService": "com.neil.microservices.inventory.serivce.InventoryService",
+    "Autowired": "org.springframework.beans.factory.annotation.Autowired",
+    "*": "org.springframework.web.bind.annotation.*"
+  },
+  "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\dto\\UpdateQuantityRequest.java": {},
+  "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\InventoryServiceApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication",
+    "SpringBootApplication": "org.springframework.boot.autoconfigure.SpringBootApplication"
+  },
+  "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\model\\Inventory.java": {
+    "*": "jakarta.persistence.*",
+    "AllArgsConstructor": "lombok.AllArgsConstructor",
+    "Getter": "lombok.Getter",
+    "NoArgsConstructor": "lombok.NoArgsConstructor",
+    "Setter": "lombok.Setter"
+  },
+  "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\repository\\InventoryRepository.java": {
+    "Inventory": "com.neil.microservices.inventory.model.Inventory",
+    "JpaRepository": "org.springframework.data.jpa.repository.JpaRepository",
+    "Optional": "java.util.Optional"
+  },
+  "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\serivce\\InventoryService.java": {
+    "Inventory": "com.neil.microservices.inventory.model.Inventory",
+    "InventoryRepository": "com.neil.microservices.inventory.repository.InventoryRepository",
+    "Autowired": "org.springframework.beans.factory.annotation.Autowired",
+    "Service": "org.springframework.stereotype.Service"
+  },
+  "..\\inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\InventoryServiceApplicationTests.java": {
+    "Test": "org.junit.jupiter.api.Test",
+    "SpringBootTest": "org.springframework.boot.test.context.SpringBootTest",
+    "Import": "org.springframework.context.annotation.Import"
+  },
+  "..\\inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\TestcontainersConfiguration.java": {
+    "TestConfiguration": "org.springframework.boot.test.context.TestConfiguration",
+    "Bean": "org.springframework.context.annotation.Bean",
+    "MySQLContainer": "org.testcontainers.containers.MySQLContainer",
+    "DockerImageName": "org.testcontainers.utility.DockerImageName"
+  },
+  "..\\inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\TestInventoryServiceApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication"
+  },
+  "..\\notification-service\\src\\main\\java\\com\\neil\\notification\\NotificationServiceApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication",
+    "SpringBootApplication": "org.springframework.boot.autoconfigure.SpringBootApplication"
+  },
+  "..\\notification-service\\src\\main\\java\\com\\neil\\notification\\order\\OrderPlacedEvent.java": {
+    "AllArgsConstructor": "lombok.AllArgsConstructor",
+    "Data": "lombok.Data",
+    "NoArgsConstructor": "lombok.NoArgsConstructor"
+  },
+  "..\\notification-service\\src\\main\\java\\com\\neil\\notification\\service\\NotificationService.java": {
+    "OrderPlacedEvent": "com.neil.notification.order.OrderPlacedEvent",
+    "AllArgsConstructor": "lombok.AllArgsConstructor",
+    "RequiredArgsConstructor": "lombok.RequiredArgsConstructor",
+    "Logger": "org.slf4j.Logger",
+    "LoggerFactory": "org.slf4j.LoggerFactory",
+    "KafkaListener": "org.springframework.kafka.annotation.KafkaListener",
+    "Service": "org.springframework.stereotype.Service"
+  },
+  "..\\notification-service\\src\\test\\java\\com\\neil\\notification\\NotificationServiceApplicationTests.java": {
+    "Test": "org.junit.jupiter.api.Test",
+    "SpringBootTest": "org.springframework.boot.test.context.SpringBootTest"
+  },
+  "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\client\\InventoryClient.java": {
+    "InventoryOrderClientRequest": "com.neil.microservices.order.dto.InventoryOrderClientRequest",
+    "FeignClient": "org.springframework.cloud.openfeign.FeignClient",
+    "GetMapping": "org.springframework.web.bind.annotation.GetMapping",
+    "PatchMapping": "org.springframework.web.bind.annotation.PatchMapping",
+    "RequestBody": "org.springframework.web.bind.annotation.RequestBody",
+    "RequestParam": "org.springframework.web.bind.annotation.RequestParam"
+  },
+  "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\controller\\OrderController.java": {
+    "OrderRequest": "com.neil.microservices.order.dto.OrderRequest",
+    "OrderService": "com.neil.microservices.order.service.OrderService",
+    "Autowired": "org.springframework.beans.factory.annotation.Autowired",
+    "*": "org.springframework.web.bind.annotation.*"
+  },
+  "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\dto\\InventoryOrderClientRequest.java": {},
+  "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\dto\\OrderRequest.java": {
+    "BigDecimal": "java.math.BigDecimal"
+  },
+  "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\event\\OrderPlacedEvent.java": {
+    "AllArgsConstructor": "lombok.AllArgsConstructor",
+    "Data": "lombok.Data",
+    "NoArgsConstructor": "lombok.NoArgsConstructor"
+  },
+  "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java": {
+    "*": "jakarta.persistence.*",
+    "AllArgsConstructor": "lombok.AllArgsConstructor",
+    "Getter": "lombok.Getter",
+    "NoArgsConstructor": "lombok.NoArgsConstructor",
+    "Setter": "lombok.Setter",
+    "BigDecimal": "java.math.BigDecimal"
+  },
+  "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\OrderServiceApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication",
+    "SpringBootApplication": "org.springframework.boot.autoconfigure.SpringBootApplication",
+    "EnableFeignClients": "org.springframework.cloud.openfeign.EnableFeignClients",
+    "FeignClient": "org.springframework.cloud.openfeign.FeignClient"
+  },
+  "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\repository\\OrderRepository.java": {
+    "Order": "com.neil.microservices.order.model.Order",
+    "JpaRepository": "org.springframework.data.jpa.repository.JpaRepository"
+  },
+  "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java": {
+    "InventoryClient": "com.neil.microservices.order.client.InventoryClient",
+    "InventoryOrderClientRequest": "com.neil.microservices.order.dto.InventoryOrderClientRequest",
+    "OrderRequest": "com.neil.microservices.order.dto.OrderRequest",
+    "OrderPlacedEvent": "com.neil.microservices.order.event.OrderPlacedEvent",
+    "Order": "com.neil.microservices.order.model.Order",
+    "OrderRepository": "com.neil.microservices.order.repository.OrderRepository",
+    "Logger": "org.slf4j.Logger",
+    "LoggerFactory": "org.slf4j.LoggerFactory",
+    "Autowired": "org.springframework.beans.factory.annotation.Autowired",
+    "KafkaTemplate": "org.springframework.kafka.core.KafkaTemplate",
+    "Service": "org.springframework.stereotype.Service",
+    "UUID": "java.util.UUID"
+  },
+  "..\\order-service\\src\\test\\java\\com\\neil\\microservices\\order\\OrderServiceApplicationTests.java": {
+    "Test": "org.junit.jupiter.api.Test",
+    "SpringBootTest": "org.springframework.boot.test.context.SpringBootTest",
+    "Import": "org.springframework.context.annotation.Import"
+  },
+  "..\\order-service\\src\\test\\java\\com\\neil\\microservices\\order\\TestcontainersConfiguration.java": {
+    "TestConfiguration": "org.springframework.boot.test.context.TestConfiguration",
+    "Bean": "org.springframework.context.annotation.Bean",
+    "MySQLContainer": "org.testcontainers.containers.MySQLContainer",
+    "DockerImageName": "org.testcontainers.utility.DockerImageName"
+  },
+  "..\\order-service\\src\\test\\java\\com\\neil\\microservices\\order\\TestOrderServiceApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication"
+  },
+  "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\controller\\ProductController.java": {
+    "ProductRequest": "com.neil.microservices.product.dto.ProductRequest",
+    "ProductResponse": "com.neil.microservices.product.dto.ProductResponse",
+    "ProductService": "com.neil.microservices.product.service.ProductService",
+    "Autowired": "org.springframework.beans.factory.annotation.Autowired",
+    "*": "org.springframework.web.bind.annotation.*",
+    "List": "java.util.List"
+  },
+  "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\dto\\ProductRequest.java": {
+    "BigDecimal": "java.math.BigDecimal"
+  },
+  "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\dto\\ProductResponse.java": {
+    "BigDecimal": "java.math.BigDecimal"
+  },
+  "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java": {
+    "AllArgsConstructor": "lombok.AllArgsConstructor",
+    "Builder": "lombok.Builder",
+    "Data": "lombok.Data",
+    "NoArgsConstructor": "lombok.NoArgsConstructor",
+    "Id": "org.springframework.data.annotation.Id",
+    "Document": "org.springframework.data.mongodb.core.mapping.Document",
+    "BigDecimal": "java.math.BigDecimal"
+  },
+  "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\ProductServiceApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication",
+    "EnableAutoConfiguration": "org.springframework.boot.autoconfigure.EnableAutoConfiguration",
+    "SpringBootApplication": "org.springframework.boot.autoconfigure.SpringBootApplication",
+    "MongoAutoConfiguration": "org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration"
+  },
+  "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\repository\\ProductRepository.java": {
+    "Product": "com.neil.microservices.product.model.Product",
+    "SpringDataMongoDB": "org.springframework.data.mongodb.SpringDataMongoDB",
+    "MongoRepository": "org.springframework.data.mongodb.repository.MongoRepository"
+  },
+  "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\service\\ProductService.java": {
+    "ProductRequest": "com.neil.microservices.product.dto.ProductRequest",
+    "ProductResponse": "com.neil.microservices.product.dto.ProductResponse",
+    "Product": "com.neil.microservices.product.model.Product",
+    "ProductRepository": "com.neil.microservices.product.repository.ProductRepository",
+    "Slf4j": "lombok.extern.slf4j.Slf4j",
+    "Service": "org.springframework.stereotype.Service",
+    "List": "java.util.List"
+  },
+  "..\\product-service\\src\\test\\java\\com\\neil\\microservices\\product\\ProductServiceApplicationTests.java": {
+    "Test": "org.junit.jupiter.api.Test",
+    "SpringBootTest": "org.springframework.boot.test.context.SpringBootTest",
+    "Import": "org.springframework.context.annotation.Import"
+  },
+  "..\\product-service\\src\\test\\java\\com\\neil\\microservices\\product\\TestcontainersConfiguration.java": {
+    "TestConfiguration": "org.springframework.boot.test.context.TestConfiguration",
+    "ServiceConnection": "org.springframework.boot.testcontainers.service.connection.ServiceConnection",
+    "Bean": "org.springframework.context.annotation.Bean",
+    "MongoDBContainer": "org.testcontainers.containers.MongoDBContainer",
+    "DockerImageName": "org.testcontainers.utility.DockerImageName"
+  },
+  "..\\product-service\\src\\test\\java\\com\\neil\\microservices\\product\\TestProductServiceApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication"
+  },
+  "..\\service-registry\\src\\main\\java\\com\\neil\\Registry\\ServiceRegistryApplication.java": {
+    "SpringApplication": "org.springframework.boot.SpringApplication",
+    "SpringBootApplication": "org.springframework.boot.autoconfigure.SpringBootApplication",
+    "EnableEurekaServer": "org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"
+  },
+  "..\\service-registry\\src\\test\\java\\com\\neil\\Registry\\ServiceRegistryApplicationTests.java": {
+    "Test": "org.junit.jupiter.api.Test",
+    "SpringBootTest": "org.springframework.boot.test.context.SpringBootTest"
+  }
+}

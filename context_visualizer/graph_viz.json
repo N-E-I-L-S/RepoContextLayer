@@ -1,0 +1,802 @@
+{
+  "nodes": [
+    {
+      "id": "ApiGatewayApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthFilter.log",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthFilter.validator",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthFilter.jwtUtil",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthFilter.apply",
+      "layer": "unknown"
+    },
+    {
+      "id": "RouteValidator.openApiEndpoints",
+      "layer": "unknown"
+    },
+    {
+      "id": "RouteValidator.pathMatcher",
+      "layer": "unknown"
+    },
+    {
+      "id": "RouteValidator.isSecured",
+      "layer": "unknown"
+    },
+    {
+      "id": "RouteValidator.requestPath",
+      "layer": "unknown"
+    },
+    {
+      "id": "JwtUtil.SECRET",
+      "layer": "unknown"
+    },
+    {
+      "id": "JwtUtil.validateToken",
+      "layer": "unknown"
+    },
+    {
+      "id": "JwtUtil.getSignKey",
+      "layer": "unknown"
+    },
+    {
+      "id": "ApiGatewayApplicationTests.contextLoads",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthConfig.userDetailsService",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthConfig.securityFilterChain",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthConfig.passwordEncoder",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthConfig.authenticationProvider",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthConfig.authenticationManager",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetails.username",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetails.password",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetails.getAuthorities",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetails.getPassword",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetails.getUsername",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetails.isAccountNonExpired",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetails.isAccountNonLocked",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetails.isCredentialsNonExpired",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetails.isEnabled",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetailsService.userRepository",
+      "layer": "unknown"
+    },
+    {
+      "id": "CustomUserDetailsService.loadUserByUsername",
+      "layer": "unknown"
+    },
+    {
+      "id": "AuthController.service",
+      "layer": "controller"
+    },
+    {
+      "id": "AuthController.authenticationManager",
+      "layer": "controller"
+    },
+    {
+      "id": "AuthController.addNewUser",
+      "layer": "controller"
+    },
+    {
+      "id": "AuthController.getToken",
+      "layer": "controller"
+    },
+    {
+      "id": "AuthController.validateToken",
+      "layer": "controller"
+    },
+    {
+      "id": "AuthRequest",
+      "layer": "dto"
+    },
+    {
+      "id": "AuthRequest.username",
+      "layer": "dto"
+    },
+    {
+      "id": "AuthRequest.password",
+      "layer": "dto"
+    },
+    {
+      "id": "User",
+      "layer": "model"
+    },
+    {
+      "id": "User.id",
+      "layer": "model"
+    },
+    {
+      "id": "User.name",
+      "layer": "model"
+    },
+    {
+      "id": "User.email",
+      "layer": "model"
+    },
+    {
+      "id": "User.password",
+      "layer": "model"
+    },
+    {
+      "id": "IdentityServiceApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "UserRepository",
+      "layer": "repository"
+    },
+    {
+      "id": "UserRepository.findByName",
+      "layer": "repository"
+    },
+    {
+      "id": "AuthService.repository",
+      "layer": "service"
+    },
+    {
+      "id": "AuthService.passwordEncoder",
+      "layer": "service"
+    },
+    {
+      "id": "AuthService.jwtService",
+      "layer": "service"
+    },
+    {
+      "id": "AuthService.saveUser",
+      "layer": "service"
+    },
+    {
+      "id": "AuthService.generateToken",
+      "layer": "service"
+    },
+    {
+      "id": "AuthService.validateToken",
+      "layer": "service"
+    },
+    {
+      "id": "JwtService.SECRET",
+      "layer": "service"
+    },
+    {
+      "id": "JwtService.validateToken",
+      "layer": "service"
+    },
+    {
+      "id": "JwtService.generateToken",
+      "layer": "service"
+    },
+    {
+      "id": "JwtService.createToken",
+      "layer": "service"
+    },
+    {
+      "id": "JwtService.getSignKey",
+      "layer": "service"
+    },
+    {
+      "id": "IdentityServiceApplicationTests.contextLoads",
+      "layer": "unknown"
+    },
+    {
+      "id": "InventoryController.inventoryService",
+      "layer": "controller"
+    },
+    {
+      "id": "InventoryController.isInStock",
+      "layer": "controller"
+    },
+    {
+      "id": "InventoryController.updateQuantity",
+      "layer": "controller"
+    },
+    {
+      "id": "InventoryServiceApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "Inventory",
+      "layer": "model"
+    },
+    {
+      "id": "Inventory.id",
+      "layer": "model"
+    },
+    {
+      "id": "Inventory.skuCode",
+      "layer": "model"
+    },
+    {
+      "id": "Inventory.quantity",
+      "layer": "model"
+    },
+    {
+      "id": "InventoryRepository",
+      "layer": "repository"
+    },
+    {
+      "id": "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "layer": "repository"
+    },
+    {
+      "id": "InventoryRepository.findBySkuCode",
+      "layer": "repository"
+    },
+    {
+      "id": "InventoryService.inventoryRepository",
+      "layer": "service"
+    },
+    {
+      "id": "InventoryService.isInStock",
+      "layer": "service"
+    },
+    {
+      "id": "InventoryService.updateQuantity",
+      "layer": "service"
+    },
+    {
+      "id": "InventoryServiceApplicationTests.contextLoads",
+      "layer": "unknown"
+    },
+    {
+      "id": "TestcontainersConfiguration.mysqlContainer",
+      "layer": "unknown"
+    },
+    {
+      "id": "TestInventoryServiceApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "NotificationServiceApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "OrderPlacedEvent.orderNumber",
+      "layer": "unknown"
+    },
+    {
+      "id": "OrderPlacedEvent.email",
+      "layer": "unknown"
+    },
+    {
+      "id": "NotificationService.log",
+      "layer": "service"
+    },
+    {
+      "id": "NotificationService.listen",
+      "layer": "service"
+    },
+    {
+      "id": "NotificationServiceApplicationTests.contextLoads",
+      "layer": "unknown"
+    },
+    {
+      "id": "InventoryClient.isInStock",
+      "layer": "unknown"
+    },
+    {
+      "id": "InventoryClient.updateQuantity",
+      "layer": "unknown"
+    },
+    {
+      "id": "OrderController.orderService",
+      "layer": "controller"
+    },
+    {
+      "id": "OrderController.placeOrder",
+      "layer": "controller"
+    },
+    {
+      "id": "OrderController.TestMapper",
+      "layer": "controller"
+    },
+    {
+      "id": "Order",
+      "layer": "model"
+    },
+    {
+      "id": "Order.id",
+      "layer": "model"
+    },
+    {
+      "id": "Order.orderNumber",
+      "layer": "model"
+    },
+    {
+      "id": "Order.price",
+      "layer": "model"
+    },
+    {
+      "id": "Order.quantity",
+      "layer": "model"
+    },
+    {
+      "id": "Order.skuCode",
+      "layer": "model"
+    },
+    {
+      "id": "OrderServiceApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "OrderRepository",
+      "layer": "repository"
+    },
+    {
+      "id": "OrderService.log",
+      "layer": "service"
+    },
+    {
+      "id": "OrderService.inventoryClient",
+      "layer": "service"
+    },
+    {
+      "id": "OrderService.orderRepository",
+      "layer": "service"
+    },
+    {
+      "id": "OrderService.kafkaTemplate",
+      "layer": "service"
+    },
+    {
+      "id": "OrderService.placeOrder",
+      "layer": "service"
+    },
+    {
+      "id": "OrderServiceApplicationTests.contextLoads",
+      "layer": "unknown"
+    },
+    {
+      "id": "TestOrderServiceApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "ProductController.productService",
+      "layer": "controller"
+    },
+    {
+      "id": "ProductController.createProduct",
+      "layer": "controller"
+    },
+    {
+      "id": "ProductController.getAllProducts",
+      "layer": "controller"
+    },
+    {
+      "id": "Product",
+      "layer": "model"
+    },
+    {
+      "id": "Product.id",
+      "layer": "model"
+    },
+    {
+      "id": "Product.name",
+      "layer": "model"
+    },
+    {
+      "id": "Product.description",
+      "layer": "model"
+    },
+    {
+      "id": "Product.price",
+      "layer": "model"
+    },
+    {
+      "id": "ProductServiceApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "ProductRepository",
+      "layer": "repository"
+    },
+    {
+      "id": "ProductService.productRepository",
+      "layer": "service"
+    },
+    {
+      "id": "ProductService.createProduct",
+      "layer": "service"
+    },
+    {
+      "id": "ProductService.getAllProducts",
+      "layer": "service"
+    },
+    {
+      "id": "ProductServiceApplicationTests.contextLoads",
+      "layer": "unknown"
+    },
+    {
+      "id": "TestcontainersConfiguration.mongoDbContainer",
+      "layer": "service"
+    },
+    {
+      "id": "TestProductServiceApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "ServiceRegistryApplication.main",
+      "layer": "unknown"
+    },
+    {
+      "id": "ServiceRegistryApplicationTests.contextLoads",
+      "layer": "unknown"
+    }
+  ],
+  "links": [
+    {
+      "source": "AuthFilter.apply",
+      "target": "JwtUtil.validateToken"
+    },
+    {
+      "source": "AuthFilter.apply",
+      "target": "AuthController.validateToken"
+    },
+    {
+      "source": "AuthFilter.apply",
+      "target": "AuthService.validateToken"
+    },
+    {
+      "source": "AuthFilter.apply",
+      "target": "JwtService.validateToken"
+    },
+    {
+      "source": "AuthFilter.apply",
+      "target": "AuthFilter.validator"
+    },
+    {
+      "source": "AuthFilter.apply",
+      "target": "AuthFilter.log"
+    },
+    {
+      "source": "AuthFilter.apply",
+      "target": "AuthFilter.jwtUtil"
+    },
+    {
+      "source": "JwtUtil.validateToken",
+      "target": "JwtUtil.getSignKey"
+    },
+    {
+      "source": "JwtUtil.validateToken",
+      "target": "JwtService.getSignKey"
+    },
+    {
+      "source": "JwtUtil.getSignKey",
+      "target": "JwtUtil.SECRET"
+    },
+    {
+      "source": "AuthConfig.authenticationProvider",
+      "target": "AuthConfig.userDetailsService"
+    },
+    {
+      "source": "AuthConfig.authenticationProvider",
+      "target": "AuthConfig.passwordEncoder"
+    },
+    {
+      "source": "CustomUserDetails.getPassword",
+      "target": "CustomUserDetails.password"
+    },
+    {
+      "source": "CustomUserDetails.getUsername",
+      "target": "CustomUserDetails.username"
+    },
+    {
+      "source": "CustomUserDetailsService.loadUserByUsername",
+      "target": "UserRepository.findByName"
+    },
+    {
+      "source": "CustomUserDetailsService.loadUserByUsername",
+      "target": "CustomUserDetailsService.userRepository"
+    },
+    {
+      "source": "AuthController.addNewUser",
+      "target": "AuthService.saveUser"
+    },
+    {
+      "source": "AuthController.addNewUser",
+      "target": "AuthController.service"
+    },
+    {
+      "source": "AuthController.getToken",
+      "target": "CustomUserDetails.getUsername"
+    },
+    {
+      "source": "AuthController.getToken",
+      "target": "CustomUserDetails.getPassword"
+    },
+    {
+      "source": "AuthController.getToken",
+      "target": "AuthService.generateToken"
+    },
+    {
+      "source": "AuthController.getToken",
+      "target": "JwtService.generateToken"
+    },
+    {
+      "source": "AuthController.getToken",
+      "target": "CustomUserDetails.getUsername"
+    },
+    {
+      "source": "AuthController.getToken",
+      "target": "AuthController.authenticationManager"
+    },
+    {
+      "source": "AuthController.getToken",
+      "target": "AuthController.service"
+    },
+    {
+      "source": "AuthController.validateToken",
+      "target": "JwtUtil.validateToken"
+    },
+    {
+      "source": "AuthController.validateToken",
+      "target": "AuthController.validateToken"
+    },
+    {
+      "source": "AuthController.validateToken",
+      "target": "AuthService.validateToken"
+    },
+    {
+      "source": "AuthController.validateToken",
+      "target": "JwtService.validateToken"
+    },
+    {
+      "source": "AuthController.validateToken",
+      "target": "AuthController.service"
+    },
+    {
+      "source": "AuthService.saveUser",
+      "target": "CustomUserDetails.getPassword"
+    },
+    {
+      "source": "AuthService.saveUser",
+      "target": "AuthService.passwordEncoder"
+    },
+    {
+      "source": "AuthService.saveUser",
+      "target": "AuthService.repository"
+    },
+    {
+      "source": "AuthService.generateToken",
+      "target": "AuthService.generateToken"
+    },
+    {
+      "source": "AuthService.generateToken",
+      "target": "JwtService.generateToken"
+    },
+    {
+      "source": "AuthService.generateToken",
+      "target": "AuthService.jwtService"
+    },
+    {
+      "source": "AuthService.validateToken",
+      "target": "JwtUtil.validateToken"
+    },
+    {
+      "source": "AuthService.validateToken",
+      "target": "AuthController.validateToken"
+    },
+    {
+      "source": "AuthService.validateToken",
+      "target": "AuthService.validateToken"
+    },
+    {
+      "source": "AuthService.validateToken",
+      "target": "JwtService.validateToken"
+    },
+    {
+      "source": "AuthService.validateToken",
+      "target": "AuthService.jwtService"
+    },
+    {
+      "source": "JwtService.validateToken",
+      "target": "JwtUtil.getSignKey"
+    },
+    {
+      "source": "JwtService.validateToken",
+      "target": "JwtService.getSignKey"
+    },
+    {
+      "source": "JwtService.generateToken",
+      "target": "JwtService.createToken"
+    },
+    {
+      "source": "JwtService.createToken",
+      "target": "JwtUtil.getSignKey"
+    },
+    {
+      "source": "JwtService.createToken",
+      "target": "JwtService.getSignKey"
+    },
+    {
+      "source": "JwtService.getSignKey",
+      "target": "JwtService.SECRET"
+    },
+    {
+      "source": "InventoryController.isInStock",
+      "target": "InventoryController.isInStock"
+    },
+    {
+      "source": "InventoryController.isInStock",
+      "target": "InventoryService.isInStock"
+    },
+    {
+      "source": "InventoryController.isInStock",
+      "target": "InventoryClient.isInStock"
+    },
+    {
+      "source": "InventoryController.isInStock",
+      "target": "InventoryController.inventoryService"
+    },
+    {
+      "source": "InventoryController.updateQuantity",
+      "target": "InventoryController.updateQuantity"
+    },
+    {
+      "source": "InventoryController.updateQuantity",
+      "target": "InventoryService.updateQuantity"
+    },
+    {
+      "source": "InventoryController.updateQuantity",
+      "target": "InventoryClient.updateQuantity"
+    },
+    {
+      "source": "InventoryController.updateQuantity",
+      "target": "InventoryController.inventoryService"
+    },
+    {
+      "source": "InventoryService.isInStock",
+      "target": "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual"
+    },
+    {
+      "source": "InventoryService.isInStock",
+      "target": "InventoryService.inventoryRepository"
+    },
+    {
+      "source": "InventoryService.updateQuantity",
+      "target": "InventoryRepository.findBySkuCode"
+    },
+    {
+      "source": "InventoryService.updateQuantity",
+      "target": "InventoryService.inventoryRepository"
+    },
+    {
+      "source": "NotificationService.listen",
+      "target": "NotificationService.log"
+    },
+    {
+      "source": "OrderController.placeOrder",
+      "target": "OrderController.placeOrder"
+    },
+    {
+      "source": "OrderController.placeOrder",
+      "target": "OrderService.placeOrder"
+    },
+    {
+      "source": "OrderController.placeOrder",
+      "target": "OrderController.orderService"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "InventoryController.isInStock"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "InventoryService.isInStock"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "InventoryClient.isInStock"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "InventoryController.updateQuantity"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "InventoryService.updateQuantity"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "InventoryClient.updateQuantity"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "OrderService.inventoryClient"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "OrderService.orderRepository"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "OrderService.kafkaTemplate"
+    },
+    {
+      "source": "OrderService.placeOrder",
+      "target": "OrderService.log"
+    },
+    {
+      "source": "ProductController.createProduct",
+      "target": "ProductController.createProduct"
+    },
+    {
+      "source": "ProductController.createProduct",
+      "target": "ProductService.createProduct"
+    },
+    {
+      "source": "ProductController.createProduct",
+      "target": "ProductController.productService"
+    },
+    {
+      "source": "ProductController.getAllProducts",
+      "target": "ProductController.getAllProducts"
+    },
+    {
+      "source": "ProductController.getAllProducts",
+      "target": "ProductService.getAllProducts"
+    },
+    {
+      "source": "ProductController.getAllProducts",
+      "target": "ProductController.productService"
+    },
+    {
+      "source": "ProductService.createProduct",
+      "target": "ProductService.productRepository"
+    },
+    {
+      "source": "ProductService.getAllProducts",
+      "target": "ProductService.productRepository"
+    }
+  ]
+}

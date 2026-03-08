@@ -1,0 +1,542 @@
+{
+  "forward": {
+    "ApiGatewayApplication.main": [],
+    "AuthFilter.apply": [
+      "JwtUtil.validateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "AuthController.validateToken",
+      "JwtUtil.getSignKey"
+    ],
+    "JwtUtil.validateToken": [
+      "JwtService.getSignKey",
+      "JwtUtil.getSignKey"
+    ],
+    "JwtUtil.getSignKey": [],
+    "ApiGatewayApplicationTests.contextLoads": [],
+    "AuthConfig.userDetailsService": [],
+    "AuthConfig.securityFilterChain": [],
+    "AuthConfig.passwordEncoder": [],
+    "AuthConfig.authenticationProvider": [
+      "AuthConfig.userDetailsService",
+      "AuthConfig.passwordEncoder"
+    ],
+    "AuthConfig.authenticationManager": [],
+    "CustomUserDetails.getAuthorities": [],
+    "CustomUserDetails.getPassword": [],
+    "CustomUserDetails.getUsername": [],
+    "CustomUserDetails.isAccountNonExpired": [],
+    "CustomUserDetails.isAccountNonLocked": [],
+    "CustomUserDetails.isCredentialsNonExpired": [],
+    "CustomUserDetails.isEnabled": [],
+    "CustomUserDetailsService.loadUserByUsername": [
+      "UserRepository.findByName"
+    ],
+    "AuthController.addNewUser": [
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity",
+      "NotificationService.listen",
+      "OrderService.placeOrder",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "AuthController.getToken": [
+      "CustomUserDetails.getUsername",
+      "CustomUserDetails.getPassword",
+      "JwtService.generateToken",
+      "AuthService.generateToken",
+      "AuthService.saveUser",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity",
+      "NotificationService.listen",
+      "OrderService.placeOrder",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "AuthController.validateToken": [
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtUtil.validateToken",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity",
+      "NotificationService.listen",
+      "OrderService.placeOrder",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "IdentityServiceApplication.main": [],
+    "UserRepository.findByName": [],
+    "AuthService.saveUser": [
+      "CustomUserDetails.getPassword",
+      "UserRepository.findByName",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "AuthService.generateToken": [
+      "JwtService.generateToken",
+      "UserRepository.findByName",
+      "JwtService.validateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "AuthService.validateToken": [
+      "JwtService.validateToken",
+      "JwtUtil.validateToken",
+      "AuthController.validateToken",
+      "UserRepository.findByName",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "JwtService.validateToken": [
+      "JwtService.getSignKey",
+      "JwtUtil.getSignKey",
+      "UserRepository.findByName",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "JwtService.generateToken": [
+      "JwtService.createToken",
+      "UserRepository.findByName",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "JwtService.createToken": [
+      "JwtService.getSignKey",
+      "JwtUtil.getSignKey",
+      "UserRepository.findByName",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "JwtService.getSignKey": [
+      "UserRepository.findByName",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "IdentityServiceApplicationTests.contextLoads": [],
+    "InventoryController.isInStock": [
+      "InventoryService.isInStock",
+      "InventoryClient.isInStock",
+      "InventoryService.updateQuantity",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "NotificationService.listen",
+      "OrderService.placeOrder",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "InventoryController.updateQuantity": [
+      "InventoryService.updateQuantity",
+      "InventoryClient.updateQuantity",
+      "InventoryService.isInStock",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "NotificationService.listen",
+      "OrderService.placeOrder",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "InventoryServiceApplication.main": [],
+    "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual": [],
+    "InventoryRepository.findBySkuCode": [],
+    "InventoryService.isInStock": [
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode",
+      "UserRepository.findByName"
+    ],
+    "InventoryService.updateQuantity": [
+      "InventoryRepository.findBySkuCode",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "UserRepository.findByName"
+    ],
+    "InventoryServiceApplicationTests.contextLoads": [],
+    "TestcontainersConfiguration.mysqlContainer": [],
+    "TestInventoryServiceApplication.main": [],
+    "NotificationServiceApplication.main": [],
+    "NotificationService.listen": [
+      "UserRepository.findByName",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "NotificationServiceApplicationTests.contextLoads": [],
+    "InventoryClient.isInStock": [],
+    "InventoryClient.updateQuantity": [],
+    "OrderController.placeOrder": [
+      "OrderService.placeOrder",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity",
+      "NotificationService.listen",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "OrderController.TestMapper": [
+      "OrderService.placeOrder",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity",
+      "NotificationService.listen",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "OrderServiceApplication.main": [],
+    "OrderService.placeOrder": [
+      "InventoryClient.isInStock",
+      "InventoryService.isInStock",
+      "InventoryController.isInStock",
+      "InventoryService.updateQuantity",
+      "InventoryController.updateQuantity",
+      "InventoryClient.updateQuantity",
+      "UserRepository.findByName",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "OrderServiceApplicationTests.contextLoads": [],
+    "TestOrderServiceApplication.main": [],
+    "ProductController.createProduct": [
+      "ProductService.createProduct",
+      "ProductService.getAllProducts",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity",
+      "NotificationService.listen",
+      "OrderService.placeOrder"
+    ],
+    "ProductController.getAllProducts": [
+      "ProductService.getAllProducts",
+      "ProductService.createProduct",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity",
+      "NotificationService.listen",
+      "OrderService.placeOrder"
+    ],
+    "ProductServiceApplication.main": [],
+    "ProductService.createProduct": [
+      "UserRepository.findByName",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "ProductService.getAllProducts": [
+      "UserRepository.findByName",
+      "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+      "InventoryRepository.findBySkuCode"
+    ],
+    "ProductServiceApplicationTests.contextLoads": [],
+    "TestcontainersConfiguration.mongoDbContainer": [],
+    "TestProductServiceApplication.main": [],
+    "ServiceRegistryApplication.main": [],
+    "ServiceRegistryApplicationTests.contextLoads": []
+  },
+  "reverse": {
+    "JwtUtil.validateToken": [
+      "AuthFilter.apply",
+      "AuthController.validateToken",
+      "AuthService.validateToken"
+    ],
+    "AuthService.validateToken": [
+      "AuthFilter.apply",
+      "AuthController.validateToken",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "JwtService.validateToken": [
+      "AuthFilter.apply",
+      "AuthController.validateToken",
+      "AuthService.validateToken",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "AuthController.validateToken": [
+      "AuthFilter.apply",
+      "AuthService.validateToken"
+    ],
+    "JwtService.getSignKey": [
+      "JwtUtil.validateToken",
+      "JwtService.validateToken",
+      "JwtService.createToken",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "AuthController.validateToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "JwtUtil.getSignKey": [
+      "JwtUtil.validateToken",
+      "JwtService.validateToken",
+      "JwtService.createToken",
+      "AuthFilter.apply"
+    ],
+    "AuthConfig.userDetailsService": [
+      "AuthConfig.authenticationProvider"
+    ],
+    "AuthConfig.passwordEncoder": [
+      "AuthConfig.authenticationProvider"
+    ],
+    "UserRepository.findByName": [
+      "CustomUserDetailsService.loadUserByUsername",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity",
+      "NotificationService.listen",
+      "OrderService.placeOrder",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "AuthService.saveUser": [
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "AuthController.validateToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "CustomUserDetails.getUsername": [
+      "AuthController.getToken"
+    ],
+    "CustomUserDetails.getPassword": [
+      "AuthController.getToken",
+      "AuthService.saveUser"
+    ],
+    "JwtService.generateToken": [
+      "AuthController.getToken",
+      "AuthService.generateToken",
+      "AuthService.saveUser",
+      "AuthService.validateToken",
+      "AuthController.addNewUser",
+      "AuthController.validateToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "AuthService.generateToken": [
+      "AuthController.getToken",
+      "AuthController.addNewUser",
+      "AuthController.validateToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "JwtService.createToken": [
+      "JwtService.generateToken",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "AuthController.validateToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "InventoryService.isInStock": [
+      "InventoryController.isInStock",
+      "OrderService.placeOrder",
+      "InventoryController.updateQuantity",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "AuthController.validateToken",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "InventoryClient.isInStock": [
+      "InventoryController.isInStock",
+      "OrderService.placeOrder"
+    ],
+    "InventoryService.updateQuantity": [
+      "InventoryController.updateQuantity",
+      "OrderService.placeOrder",
+      "InventoryController.isInStock",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "AuthController.validateToken",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "InventoryClient.updateQuantity": [
+      "InventoryController.updateQuantity",
+      "OrderService.placeOrder"
+    ],
+    "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual": [
+      "InventoryService.isInStock",
+      "InventoryService.updateQuantity",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "NotificationService.listen",
+      "OrderService.placeOrder",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "InventoryRepository.findBySkuCode": [
+      "InventoryService.updateQuantity",
+      "InventoryService.isInStock",
+      "AuthService.saveUser",
+      "AuthService.generateToken",
+      "AuthService.validateToken",
+      "JwtService.validateToken",
+      "JwtService.generateToken",
+      "JwtService.createToken",
+      "JwtService.getSignKey",
+      "NotificationService.listen",
+      "OrderService.placeOrder",
+      "ProductService.createProduct",
+      "ProductService.getAllProducts"
+    ],
+    "OrderService.placeOrder": [
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "AuthController.validateToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ],
+    "InventoryController.isInStock": [
+      "OrderService.placeOrder"
+    ],
+    "InventoryController.updateQuantity": [
+      "OrderService.placeOrder"
+    ],
+    "ProductService.createProduct": [
+      "ProductController.createProduct",
+      "ProductController.getAllProducts",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "AuthController.validateToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper"
+    ],
+    "ProductService.getAllProducts": [
+      "ProductController.getAllProducts",
+      "ProductController.createProduct",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "AuthController.validateToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper"
+    ],
+    "NotificationService.listen": [
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "AuthController.validateToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
+    ]
+  }
+}

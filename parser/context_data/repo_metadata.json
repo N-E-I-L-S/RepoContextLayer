@@ -1,0 +1,1021 @@
+[
+  {
+    "id": "ApiGatewayApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "ApiGatewayApplication",
+    "method": "main",
+    "file": "../api-gateway/src/main/java/com/neil/gateway/ApiGatewayApplication.java"
+  },
+  {
+    "id": "ApiGatewayApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "ApiGatewayApplication",
+    "file": "../api-gateway/src/main/java/com/neil/gateway/ApiGatewayApplication.java"
+  },
+  {
+    "id": "AuthFilter.apply",
+    "type": "method",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "AuthFilter",
+    "method": "apply",
+    "file": "../api-gateway/src/main/java/com/neil/gateway/filter/AuthFilter.java"
+  },
+  {
+    "id": "AuthFilter",
+    "type": "class",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "AuthFilter",
+    "file": "../api-gateway/src/main/java/com/neil/gateway/filter/AuthFilter.java"
+  },
+  {
+    "id": "Config",
+    "type": "class",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "Config",
+    "file": "../api-gateway/src/main/java/com/neil/gateway/filter/AuthFilter.java"
+  },
+  {
+    "id": "RouteValidator",
+    "type": "class",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "RouteValidator",
+    "file": "../api-gateway/src/main/java/com/neil/gateway/filter/RouteValidator.java"
+  },
+  {
+    "id": "JwtUtil.validateToken",
+    "type": "method",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "JwtUtil",
+    "method": "validateToken",
+    "file": "../api-gateway/src/main/java/com/neil/gateway/util/JwtUtil.java"
+  },
+  {
+    "id": "JwtUtil.getSignKey",
+    "type": "method",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "JwtUtil",
+    "method": "getSignKey",
+    "file": "../api-gateway/src/main/java/com/neil/gateway/util/JwtUtil.java"
+  },
+  {
+    "id": "JwtUtil",
+    "type": "class",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "JwtUtil",
+    "file": "../api-gateway/src/main/java/com/neil/gateway/util/JwtUtil.java"
+  },
+  {
+    "id": "ApiGatewayApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "ApiGatewayApplicationTests",
+    "method": "contextLoads",
+    "file": "../api-gateway/src/test/java/com/neil/gateway/ApiGatewayApplicationTests.java"
+  },
+  {
+    "id": "ApiGatewayApplicationTests",
+    "type": "class",
+    "layer": "unknown",
+    "service": "api-gateway",
+    "class": "ApiGatewayApplicationTests",
+    "file": "../api-gateway/src/test/java/com/neil/gateway/ApiGatewayApplicationTests.java"
+  },
+  {
+    "id": "AuthConfig.userDetailsService",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "AuthConfig",
+    "method": "userDetailsService",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/AuthConfig.java"
+  },
+  {
+    "id": "AuthConfig.securityFilterChain",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "AuthConfig",
+    "method": "securityFilterChain",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/AuthConfig.java"
+  },
+  {
+    "id": "AuthConfig.passwordEncoder",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "AuthConfig",
+    "method": "passwordEncoder",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/AuthConfig.java"
+  },
+  {
+    "id": "AuthConfig.authenticationProvider",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "AuthConfig",
+    "method": "authenticationProvider",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/AuthConfig.java"
+  },
+  {
+    "id": "AuthConfig.authenticationManager",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "AuthConfig",
+    "method": "authenticationManager",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/AuthConfig.java"
+  },
+  {
+    "id": "AuthConfig",
+    "type": "class",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "AuthConfig",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/AuthConfig.java"
+  },
+  {
+    "id": "CustomUserDetails.getAuthorities",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetails",
+    "method": "getAuthorities",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetails.java"
+  },
+  {
+    "id": "CustomUserDetails.getPassword",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetails",
+    "method": "getPassword",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetails.java"
+  },
+  {
+    "id": "CustomUserDetails.getUsername",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetails",
+    "method": "getUsername",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetails.java"
+  },
+  {
+    "id": "CustomUserDetails.isAccountNonExpired",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetails",
+    "method": "isAccountNonExpired",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetails.java"
+  },
+  {
+    "id": "CustomUserDetails.isAccountNonLocked",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetails",
+    "method": "isAccountNonLocked",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetails.java"
+  },
+  {
+    "id": "CustomUserDetails.isCredentialsNonExpired",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetails",
+    "method": "isCredentialsNonExpired",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetails.java"
+  },
+  {
+    "id": "CustomUserDetails.isEnabled",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetails",
+    "method": "isEnabled",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetails.java"
+  },
+  {
+    "id": "CustomUserDetails",
+    "type": "class",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetails",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetails.java"
+  },
+  {
+    "id": "CustomUserDetailsService.loadUserByUsername",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetailsService",
+    "method": "loadUserByUsername",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetailsService.java"
+  },
+  {
+    "id": "CustomUserDetailsService",
+    "type": "class",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "CustomUserDetailsService",
+    "file": "../identity-service/src/main/java/com/neil/identity/config/CustomUserDetailsService.java"
+  },
+  {
+    "id": "AuthController.addNewUser",
+    "type": "method",
+    "layer": "controller",
+    "service": "identity-service",
+    "class": "AuthController",
+    "method": "addNewUser",
+    "file": "../identity-service/src/main/java/com/neil/identity/controller/AuthController.java"
+  },
+  {
+    "id": "AuthController.getToken",
+    "type": "method",
+    "layer": "controller",
+    "service": "identity-service",
+    "class": "AuthController",
+    "method": "getToken",
+    "file": "../identity-service/src/main/java/com/neil/identity/controller/AuthController.java"
+  },
+  {
+    "id": "AuthController.validateToken",
+    "type": "method",
+    "layer": "controller",
+    "service": "identity-service",
+    "class": "AuthController",
+    "method": "validateToken",
+    "file": "../identity-service/src/main/java/com/neil/identity/controller/AuthController.java"
+  },
+  {
+    "id": "AuthController",
+    "type": "class",
+    "layer": "controller",
+    "service": "identity-service",
+    "class": "AuthController",
+    "file": "../identity-service/src/main/java/com/neil/identity/controller/AuthController.java"
+  },
+  {
+    "id": "AuthRequest",
+    "type": "class",
+    "layer": "dto",
+    "service": "identity-service",
+    "class": "AuthRequest",
+    "file": "../identity-service/src/main/java/com/neil/identity/dto/AuthRequest.java"
+  },
+  {
+    "id": "User",
+    "type": "class",
+    "layer": "model",
+    "service": "identity-service",
+    "class": "User",
+    "file": "../identity-service/src/main/java/com/neil/identity/entity/User.java"
+  },
+  {
+    "id": "User",
+    "type": "model",
+    "service": "identity-service",
+    "class": "User",
+    "file": "../identity-service/src/main/java/com/neil/identity/entity/User.java"
+  },
+  {
+    "id": "IdentityServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "IdentityServiceApplication",
+    "method": "main",
+    "file": "../identity-service/src/main/java/com/neil/identity/IdentityServiceApplication.java"
+  },
+  {
+    "id": "IdentityServiceApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "IdentityServiceApplication",
+    "file": "../identity-service/src/main/java/com/neil/identity/IdentityServiceApplication.java"
+  },
+  {
+    "id": "UserRepository.findByName",
+    "type": "method",
+    "layer": "repository",
+    "service": "identity-service",
+    "class": "UserRepository",
+    "method": "findByName",
+    "file": "../identity-service/src/main/java/com/neil/identity/repository/UserRepository.java"
+  },
+  {
+    "id": "UserRepository",
+    "type": "class",
+    "layer": "repository",
+    "service": "identity-service",
+    "class": "UserRepository",
+    "file": "../identity-service/src/main/java/com/neil/identity/repository/UserRepository.java"
+  },
+  {
+    "id": "UserRepository",
+    "type": "repository",
+    "service": "identity-service",
+    "repository": "UserRepository",
+    "model": "User",
+    "file": "../identity-service/src/main/java/com/neil/identity/repository/UserRepository.java"
+  },
+  {
+    "id": "AuthService.saveUser",
+    "type": "method",
+    "layer": "service",
+    "service": "identity-service",
+    "class": "AuthService",
+    "method": "saveUser",
+    "file": "../identity-service/src/main/java/com/neil/identity/service/AuthService.java"
+  },
+  {
+    "id": "AuthService.generateToken",
+    "type": "method",
+    "layer": "service",
+    "service": "identity-service",
+    "class": "AuthService",
+    "method": "generateToken",
+    "file": "../identity-service/src/main/java/com/neil/identity/service/AuthService.java"
+  },
+  {
+    "id": "AuthService.validateToken",
+    "type": "method",
+    "layer": "service",
+    "service": "identity-service",
+    "class": "AuthService",
+    "method": "validateToken",
+    "file": "../identity-service/src/main/java/com/neil/identity/service/AuthService.java"
+  },
+  {
+    "id": "AuthService",
+    "type": "class",
+    "layer": "service",
+    "service": "identity-service",
+    "class": "AuthService",
+    "file": "../identity-service/src/main/java/com/neil/identity/service/AuthService.java"
+  },
+  {
+    "id": "JwtService.validateToken",
+    "type": "method",
+    "layer": "service",
+    "service": "identity-service",
+    "class": "JwtService",
+    "method": "validateToken",
+    "file": "../identity-service/src/main/java/com/neil/identity/service/JwtService.java"
+  },
+  {
+    "id": "JwtService.generateToken",
+    "type": "method",
+    "layer": "service",
+    "service": "identity-service",
+    "class": "JwtService",
+    "method": "generateToken",
+    "file": "../identity-service/src/main/java/com/neil/identity/service/JwtService.java"
+  },
+  {
+    "id": "JwtService.createToken",
+    "type": "method",
+    "layer": "service",
+    "service": "identity-service",
+    "class": "JwtService",
+    "method": "createToken",
+    "file": "../identity-service/src/main/java/com/neil/identity/service/JwtService.java"
+  },
+  {
+    "id": "JwtService.getSignKey",
+    "type": "method",
+    "layer": "service",
+    "service": "identity-service",
+    "class": "JwtService",
+    "method": "getSignKey",
+    "file": "../identity-service/src/main/java/com/neil/identity/service/JwtService.java"
+  },
+  {
+    "id": "JwtService",
+    "type": "class",
+    "layer": "service",
+    "service": "identity-service",
+    "class": "JwtService",
+    "file": "../identity-service/src/main/java/com/neil/identity/service/JwtService.java"
+  },
+  {
+    "id": "IdentityServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "IdentityServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "../identity-service/src/test/java/com/neil/identity/IdentityServiceApplicationTests.java"
+  },
+  {
+    "id": "IdentityServiceApplicationTests",
+    "type": "class",
+    "layer": "unknown",
+    "service": "identity-service",
+    "class": "IdentityServiceApplicationTests",
+    "file": "../identity-service/src/test/java/com/neil/identity/IdentityServiceApplicationTests.java"
+  },
+  {
+    "id": "InventoryController.isInStock",
+    "type": "method",
+    "layer": "controller",
+    "service": "inventory-service",
+    "class": "InventoryController",
+    "method": "isInStock",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/controller/InventoryController.java"
+  },
+  {
+    "id": "InventoryController.updateQuantity",
+    "type": "method",
+    "layer": "controller",
+    "service": "inventory-service",
+    "class": "InventoryController",
+    "method": "updateQuantity",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/controller/InventoryController.java"
+  },
+  {
+    "id": "InventoryController",
+    "type": "class",
+    "layer": "controller",
+    "service": "inventory-service",
+    "class": "InventoryController",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/controller/InventoryController.java"
+  },
+  {
+    "id": "InventoryServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "inventory-service",
+    "class": "InventoryServiceApplication",
+    "method": "main",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/InventoryServiceApplication.java"
+  },
+  {
+    "id": "InventoryServiceApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "inventory-service",
+    "class": "InventoryServiceApplication",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/InventoryServiceApplication.java"
+  },
+  {
+    "id": "Inventory",
+    "type": "class",
+    "layer": "model",
+    "service": "inventory-service",
+    "class": "Inventory",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/model/Inventory.java"
+  },
+  {
+    "id": "Inventory",
+    "type": "model",
+    "service": "inventory-service",
+    "class": "Inventory",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/model/Inventory.java"
+  },
+  {
+    "id": "InventoryRepository.existsBySkuCodeAndQuantityIsGreaterThanEqual",
+    "type": "method",
+    "layer": "repository",
+    "service": "inventory-service",
+    "class": "InventoryRepository",
+    "method": "existsBySkuCodeAndQuantityIsGreaterThanEqual",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/repository/InventoryRepository.java"
+  },
+  {
+    "id": "InventoryRepository.findBySkuCode",
+    "type": "method",
+    "layer": "repository",
+    "service": "inventory-service",
+    "class": "InventoryRepository",
+    "method": "findBySkuCode",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/repository/InventoryRepository.java"
+  },
+  {
+    "id": "InventoryRepository",
+    "type": "class",
+    "layer": "repository",
+    "service": "inventory-service",
+    "class": "InventoryRepository",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/repository/InventoryRepository.java"
+  },
+  {
+    "id": "InventoryRepository",
+    "type": "repository",
+    "service": "inventory-service",
+    "repository": "InventoryRepository",
+    "model": "Inventory",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/repository/InventoryRepository.java"
+  },
+  {
+    "id": "InventoryService.isInStock",
+    "type": "method",
+    "layer": "service",
+    "service": "inventory-service",
+    "class": "InventoryService",
+    "method": "isInStock",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/serivce/InventoryService.java"
+  },
+  {
+    "id": "InventoryService.updateQuantity",
+    "type": "method",
+    "layer": "service",
+    "service": "inventory-service",
+    "class": "InventoryService",
+    "method": "updateQuantity",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/serivce/InventoryService.java"
+  },
+  {
+    "id": "InventoryService",
+    "type": "class",
+    "layer": "service",
+    "service": "inventory-service",
+    "class": "InventoryService",
+    "file": "../inventory-service/src/main/java/com/neil/microservices/inventory/serivce/InventoryService.java"
+  },
+  {
+    "id": "InventoryServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "service": "inventory-service",
+    "class": "InventoryServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "../inventory-service/src/test/java/com/neil/microservices/inventory/InventoryServiceApplicationTests.java"
+  },
+  {
+    "id": "InventoryServiceApplicationTests",
+    "type": "class",
+    "layer": "unknown",
+    "service": "inventory-service",
+    "class": "InventoryServiceApplicationTests",
+    "file": "../inventory-service/src/test/java/com/neil/microservices/inventory/InventoryServiceApplicationTests.java"
+  },
+  {
+    "id": "TestcontainersConfiguration.mysqlContainer",
+    "type": "method",
+    "layer": "unknown",
+    "service": "inventory-service",
+    "class": "TestcontainersConfiguration",
+    "method": "mysqlContainer",
+    "file": "../inventory-service/src/test/java/com/neil/microservices/inventory/TestcontainersConfiguration.java"
+  },
+  {
+    "id": "TestcontainersConfiguration",
+    "type": "class",
+    "layer": "unknown",
+    "service": "inventory-service",
+    "class": "TestcontainersConfiguration",
+    "file": "../inventory-service/src/test/java/com/neil/microservices/inventory/TestcontainersConfiguration.java"
+  },
+  {
+    "id": "TestInventoryServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "inventory-service",
+    "class": "TestInventoryServiceApplication",
+    "method": "main",
+    "file": "../inventory-service/src/test/java/com/neil/microservices/inventory/TestInventoryServiceApplication.java"
+  },
+  {
+    "id": "TestInventoryServiceApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "inventory-service",
+    "class": "TestInventoryServiceApplication",
+    "file": "../inventory-service/src/test/java/com/neil/microservices/inventory/TestInventoryServiceApplication.java"
+  },
+  {
+    "id": "NotificationServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "notification-service",
+    "class": "NotificationServiceApplication",
+    "method": "main",
+    "file": "../notification-service/src/main/java/com/neil/notification/NotificationServiceApplication.java"
+  },
+  {
+    "id": "NotificationServiceApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "notification-service",
+    "class": "NotificationServiceApplication",
+    "file": "../notification-service/src/main/java/com/neil/notification/NotificationServiceApplication.java"
+  },
+  {
+    "id": "OrderPlacedEvent",
+    "type": "class",
+    "layer": "unknown",
+    "service": "notification-service",
+    "class": "OrderPlacedEvent",
+    "file": "../notification-service/src/main/java/com/neil/notification/order/OrderPlacedEvent.java"
+  },
+  {
+    "id": "NotificationService.listen",
+    "type": "method",
+    "layer": "service",
+    "service": "notification-service",
+    "class": "NotificationService",
+    "method": "listen",
+    "file": "../notification-service/src/main/java/com/neil/notification/service/NotificationService.java"
+  },
+  {
+    "id": "NotificationService",
+    "type": "class",
+    "layer": "service",
+    "service": "notification-service",
+    "class": "NotificationService",
+    "file": "../notification-service/src/main/java/com/neil/notification/service/NotificationService.java"
+  },
+  {
+    "id": "NotificationServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "service": "notification-service",
+    "class": "NotificationServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "../notification-service/src/test/java/com/neil/notification/NotificationServiceApplicationTests.java"
+  },
+  {
+    "id": "NotificationServiceApplicationTests",
+    "type": "class",
+    "layer": "unknown",
+    "service": "notification-service",
+    "class": "NotificationServiceApplicationTests",
+    "file": "../notification-service/src/test/java/com/neil/notification/NotificationServiceApplicationTests.java"
+  },
+  {
+    "id": "InventoryClient.isInStock",
+    "type": "method",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "InventoryClient",
+    "method": "isInStock",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/client/InventoryClient.java"
+  },
+  {
+    "id": "InventoryClient.updateQuantity",
+    "type": "method",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "InventoryClient",
+    "method": "updateQuantity",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/client/InventoryClient.java"
+  },
+  {
+    "id": "InventoryClient",
+    "type": "class",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "InventoryClient",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/client/InventoryClient.java"
+  },
+  {
+    "id": "OrderController.placeOrder",
+    "type": "method",
+    "layer": "controller",
+    "service": "order-service",
+    "class": "OrderController",
+    "method": "placeOrder",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/controller/OrderController.java"
+  },
+  {
+    "id": "OrderController.TestMapper",
+    "type": "method",
+    "layer": "controller",
+    "service": "order-service",
+    "class": "OrderController",
+    "method": "TestMapper",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/controller/OrderController.java"
+  },
+  {
+    "id": "OrderController",
+    "type": "class",
+    "layer": "controller",
+    "service": "order-service",
+    "class": "OrderController",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/controller/OrderController.java"
+  },
+  {
+    "id": "OrderPlacedEvent",
+    "type": "class",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "OrderPlacedEvent",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/event/OrderPlacedEvent.java"
+  },
+  {
+    "id": "Order",
+    "type": "class",
+    "layer": "model",
+    "service": "order-service",
+    "class": "Order",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/model/Order.java"
+  },
+  {
+    "id": "Order",
+    "type": "model",
+    "service": "order-service",
+    "class": "Order",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/model/Order.java"
+  },
+  {
+    "id": "OrderServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "OrderServiceApplication",
+    "method": "main",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/OrderServiceApplication.java"
+  },
+  {
+    "id": "OrderServiceApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "OrderServiceApplication",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/OrderServiceApplication.java"
+  },
+  {
+    "id": "OrderRepository",
+    "type": "class",
+    "layer": "repository",
+    "service": "order-service",
+    "class": "OrderRepository",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/repository/OrderRepository.java"
+  },
+  {
+    "id": "OrderRepository",
+    "type": "repository",
+    "service": "order-service",
+    "repository": "OrderRepository",
+    "model": "Order",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/repository/OrderRepository.java"
+  },
+  {
+    "id": "OrderService.placeOrder",
+    "type": "method",
+    "layer": "service",
+    "service": "order-service",
+    "class": "OrderService",
+    "method": "placeOrder",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/service/OrderService.java"
+  },
+  {
+    "id": "OrderService",
+    "type": "class",
+    "layer": "service",
+    "service": "order-service",
+    "class": "OrderService",
+    "file": "../order-service/src/main/java/com/neil/microservices/order/service/OrderService.java"
+  },
+  {
+    "id": "OrderServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "OrderServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "../order-service/src/test/java/com/neil/microservices/order/OrderServiceApplicationTests.java"
+  },
+  {
+    "id": "OrderServiceApplicationTests",
+    "type": "class",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "OrderServiceApplicationTests",
+    "file": "../order-service/src/test/java/com/neil/microservices/order/OrderServiceApplicationTests.java"
+  },
+  {
+    "id": "TestcontainersConfiguration.mysqlContainer",
+    "type": "method",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "TestcontainersConfiguration",
+    "method": "mysqlContainer",
+    "file": "../order-service/src/test/java/com/neil/microservices/order/TestcontainersConfiguration.java"
+  },
+  {
+    "id": "TestcontainersConfiguration",
+    "type": "class",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "TestcontainersConfiguration",
+    "file": "../order-service/src/test/java/com/neil/microservices/order/TestcontainersConfiguration.java"
+  },
+  {
+    "id": "TestOrderServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "TestOrderServiceApplication",
+    "method": "main",
+    "file": "../order-service/src/test/java/com/neil/microservices/order/TestOrderServiceApplication.java"
+  },
+  {
+    "id": "TestOrderServiceApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "order-service",
+    "class": "TestOrderServiceApplication",
+    "file": "../order-service/src/test/java/com/neil/microservices/order/TestOrderServiceApplication.java"
+  },
+  {
+    "id": "ProductController.createProduct",
+    "type": "method",
+    "layer": "controller",
+    "service": "product-service",
+    "class": "ProductController",
+    "method": "createProduct",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/controller/ProductController.java"
+  },
+  {
+    "id": "ProductController.getAllProducts",
+    "type": "method",
+    "layer": "controller",
+    "service": "product-service",
+    "class": "ProductController",
+    "method": "getAllProducts",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/controller/ProductController.java"
+  },
+  {
+    "id": "ProductController",
+    "type": "class",
+    "layer": "controller",
+    "service": "product-service",
+    "class": "ProductController",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/controller/ProductController.java"
+  },
+  {
+    "id": "Product",
+    "type": "class",
+    "layer": "model",
+    "service": "product-service",
+    "class": "Product",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/model/Product.java"
+  },
+  {
+    "id": "Product",
+    "type": "model",
+    "service": "product-service",
+    "class": "Product",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/model/Product.java"
+  },
+  {
+    "id": "ProductServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "product-service",
+    "class": "ProductServiceApplication",
+    "method": "main",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/ProductServiceApplication.java"
+  },
+  {
+    "id": "ProductServiceApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "product-service",
+    "class": "ProductServiceApplication",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/ProductServiceApplication.java"
+  },
+  {
+    "id": "ProductRepository",
+    "type": "class",
+    "layer": "repository",
+    "service": "product-service",
+    "class": "ProductRepository",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/repository/ProductRepository.java"
+  },
+  {
+    "id": "ProductRepository",
+    "type": "repository",
+    "service": "product-service",
+    "repository": "ProductRepository",
+    "model": "Product",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/repository/ProductRepository.java"
+  },
+  {
+    "id": "ProductService.createProduct",
+    "type": "method",
+    "layer": "service",
+    "service": "product-service",
+    "class": "ProductService",
+    "method": "createProduct",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/service/ProductService.java"
+  },
+  {
+    "id": "ProductService.getAllProducts",
+    "type": "method",
+    "layer": "service",
+    "service": "product-service",
+    "class": "ProductService",
+    "method": "getAllProducts",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/service/ProductService.java"
+  },
+  {
+    "id": "ProductService",
+    "type": "class",
+    "layer": "service",
+    "service": "product-service",
+    "class": "ProductService",
+    "file": "../product-service/src/main/java/com/neil/microservices/product/service/ProductService.java"
+  },
+  {
+    "id": "ProductServiceApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "service": "product-service",
+    "class": "ProductServiceApplicationTests",
+    "method": "contextLoads",
+    "file": "../product-service/src/test/java/com/neil/microservices/product/ProductServiceApplicationTests.java"
+  },
+  {
+    "id": "ProductServiceApplicationTests",
+    "type": "class",
+    "layer": "unknown",
+    "service": "product-service",
+    "class": "ProductServiceApplicationTests",
+    "file": "../product-service/src/test/java/com/neil/microservices/product/ProductServiceApplicationTests.java"
+  },
+  {
+    "id": "TestcontainersConfiguration.mongoDbContainer",
+    "type": "method",
+    "layer": "unknown",
+    "service": "product-service",
+    "class": "TestcontainersConfiguration",
+    "method": "mongoDbContainer",
+    "file": "../product-service/src/test/java/com/neil/microservices/product/TestcontainersConfiguration.java"
+  },
+  {
+    "id": "TestcontainersConfiguration",
+    "type": "class",
+    "layer": "unknown",
+    "service": "product-service",
+    "class": "TestcontainersConfiguration",
+    "file": "../product-service/src/test/java/com/neil/microservices/product/TestcontainersConfiguration.java"
+  },
+  {
+    "id": "TestProductServiceApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "product-service",
+    "class": "TestProductServiceApplication",
+    "method": "main",
+    "file": "../product-service/src/test/java/com/neil/microservices/product/TestProductServiceApplication.java"
+  },
+  {
+    "id": "TestProductServiceApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "product-service",
+    "class": "TestProductServiceApplication",
+    "file": "../product-service/src/test/java/com/neil/microservices/product/TestProductServiceApplication.java"
+  },
+  {
+    "id": "ServiceRegistryApplication.main",
+    "type": "method",
+    "layer": "unknown",
+    "service": "service-registry",
+    "class": "ServiceRegistryApplication",
+    "method": "main",
+    "file": "../service-registry/src/main/java/com/neil/Registry/ServiceRegistryApplication.java"
+  },
+  {
+    "id": "ServiceRegistryApplication",
+    "type": "class",
+    "layer": "unknown",
+    "service": "service-registry",
+    "class": "ServiceRegistryApplication",
+    "file": "../service-registry/src/main/java/com/neil/Registry/ServiceRegistryApplication.java"
+  },
+  {
+    "id": "ServiceRegistryApplicationTests.contextLoads",
+    "type": "method",
+    "layer": "unknown",
+    "service": "service-registry",
+    "class": "ServiceRegistryApplicationTests",
+    "method": "contextLoads",
+    "file": "../service-registry/src/test/java/com/neil/Registry/ServiceRegistryApplicationTests.java"
+  },
+  {
+    "id": "ServiceRegistryApplicationTests",
+    "type": "class",
+    "layer": "unknown",
+    "service": "service-registry",
+    "class": "ServiceRegistryApplicationTests",
+    "file": "../service-registry/src/test/java/com/neil/Registry/ServiceRegistryApplicationTests.java"
+  }
+]

@@ -5,7 +5,7 @@ echo "Starting Code Parser..."
 node analyze-repo.js
 
 echo "Code Parser finished, created repo-context. Starting to build repo-graph..."
-node build_graph.js
+@REM node build_graph.js
 
 echo "repo-graph built. Starting to build call_graph..."
 python graph-index.py

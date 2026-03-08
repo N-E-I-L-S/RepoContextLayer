@@ -1,14 +1,26 @@
 @echo off
 
-echo "Cleaning up repo_metadata.json..."
-DEL /context_data/repo_metadata.json
+if exist "context_data\repo_metadata.json" (
+    echo Cleaning repo_metadata.json...
+    del /f /q "context_data\repo_metadata.json"
+)
 
-echo "Cleaning up repo-graph.json..."
-DEL /context_data/repo-graph.json
+if exist "context_data\repo-graph.json" (
+    echo Cleaning repo-graph.json...
+    del /f /q "context_data\repo-graph.json"
+)
 
-echo "Cleaning up call_graph.json..."
-DEL /context_data/call_graph.json
+if exist "context_data\call_graph.json" (
+    echo Cleaning call_graph.json...
+    del /f /q "context_data\call_graph.json"
+)
 
-echo "Cleaning up repo-context.json and Index..."
-DEL /context_data/repo-context.json
-DEL /context_data/repo_index.faiss
+if exist "context_data\repo-context.json" (
+    echo Cleaning repo-context.json...
+    del /f /q "context_data\repo-context.json"
+)
+
+if exist "context_data\repo_index.faiss" (
+    echo Cleaning repo_index.faiss...
+    del /f /q "context_data\repo_index.faiss"
+)

@@ -6,8 +6,11 @@ with open("context_data/repo-context.json", "r", encoding="utf-8") as f:
 graph = {}
 reverse_graph = {}
 
-# Build method index first
 method_index = {}
+
+# -------------------------
+# Build method index
+# -------------------------
 
 for item in repo:
     if item["type"] == "method":
@@ -15,23 +18,37 @@ for item in repo:
         method_index[item["method"]] = full_name
         graph[full_name] = []
 
-# Build edges
+# -------------------------
+# Build call edges
+# -------------------------
+
 for item in repo:
-    if item["type"] == "method":
 
-        source = f"{item['class']}.{item['method']}"
+    if item["type"] != "method":
+        continue
 
-        for call in item.get("calls", []):
-            if call in method_index:
-                target = method_index[call]
+    source = f"{item['class']}.{item['method']}"
 
-                graph[source].append(target)
-                reverse_graph.setdefault(target, []).append(source)
+    for call in item.get("calls", []):
+
+        if call in method_index:
+            target = method_index[call]
+
+            graph[source].append(target)
+            reverse_graph.setdefault(target, []).append(source)
+
+# -------------------------
+# Save graph
+# -------------------------
 
 with open("context_data/call_graph.json", "w", encoding="utf-8") as f:
-    json.dump({
-        "forward": graph,
-        "reverse": reverse_graph
-    }, f, indent=2)
+    json.dump(
+        {
+            "forward": graph,
+            "reverse": reverse_graph
+        },
+        f,
+        indent=2
+    )
 
 print("✅ Graph index built.")

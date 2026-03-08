@@ -29,3 +29,107 @@ build_graph.py
 call_graph.json
 ↓
 embed_repo.py
+
+
+Remove field only nodes -> move fields inside classes and methods
+Implement BM25 for keyword matching
+
+Class node schema:
+{
+  "id": "InventoryService",
+  "type": "class",
+  "layer": "service",
+  "class": "InventoryService",
+  "file": "inventory-service/src/.../InventoryService.java",
+
+  "annotations": [List_of_annotations],
+
+  "fields": [
+    {
+      "name": "inventoryRepository",
+      "type": "InventoryRepository"
+    }
+  ],
+
+  "injections": [
+    {
+      "field": "inventoryRepository",
+      "type": "InventoryRepository"
+    }
+  ],
+
+  "methods": [
+    "InventoryService.updateStock",
+    "InventoryService.getInventory"
+  ],
+
+  "location": {
+    "start": { "line": 1 },
+    "end": { "line": 120 }
+  }
+}
+
+Method node:
+{
+  "id": "InventoryService.updateStock",
+  "type": "method",
+
+  "layer": "service",
+
+  "class": "InventoryService",
+  "method": "updateStock",
+
+  "returnType": "Inventory",
+
+  "parameters": [
+    "Long id",
+    "int quantity"
+  ],
+
+  "annotations": ["Transactional"],
+
+  "calls": [
+    "InventoryRepository.save"
+  ],
+
+  "reads": [
+    "Inventory.quantity"
+  ],
+
+  "writes": [
+    "Inventory.quantity"
+  ],
+
+  "file": "inventory-service/src/.../InventoryService.java",
+
+  "location": {
+    "start": { "line": 40 },
+    "end": { "line": 70 }
+  }
+}
+
+Repo Node:
+{
+  "id": "InventoryRepository",
+  "type": "repository",
+  "layer": "repository",
+  "class": "InventoryRepository",
+  "model": "Inventory",
+  "file": "...",
+  "location": {...}
+}
+
+Model node:
+{
+  "id": "Inventory",
+  "type": "model",
+  "layer": "model",
+
+  "fields": [
+    { "name": "id", "type": "Long" },
+    { "name": "quantity", "type": "int" }
+  ],
+
+  "file": "...",
+  "location": {...}
+}

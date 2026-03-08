@@ -1,0 +1,140 @@
+{
+  "ApiGatewayApplication": {
+    "file": "..\\api-gateway\\src\\main\\java\\com\\neil\\gateway\\ApiGatewayApplication.java"
+  },
+  "AuthFilter": {
+    "file": "..\\api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java"
+  },
+  "Config": {
+    "file": "..\\api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\AuthFilter.java"
+  },
+  "RouteValidator": {
+    "file": "..\\api-gateway\\src\\main\\java\\com\\neil\\gateway\\filter\\RouteValidator.java"
+  },
+  "JwtUtil": {
+    "file": "..\\api-gateway\\src\\main\\java\\com\\neil\\gateway\\util\\JwtUtil.java"
+  },
+  "ApiGatewayApplicationTests": {
+    "file": "..\\api-gateway\\src\\test\\java\\com\\neil\\gateway\\ApiGatewayApplicationTests.java"
+  },
+  "AuthConfig": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\config\\AuthConfig.java"
+  },
+  "CustomUserDetails": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetails.java"
+  },
+  "CustomUserDetailsService": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\config\\CustomUserDetailsService.java"
+  },
+  "AuthController": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\controller\\AuthController.java"
+  },
+  "AuthRequest": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\dto\\AuthRequest.java"
+  },
+  "User": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\entity\\User.java"
+  },
+  "IdentityServiceApplication": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\IdentityServiceApplication.java"
+  },
+  "UserRepository": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\repository\\UserRepository.java"
+  },
+  "AuthService": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\service\\AuthService.java"
+  },
+  "JwtService": {
+    "file": "..\\identity-service\\src\\main\\java\\com\\neil\\identity\\service\\JwtService.java"
+  },
+  "IdentityServiceApplicationTests": {
+    "file": "..\\identity-service\\src\\test\\java\\com\\neil\\identity\\IdentityServiceApplicationTests.java"
+  },
+  "InventoryController": {
+    "file": "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\controller\\InventoryController.java"
+  },
+  "InventoryServiceApplication": {
+    "file": "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\InventoryServiceApplication.java"
+  },
+  "Inventory": {
+    "file": "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\model\\Inventory.java"
+  },
+  "InventoryRepository": {
+    "file": "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\repository\\InventoryRepository.java"
+  },
+  "InventoryService": {
+    "file": "..\\inventory-service\\src\\main\\java\\com\\neil\\microservices\\inventory\\serivce\\InventoryService.java"
+  },
+  "InventoryServiceApplicationTests": {
+    "file": "..\\inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\InventoryServiceApplicationTests.java"
+  },
+  "TestcontainersConfiguration": {
+    "file": "..\\product-service\\src\\test\\java\\com\\neil\\microservices\\product\\TestcontainersConfiguration.java"
+  },
+  "TestInventoryServiceApplication": {
+    "file": "..\\inventory-service\\src\\test\\java\\com\\neil\\microservices\\inventory\\TestInventoryServiceApplication.java"
+  },
+  "NotificationServiceApplication": {
+    "file": "..\\notification-service\\src\\main\\java\\com\\neil\\notification\\NotificationServiceApplication.java"
+  },
+  "OrderPlacedEvent": {
+    "file": "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\event\\OrderPlacedEvent.java"
+  },
+  "NotificationService": {
+    "file": "..\\notification-service\\src\\main\\java\\com\\neil\\notification\\service\\NotificationService.java"
+  },
+  "NotificationServiceApplicationTests": {
+    "file": "..\\notification-service\\src\\test\\java\\com\\neil\\notification\\NotificationServiceApplicationTests.java"
+  },
+  "InventoryClient": {
+    "file": "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\client\\InventoryClient.java"
+  },
+  "OrderController": {
+    "file": "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\controller\\OrderController.java"
+  },
+  "Order": {
+    "file": "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\model\\Order.java"
+  },
+  "OrderServiceApplication": {
+    "file": "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\OrderServiceApplication.java"
+  },
+  "OrderRepository": {
+    "file": "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\repository\\OrderRepository.java"
+  },
+  "OrderService": {
+    "file": "..\\order-service\\src\\main\\java\\com\\neil\\microservices\\order\\service\\OrderService.java"
+  },
+  "OrderServiceApplicationTests": {
+    "file": "..\\order-service\\src\\test\\java\\com\\neil\\microservices\\order\\OrderServiceApplicationTests.java"
+  },
+  "TestOrderServiceApplication": {
+    "file": "..\\order-service\\src\\test\\java\\com\\neil\\microservices\\order\\TestOrderServiceApplication.java"
+  },
+  "ProductController": {
+    "file": "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\controller\\ProductController.java"
+  },
+  "Product": {
+    "file": "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\model\\Product.java"
+  },
+  "ProductServiceApplication": {
+    "file": "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\ProductServiceApplication.java"
+  },
+  "ProductRepository": {
+    "file": "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\repository\\ProductRepository.java"
+  },
+  "ProductService": {
+    "file": "..\\product-service\\src\\main\\java\\com\\neil\\microservices\\product\\service\\ProductService.java"
+  },
+  "ProductServiceApplicationTests": {
+    "file": "..\\product-service\\src\\test\\java\\com\\neil\\microservices\\product\\ProductServiceApplicationTests.java"
+  },
+  "TestProductServiceApplication": {
+    "file": "..\\product-service\\src\\test\\java\\com\\neil\\microservices\\product\\TestProductServiceApplication.java"
+  },
+  "ServiceRegistryApplication": {
+    "file": "..\\service-registry\\src\\main\\java\\com\\neil\\Registry\\ServiceRegistryApplication.java"
+  },
+  "ServiceRegistryApplicationTests": {
+    "file": "..\\service-registry\\src\\test\\java\\com\\neil\\Registry\\ServiceRegistryApplicationTests.java"
+  }
+}

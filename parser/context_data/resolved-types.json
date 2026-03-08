@@ -1,0 +1,15 @@
+{
+  "AuthFilter.validator": "RouteValidator",
+  "AuthFilter.jwtUtil": "JwtUtil",
+  "CustomUserDetailsService.userRepository": "UserRepository",
+  "AuthController.service": "AuthService",
+  "AuthService.repository": "UserRepository",
+  "AuthService.jwtService": "JwtService",
+  "InventoryController.inventoryService": "InventoryService",
+  "InventoryService.inventoryRepository": "InventoryRepository",
+  "OrderController.orderService": "OrderService",
+  "OrderService.inventoryClient": "InventoryClient",
+  "OrderService.orderRepository": "OrderRepository",
+  "ProductController.productService": "ProductService",
+  "ProductService.productRepository": "ProductRepository"
+}

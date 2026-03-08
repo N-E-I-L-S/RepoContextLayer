@@ -7,308 +7,470 @@ const parser = new Parser();
 parser.setLanguage(Java);
 
 const repoNodes = [];
-const classFieldMap = {};
+
+/* ---------------- UTIL ---------------- */
 
 function getText(node, code) {
-    return code.slice(node.startIndex, node.endIndex);
+  return code.slice(node.startIndex, node.endIndex);
 }
 
 function getLocation(node) {
-    return {
-        start: {
-            line: node.startPosition.row + 1,
-            column: node.startPosition.column,
-        },
-        end: {
-            line: node.endPosition.row + 1,
-            column: node.endPosition.column,
-        },
-    };
+  return {
+    start: {
+      line: node.startPosition.row + 1,
+      column: node.startPosition.column,
+    },
+    end: {
+      line: node.endPosition.row + 1,
+      column: node.endPosition.column,
+    },
+  };
 }
 
 function walk(node, callback) {
-    callback(node);
-    for (let i = 0; i < node.namedChildCount; i++) {
-        walk(node.namedChild(i), callback);
-    }
+  callback(node);
+  for (let i = 0; i < node.namedChildCount; i++) {
+    walk(node.namedChild(i), callback);
+  }
 }
 
-/* -------------------- LAYER DETECTION -------------------- */
+function extractAnnotations(node, code) {
+  const annotations = [];
+
+  walk(node, (child) => {
+    if (child.type === "annotation" || child.type === "marker_annotation") {
+      let text = getText(child, code);
+      text = text.replace("@", "").split("(")[0].trim();
+      annotations.push(text);
+    }
+  });
+
+  return [...new Set(annotations)];
+}
+
+/* ---------------- LAYER DETECTION ---------------- */
 
 function detectLayer(filePath, classNode, code) {
-    const lowerPath = filePath.toLowerCase();
 
-    if (lowerPath.includes("\\controller\\")) return "controller";
-    if (lowerPath.includes("\\service\\")) return "service";
-    if (lowerPath.includes("\\repository\\")) return "repository";
-    if (lowerPath.includes("\\dao\\")) return "dao";
-    if (lowerPath.includes("\\dto\\")) return "dto";
-    if (lowerPath.includes("\\model\\") || lowerPath.includes("\\entity\\")) return "model";
+  const lower = filePath.toLowerCase();
 
-    let detected = null;
+  if (lower.includes("\\controller\\")) return "controller";
+  if (lower.includes("\\service\\")) return "service";
+  if (lower.includes("\\repository\\")) return "repository";
+  if (lower.includes("\\dao\\")) return "dao";
+  if (lower.includes("\\dto\\")) return "dto";
+  if (lower.includes("\\model\\") || lower.includes("\\entity\\")) return "model";
 
-    walk(classNode.parent || classNode, (child) => {
-        if (child.type === "marker_annotation" || child.type === "annotation") {
-            const text = getText(child, code);
+  const annotations = extractAnnotations(classNode, code);
 
-            if (text.includes("RestController")) detected = "controller";
-            if (text.includes("Controller")) detected = "controller";
-            if (text.includes("Service")) detected = "service";
-            if (text.includes("Repository")) detected = "repository";
-            if (text.includes("Entity")) detected = "model";
-        }
-    });
+  if (annotations.includes("RestController")) return "controller";
+  if (annotations.includes("Controller")) return "controller";
+  if (annotations.includes("Service")) return "service";
+  if (annotations.includes("Repository")) return "repository";
+  if (annotations.includes("Entity")) return "model";
 
-    return detected || "unknown";
+  return "unknown";
 }
 
-/* -------------------- REPOSITORY MODEL EXTRACTION -------------------- */
+/* ---------------- REPOSITORY MODEL ---------------- */
 
 function extractRepositoryModel(node, code) {
-    const text = getText(node, code);
 
-    const jpaMatch = text.match(/JpaRepository<\s*([A-Za-z0-9_]+)\s*,/);
-    if (jpaMatch) return jpaMatch[1];
+  const text = getText(node, code);
 
-    const crudMatch = text.match(/CrudRepository<\s*([A-Za-z0-9_]+)\s*,/);
-    if (crudMatch) return crudMatch[1];
+  const jpaMatch = text.match(/JpaRepository<\s*([A-Za-z0-9_]+)\s*,/);
+  if (jpaMatch) return jpaMatch[1];
 
-    return null;
+  const crudMatch = text.match(/CrudRepository<\s*([A-Za-z0-9_]+)\s*,/);
+  if (crudMatch) return crudMatch[1];
+
+  return null;
 }
 
-/* -------------------- JAVA FILE ANALYSIS -------------------- */
+/* ---------------- JAVA FILE ANALYSIS ---------------- */
 
 function analyzeJavaFile(filePath) {
-    const code = fs.readFileSync(filePath, "utf8");
-    const tree = parser.parse(code);
-    const root = tree.rootNode;
 
-    let currentClass = null;
-    let currentLayer = "unknown";
+  const code = fs.readFileSync(filePath, "utf8");
+  const tree = parser.parse(code);
+  const root = tree.rootNode;
 
-    walk(root, (node) => {
+  walk(root, (node) => {
 
-        /* -------- CLASS / INTERFACE -------- */
+    if (
+      node.type !== "class_declaration" &&
+      node.type !== "interface_declaration"
+    ) return;
 
-        if (
-            node.type === "class_declaration" ||
-            node.type === "interface_declaration"
-        ) {
-            const nameNode = node.childForFieldName("name");
-            if (!nameNode) return;
+    const nameNode = node.childForFieldName("name");
+    if (!nameNode) return;
 
-            currentClass = getText(nameNode, code);
+    const className = getText(nameNode, code);
+    const layer = detectLayer(filePath, node, code);
+    const classLocation = getLocation(node);
 
-            if (!classFieldMap[currentClass]) {
-                classFieldMap[currentClass] = [];
-            }
+    const fields = [];
+    const injections = [];
+    const methods = [];
 
-            currentLayer = detectLayer(filePath, node, code);
-            const location = getLocation(node);
+    const fieldTypeMap = {};
 
-            const repositoryModel =
-                currentLayer === "repository"
-                    ? extractRepositoryModel(node, code)
-                    : null;
+    /* -------- FIELD EXTRACTION -------- */
 
-            if (currentLayer === "repository") {
-                repoNodes.push({
-                    id: currentClass,
-                    type: "repository",
-                    layer: "repository",
-                    class: currentClass,
-                    model: repositoryModel,
-                    file: filePath,
-                    location,
-                });
-            }
+    walk(node, (child) => {
 
-            if (currentLayer === "model") {
-                repoNodes.push({
-                    id: currentClass,
-                    type: "model",
-                    layer: "model",
-                    class: currentClass,
-                    file: filePath,
-                    location,
-                });
-            }
+      if (child.type !== "field_declaration") return;
 
-            if (currentLayer === "dto") {
-                repoNodes.push({
-                    id: currentClass,
-                    type: "dto",
-                    layer: "dto",
-                    class: currentClass,
-                    file: filePath,
-                    location,
-                });
-            }
+      const typeNode = child.childForFieldName("type");
+      const fieldType = typeNode ? getText(typeNode, code) : "unknown";
+
+      const annotations = extractAnnotations(child, code);
+
+      walk(child, (v) => {
+
+        if (v.type !== "variable_declarator") return;
+
+        const nameNode = v.childForFieldName("name");
+        if (!nameNode) return;
+
+        const fieldName = getText(nameNode, code);
+
+        fields.push({
+          name: fieldName,
+          type: fieldType
+        });
+
+        fieldTypeMap[fieldName] = fieldType;
+
+        if (annotations.includes("Autowired")) {
+          injections.push({
+            field: fieldName,
+            type: fieldType
+          });
         }
 
-        /* -------- FIELD -------- */
+      });
 
-        if (node.type === "field_declaration" && currentClass) {
-            const typeNode = node.childForFieldName("type");
-            const typeText = typeNode ? getText(typeNode, code) : "unknown";
-            const location = getLocation(node);
-
-            walk(node, (child) => {
-                if (child.type === "variable_declarator") {
-                    const nameNode = child.childForFieldName("name");
-                    if (!nameNode) return;
-
-                    const fieldName = getText(nameNode, code);
-                    classFieldMap[currentClass].push(fieldName);
-
-                    repoNodes.push({
-                        id: `${currentClass}.${fieldName}`,
-                        type: "field",
-                        layer: currentLayer,
-                        class: currentClass,
-                        name: fieldName,
-                        fieldType: typeText,
-                        file: filePath,
-                        location,
-                    });
-                }
-            });
-        }
-
-        /* -------- METHOD -------- */
-
-        if (node.type === "method_declaration" && currentClass) {
-            const nameNode = node.childForFieldName("name");
-            if (!nameNode) return;
-
-            const methodName = getText(nameNode, code);
-            const returnNode = node.childForFieldName("type");
-            const returnType = returnNode ? getText(returnNode, code) : "void";
-            const parametersNode = node.childForFieldName("parameters");
-
-            const parameters = [];
-            if (parametersNode) {
-                walk(parametersNode, (paramNode) => {
-                    if (paramNode.type === "formal_parameter") {
-                        const typeNode = paramNode.childForFieldName("type");
-                        if (typeNode) {
-                            parameters.push(getText(typeNode, code));
-                        }
-                    }
-                });
-            }
-
-            const calls = [];
-            const reads = [];
-            const writes = [];
-            const location = getLocation(node);
-
-            walk(node, (child) => {
-
-                if (child.type === "method_invocation") {
-                    const methodNode = child.childForFieldName("name");
-                    if (methodNode) {
-                        calls.push(getText(methodNode, code));
-                    }
-                }
-
-                if (child.type === "identifier") {
-                    const name = getText(child, code);
-                    const classFields = classFieldMap[currentClass] || [];
-
-                    if (classFields.includes(name)) {
-                        reads.push(`${currentClass}.${name}`);
-                    }
-                }
-
-                if (child.type === "assignment_expression") {
-                    const leftNode = child.childForFieldName("left");
-                    if (leftNode && leftNode.type === "identifier") {
-                        const name = getText(leftNode, code);
-                        const classFields = classFieldMap[currentClass] || [];
-
-                        if (classFields.includes(name)) {
-                            writes.push(`${currentClass}.${name}`);
-                        }
-                    }
-                }
-            });
-
-            repoNodes.push({
-                id: `${currentClass}.${methodName}`,
-                type: "method",
-                layer: currentLayer,
-                class: currentClass,
-                method: methodName,
-                file: filePath,
-                returnType,
-                parameters,
-                calls,
-                reads: [...new Set(reads)],
-                writes: [...new Set(writes)],
-                location,
-            });
-        }
     });
-}
 
-/* -------------------- REPO WALKER -------------------- */
+    /* -------- CONSTRUCTOR INJECTION -------- */
 
-function analyzeRepo(rootDir) {
-    const ignoreDirs = [
-        "target",
-        ".idea",
-        "generated-sources",
-        "node_modules",
-        "mysql",
-        "data",
-        "docker",
-        ".git",
-        ".mvn",
-    ];
+    walk(node, (child) => {
 
-    function walkDir(dir) {
-        let files;
-        try {
-            files = fs.readdirSync(dir);
-        } catch {
+      if (child.type !== "constructor_declaration") return;
+
+      const paramNode = child.childForFieldName("parameters");
+
+      if (!paramNode) return;
+
+      walk(paramNode, (p) => {
+
+        if (p.type !== "formal_parameter") return;
+
+        const typeNode = p.childForFieldName("type");
+        const nameNode = p.childForFieldName("name");
+
+        if (!typeNode || !nameNode) return;
+
+        const type = getText(typeNode, code);
+        const name = getText(nameNode, code);
+
+        injections.push({
+          field: name,
+          type: type
+        });
+
+      });
+
+    });
+
+    /* -------- METHOD EXTRACTION -------- */
+
+    walk(node, (child) => {
+
+      if (child.type !== "method_declaration") return;
+
+      const nameNode = child.childForFieldName("name");
+      if (!nameNode) return;
+
+      const methodName = getText(nameNode, code);
+      const returnNode = child.childForFieldName("type");
+
+      const returnType = returnNode
+        ? getText(returnNode, code)
+        : "void";
+
+      const parameters = [];
+      const paramTypeMap = {};
+      const localVarTypes = {};
+
+      const calls = [];
+      const reads = [];
+      const writes = [];
+
+      const methodAnnotations = extractAnnotations(child, code);
+
+      /* -------- PARAMETERS -------- */
+
+      const paramNode = child.childForFieldName("parameters");
+
+      if (paramNode) {
+        walk(paramNode, (p) => {
+
+          if (p.type !== "formal_parameter") return;
+
+          const typeNode = p.childForFieldName("type");
+          const nameNode = p.childForFieldName("name");
+
+          if (!typeNode || !nameNode) return;
+
+          const type = getText(typeNode, code);
+          const name = getText(nameNode, code);
+
+          parameters.push(type);
+          paramTypeMap[name] = type;
+
+        });
+      }
+
+      /* -------- LOCAL VARIABLES -------- */
+
+      walk(child, (inner) => {
+
+        if (inner.type === "local_variable_declaration") {
+
+          const typeNode = inner.childForFieldName("type");
+          if (!typeNode) return;
+
+          const type = getText(typeNode, code);
+
+          walk(inner, (v) => {
+
+            if (v.type !== "variable_declarator") return;
+
+            const nameNode = v.childForFieldName("name");
+            if (!nameNode) return;
+
+            const name = getText(nameNode, code);
+
+            localVarTypes[name] = type;
+
+          });
+
+        }
+
+      });
+
+      /* -------- METHOD BODY ANALYSIS -------- */
+
+      walk(child, (inner) => {
+
+        /* CALLS */
+
+        if (inner.type === "method_invocation") {
+
+          const objectNode = inner.childForFieldName("object");
+          const methodNode = inner.childForFieldName("name");
+
+          if (!methodNode) return;
+
+          const method = getText(methodNode, code);
+
+          if (!objectNode) {
+            calls.push(method);
             return;
+          }
+
+          const object = getText(objectNode, code);
+
+          const type =
+            localVarTypes[object] ||
+            paramTypeMap[object] ||
+            fieldTypeMap[object];
+
+          if (type) {
+            calls.push({
+              target: `${type}.${method}`,
+              object: object,
+              type: type
+            });
+          } else {
+            calls.push(method);
+          }
+
         }
 
-        for (const file of files) {
-            if (ignoreDirs.includes(file)) continue;
+        /* READS */
 
-            const fullPath = path.join(dir, file);
+        if (inner.type === "identifier") {
 
-            let stat;
-            try {
-                stat = fs.lstatSync(fullPath);
-            } catch {
-                continue;
-            }
+          const name = getText(inner, code);
 
-            if (stat.isSymbolicLink()) continue;
+          if (fieldTypeMap[name]) {
+            reads.push(`${className}.${name}`);
+          }
 
-            if (stat.isDirectory()) {
-                walkDir(fullPath);
-            } else if (file.endsWith(".java")) {
-                analyzeJavaFile(fullPath);
-            }
         }
+
+        /* WRITES */
+
+        if (inner.type === "assignment_expression") {
+
+          const left = inner.childForFieldName("left");
+
+          if (left && left.type === "identifier") {
+
+            const name = getText(left, code);
+
+            if (fieldTypeMap[name]) {
+              writes.push(`${className}.${name}`);
+            }
+
+          }
+
+        }
+
+      });
+
+      const methodId = `${className}.${methodName}`;
+
+      methods.push(methodId);
+
+      repoNodes.push({
+        id: methodId,
+        type: "method",
+        layer: layer,
+        class: className,
+        method: methodName,
+        file: filePath,
+        returnType,
+        parameters,
+        annotations: methodAnnotations,
+        calls,
+        reads: [...new Set(reads)],
+        writes: [...new Set(writes)],
+        location: getLocation(child)
+      });
+
+    });
+
+    /* -------- CLASS NODE -------- */
+
+    repoNodes.push({
+      id: className,
+      type: "class",
+      layer: layer,
+      class: className,
+      file: filePath,
+      fields,
+      injections,
+      methods,
+      location: classLocation
+    });
+
+    /* -------- REPOSITORY NODE -------- */
+
+    if (layer === "repository") {
+
+      const model = extractRepositoryModel(node, code);
+
+      repoNodes.push({
+        id: className,
+        type: "repository",
+        layer: "repository",
+        class: className,
+        model,
+        file: filePath,
+        location: classLocation
+      });
+
     }
 
-    walkDir(rootDir);
+    /* -------- MODEL NODE -------- */
 
-    fs.mkdirSync("context_data", { recursive: true });
+    if (layer === "model") {
 
-    fs.writeFileSync(
-        "context_data/repo-context.json",
-        JSON.stringify(repoNodes, null, 2)
-    );
+      repoNodes.push({
+        id: className,
+        type: "model",
+        layer: "model",
+        fields,
+        file: filePath,
+        location: classLocation
+      });
 
-    console.log("repo-context.json generated successfully.");
+    }
+
+  });
+
 }
 
-/* -------------------- RUN -------------------- */
+/* ---------------- REPO WALKER ---------------- */
+
+function analyzeRepo(rootDir) {
+
+  const ignoreDirs = [
+    "target",
+    ".idea",
+    "generated-sources",
+    "node_modules",
+    "mysql",
+    "data",
+    "docker",
+    ".git",
+    ".mvn"
+  ];
+
+  function walkDir(dir) {
+
+    let files;
+
+    try {
+      files = fs.readdirSync(dir);
+    } catch {
+      return;
+    }
+
+    for (const file of files) {
+
+      if (ignoreDirs.includes(file)) continue;
+
+      const fullPath = path.join(dir, file);
+
+      let stat;
+
+      try {
+        stat = fs.lstatSync(fullPath);
+      } catch {
+        continue;
+      }
+
+      if (stat.isSymbolicLink()) continue;
+
+      if (stat.isDirectory()) {
+        walkDir(fullPath);
+      }
+      else if (file.endsWith(".java")) {
+        analyzeJavaFile(fullPath);
+      }
+
+    }
+
+  }
+
+  walkDir(rootDir);
+
+  fs.mkdirSync("context_data", { recursive: true });
+
+  fs.writeFileSync(
+    "context_data/repo-context.json",
+    JSON.stringify(repoNodes, null, 2)
+  );
+
+  console.log("repo-context.json generated successfully.");
+
+}
+
+/* ---------------- RUN ---------------- */
 
 analyzeRepo("./");

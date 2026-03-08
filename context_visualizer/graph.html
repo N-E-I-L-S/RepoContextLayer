@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Code Graph Viewer</title>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<style>
+
+body{
+    margin:0;
+    background:white;
+    font-family:Arial;
+}
+
+#toolbar{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:white;
+    padding:10px;
+    border-radius:6px;
+    box-shadow:0 0 8px rgba(0,0,0,0.2);
+    z-index:10;
+}
+
+#search{
+    padding:6px;
+    width:200px;
+}
+
+button{
+    padding:6px;
+    margin-left:4px;
+}
+
+svg{
+    width:100vw;
+    height:100vh;
+}
+
+.link{
+    stroke:#444;
+    stroke-width:1.8px;
+    stroke-opacity:0.9;
+}
+
+.node{
+    stroke:white;
+    stroke-width:1.5px;
+}
+
+.label{
+    font-size:9px;
+    pointer-events:none;
+}
+
+.highlight{
+    stroke:black;
+    stroke-width:3px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="toolbar">
+<input id="search" placeholder="Search node..."/>
+<button onclick="resetZoom()">Reset Zoom</button>
+<button onclick="exportPNG()">Export PNG</button>
+</div>
+
+<svg></svg>
+
+<script>
+
+const svg = d3.select("svg");
+const width = window.innerWidth;
+const height = window.innerHeight;
+
+const container = svg.append("g");
+
+const zoom = d3.zoom()
+    .scaleExtent([0.1,5])
+    .on("zoom", (event)=>{
+        container.attr("transform", event.transform);
+    });
+
+svg.call(zoom);
+
+function resetZoom(){
+    svg.transition().duration(500).call(
+        zoom.transform,
+        d3.zoomIdentity
+    );
+}
+
+const color = layer => {
+    if(layer==="controller") return "#ff5252";
+    if(layer==="service") return "#ff9800";
+    if(layer==="repository") return "#42a5f5";
+    return "#9e9e9e";
+};
+
+d3.json("graph_viz.json").then(graph => {
+
+const simulation = d3.forceSimulation(graph.nodes)
+.force("link", d3.forceLink(graph.links)
+    .id(d=>d.id)
+    .distance(140))
+.force("charge", d3.forceManyBody().strength(-350))
+.force("center", d3.forceCenter(width/2,height/2))
+.force("collision", d3.forceCollide().radius(45));
+
+const link = container.append("g")
+.selectAll("line")
+.data(graph.links)
+.enter()
+.append("line")
+.attr("class","link");
+
+const node = container.append("g")
+.selectAll("circle")
+.data(graph.nodes)
+.enter()
+.append("circle")
+.attr("class","node")
+.attr("r",7)
+.attr("fill", d=>color(d.layer))
+.call(d3.drag()
+.on("start", dragstarted)
+.on("drag", dragged)
+.on("end", dragended))
+.on("click", highlightConnections);
+
+const label = container.append("g")
+.selectAll("text")
+.data(graph.nodes)
+.enter()
+.append("text")
+.attr("class","label")
+.text(d=>d.id);
+
+simulation.on("tick", ()=>{
+
+link
+.attr("x1", d=>d.source.x)
+.attr("y1", d=>d.source.y)
+.attr("x2", d=>d.target.x)
+.attr("y2", d=>d.target.y);
+
+node
+.attr("cx", d=>d.x)
+.attr("cy", d=>d.y);
+
+label
+.attr("x", d=>d.x+8)
+.attr("y", d=>d.y);
+
+});
+
+function dragstarted(event,d){
+if(!event.active) simulation.alphaTarget(0.3).restart();
+d.fx=d.x;
+d.fy=d.y;
+}
+
+function dragged(event,d){
+d.fx=event.x;
+d.fy=event.y;
+}
+
+function dragended(event,d){
+if(!event.active) simulation.alphaTarget(0);
+d.fx=null;
+d.fy=null;
+}
+
+function highlightConnections(event,d){
+
+link.classed("highlight", l =>
+    l.source.id===d.id || l.target.id===d.id
+);
+
+}
+
+document.getElementById("search")
+.addEventListener("input", function(){
+
+const term = this.value.toLowerCase();
+
+node.attr("stroke", n =>
+    n.id.toLowerCase().includes(term) ? "black" : "white"
+).attr("stroke-width", n =>
+    n.id.toLowerCase().includes(term) ? 4 : 1
+);
+
+});
+
+});
+
+function exportPNG(){
+
+const svgElement = document.querySelector("svg");
+const serializer = new XMLSerializer();
+const svgString = serializer.serializeToString(svgElement);
+
+const canvas = document.createElement("canvas");
+canvas.width = svgElement.clientWidth;
+canvas.height = svgElement.clientHeight;
+
+const ctx = canvas.getContext("2d");
+
+const img = new Image();
+
+img.onload=function(){
+
+ctx.fillStyle="white";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.drawImage(img,0,0);
+
+const link=document.createElement("a");
+link.download="graph_snapshot.png";
+link.href=canvas.toDataURL("image/png");
+link.click();
+
+};
+
+img.src="data:image/svg+xml;base64,"+
+btoa(unescape(encodeURIComponent(svgString)));
+
+}
+
+</script>
+
+</body>
+</html>

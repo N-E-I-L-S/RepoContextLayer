@@ -1,0 +1,19 @@
+{
+  "AuthFilter.validator": "RouteValidator",
+  "AuthFilter.jwtUtil": "JwtUtil",
+  "CustomUserDetails.user": "User",
+  "CustomUserDetailsService.userRepository": "UserRepository",
+  "AuthController.service": "AuthService",
+  "AuthController.authenticationManager": "AuthenticationManager",
+  "AuthService.repository": "UserRepository",
+  "AuthService.passwordEncoder": "PasswordEncoder",
+  "AuthService.jwtService": "JwtService",
+  "InventoryController.inventoryService": "InventoryService",
+  "InventoryService.inventoryRepository": "InventoryRepository",
+  "OrderController.orderService": "OrderService",
+  "OrderService.inventoryClient": "InventoryClient",
+  "OrderService.orderRepository": "OrderRepository",
+  "OrderService.kafkaTemplate": "KafkaTemplate<String, OrderPlacedEvent>",
+  "ProductController.productService": "ProductService",
+  "ProductService.productRepository": "ProductRepository"
+}
