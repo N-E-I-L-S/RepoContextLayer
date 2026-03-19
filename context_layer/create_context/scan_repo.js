@@ -1,6 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 
+const configPath = path.join(__dirname, "config.json");
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+const CONTEXT_DATA_PATH = config["context_data"]["path"];
+const walker = config["walker"];
 const ignoreDirs = [
   "target",".idea","generated-sources","node_modules", "parser",
   "mysql","data","docker",".git",".mvn"
@@ -37,10 +41,10 @@ function walk(dir) {
   }
 }
 
-walk("../");
+walk(walker);
 
 fs.writeFileSync(
-  "context_data/files.json",
+  `${CONTEXT_DATA_PATH}files.json`,
   JSON.stringify(files,null,2)
 );
 

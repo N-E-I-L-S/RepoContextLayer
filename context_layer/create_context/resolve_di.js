@@ -1,7 +1,12 @@
 const fs=require("fs");
+const path=require("path");
+
+const configPath = path.join(__dirname, "config.json");
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+const CONTEXT_DATA_PATH = config["context_data"]["path"];
 
 const nodes=JSON.parse(
-  fs.readFileSync("context_data/repo-context.json","utf8")
+  fs.readFileSync(`${CONTEXT_DATA_PATH}repo-context.json`,`utf8`)
 );
 
 const di={};
@@ -21,7 +26,7 @@ for(const node of nodes){
 }
 
 fs.writeFileSync(
-  "context_data/di-map.json",
+  `${CONTEXT_DATA_PATH}di-map.json`,
   JSON.stringify(di,null,2)
 );
 

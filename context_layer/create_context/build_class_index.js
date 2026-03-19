@@ -1,7 +1,11 @@
 const fs=require("fs");
+const path=require("path");
+const configPath = path.join(__dirname, "config.json");
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+const CONTEXT_DATA_PATH = config["context_data"]["path"];
 
 const nodes=JSON.parse(
-  fs.readFileSync("context_data/repo-context.json","utf8")
+  fs.readFileSync(`${CONTEXT_DATA_PATH}repo-context.json`,`utf8`)
 );
 
 const index={};

@@ -1,11 +1,16 @@
 const fs=require("fs");
+const path=require("path");
+
+const configPath = path.join(__dirname, "config.json");
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+const CONTEXT_DATA_PATH = config["context_data"]["path"];
 
 const context=JSON.parse(
-  fs.readFileSync("context_data/repo-context.json","utf8")
+  fs.readFileSync(`${CONTEXT_DATA_PATH}repo-context.json`,`utf8`)
 );
 
 const classIndex=JSON.parse(
-  fs.readFileSync("context_data/class-index.json","utf8")
+  fs.readFileSync(`${CONTEXT_DATA_PATH}class-index.json`,`utf8`)
 );
 
 const resolved={};
@@ -29,7 +34,7 @@ for(const node of context){
 }
 
 fs.writeFileSync(
-  "context_data/resolved-types.json",
+  `${CONTEXT_DATA_PATH}resolved-types.json`,
   JSON.stringify(resolved,null,2)
 );
 

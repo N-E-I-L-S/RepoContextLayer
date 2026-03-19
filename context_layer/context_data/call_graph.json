@@ -2,10 +2,10 @@
   "forward": {
     "ApiGatewayApplication.main": [],
     "AuthFilter.apply": [
-      "AuthService.validateToken",
-      "JwtUtil.validateToken",
-      "JwtService.validateToken",
       "AuthController.validateToken",
+      "JwtService.validateToken",
+      "JwtUtil.validateToken",
+      "AuthService.validateToken",
       "JwtUtil.getSignKey"
     ],
     "JwtUtil.validateToken": [
@@ -50,8 +50,8 @@
     "AuthController.getToken": [
       "CustomUserDetails.getUsername",
       "CustomUserDetails.getPassword",
-      "JwtService.generateToken",
       "AuthService.generateToken",
+      "JwtService.generateToken",
       "AuthService.saveUser",
       "AuthService.validateToken",
       "JwtService.validateToken",
@@ -65,8 +65,8 @@
       "ProductService.getAllProducts"
     ],
     "AuthController.validateToken": [
-      "AuthService.validateToken",
       "JwtUtil.validateToken",
+      "AuthService.validateToken",
       "JwtService.validateToken",
       "AuthService.saveUser",
       "AuthService.generateToken",
@@ -139,8 +139,8 @@
     ],
     "IdentityServiceApplicationTests.contextLoads": [],
     "InventoryController.isInStock": [
-      "InventoryClient.isInStock",
       "InventoryService.isInStock",
+      "InventoryClient.isInStock",
       "InventoryService.updateQuantity",
       "AuthService.saveUser",
       "AuthService.generateToken",
@@ -287,21 +287,8 @@
     "ServiceRegistryApplicationTests.contextLoads": []
   },
   "reverse": {
-    "AuthService.validateToken": [
+    "AuthController.validateToken": [
       "AuthFilter.apply",
-      "AuthController.validateToken",
-      "AuthController.addNewUser",
-      "AuthController.getToken",
-      "InventoryController.isInStock",
-      "InventoryController.updateQuantity",
-      "OrderController.placeOrder",
-      "OrderController.TestMapper",
-      "ProductController.createProduct",
-      "ProductController.getAllProducts"
-    ],
-    "JwtUtil.validateToken": [
-      "AuthFilter.apply",
-      "AuthController.validateToken",
       "AuthService.validateToken"
     ],
     "JwtService.validateToken": [
@@ -319,9 +306,22 @@
       "ProductController.createProduct",
       "ProductController.getAllProducts"
     ],
-    "AuthController.validateToken": [
+    "JwtUtil.validateToken": [
       "AuthFilter.apply",
+      "AuthController.validateToken",
       "AuthService.validateToken"
+    ],
+    "AuthService.validateToken": [
+      "AuthFilter.apply",
+      "AuthController.validateToken",
+      "AuthController.addNewUser",
+      "AuthController.getToken",
+      "InventoryController.isInStock",
+      "InventoryController.updateQuantity",
+      "OrderController.placeOrder",
+      "OrderController.TestMapper",
+      "ProductController.createProduct",
+      "ProductController.getAllProducts"
     ],
     "JwtUtil.getSignKey": [
       "JwtUtil.validateToken",
@@ -386,11 +386,8 @@
       "AuthController.getToken",
       "AuthService.saveUser"
     ],
-    "JwtService.generateToken": [
+    "AuthService.generateToken": [
       "AuthController.getToken",
-      "AuthService.generateToken",
-      "AuthService.saveUser",
-      "AuthService.validateToken",
       "AuthController.addNewUser",
       "AuthController.validateToken",
       "InventoryController.isInStock",
@@ -400,8 +397,11 @@
       "ProductController.createProduct",
       "ProductController.getAllProducts"
     ],
-    "AuthService.generateToken": [
+    "JwtService.generateToken": [
       "AuthController.getToken",
+      "AuthService.generateToken",
+      "AuthService.saveUser",
+      "AuthService.validateToken",
       "AuthController.addNewUser",
       "AuthController.validateToken",
       "InventoryController.isInStock",
@@ -426,10 +426,6 @@
       "ProductController.createProduct",
       "ProductController.getAllProducts"
     ],
-    "InventoryClient.isInStock": [
-      "InventoryController.isInStock",
-      "OrderService.placeOrder"
-    ],
     "InventoryService.isInStock": [
       "InventoryController.isInStock",
       "OrderService.placeOrder",
@@ -441,6 +437,10 @@
       "OrderController.TestMapper",
       "ProductController.createProduct",
       "ProductController.getAllProducts"
+    ],
+    "InventoryClient.isInStock": [
+      "InventoryController.isInStock",
+      "OrderService.placeOrder"
     ],
     "InventoryClient.updateQuantity": [
       "InventoryController.updateQuantity",

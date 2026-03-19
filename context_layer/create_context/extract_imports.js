@@ -1,7 +1,11 @@
 const fs=require("fs");
+const path=require("path");
+const configPath = path.join(__dirname, "config.json");
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+const CONTEXT_DATA_PATH = config["context_data"]["path"];
 
 const files=JSON.parse(
-  fs.readFileSync("context_data/files.json","utf8")
+  fs.readFileSync(`${CONTEXT_DATA_PATH}files.json`, "utf8")
 );
 
 const imports={};
@@ -33,7 +37,7 @@ for(const file of files){
 }
 
 fs.writeFileSync(
-  "context_data/imports.json",
+  `${CONTEXT_DATA_PATH}imports.json`,
   JSON.stringify(imports,null,2)
 );
 

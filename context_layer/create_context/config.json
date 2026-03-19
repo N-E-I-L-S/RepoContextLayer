@@ -1,0 +1,6 @@
+{
+    "context_data":{
+        "path": "context_data/"
+    },
+    "walker" : "../"
+}

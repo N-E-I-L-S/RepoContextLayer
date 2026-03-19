@@ -1,8 +1,12 @@
 import json
 import os
-from hybrid_search import search
+from hybrid_search import hybrid_search
 
-with open("context_data/repo-context.json", "r", encoding="utf-8") as f:
+configPath = os.path.join(os.path.dirname(__file__), "config.json")
+with open(configPath, "r") as f:
+    config = json.load(f)
+CONTEXT_DATA_PATH = config["context_data"]["path"]
+with open(f"{CONTEXT_DATA_PATH}repo-context.json", "r", encoding="utf-8") as f:
     repo_context = json.load(f)
 
 context_map = {}
@@ -23,7 +27,7 @@ def extract_snippet(file_path, start, end):
 
 
 def extract_snippets_from_results(query):
-    semantic_hits, expanded_hits = search(query)
+    semantic_hits, expanded_hits = hybrid_search(query)
 
     print("=== Semantic Hits ===")
     for r in semantic_hits:

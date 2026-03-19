@@ -1,10 +1,17 @@
 import json
 import numpy as np
 import faiss
+import os
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("BAAI/bge-base-en-v1.5")
 
+
+configPath = os.path.join(os.path.dirname(__file__), "config.json")
+with open(configPath, "r") as f:
+    config = json.load(f)
+
+CONTEXT_DATA_PATH = config["context_data"]["path"]
 
 def detect_service(file_path):
     parts = file_path.split("/")
@@ -15,7 +22,7 @@ def normalize_path(path):
     return path.replace("\\", "/")
 
 
-with open("parser/context_data/repo-context.json", "r", encoding="utf-8") as f:
+with open(f"{CONTEXT_DATA_PATH}repo-context.json", "r", encoding="utf-8") as f:
     repo = json.load(f)
 
 documents = []
@@ -185,16 +192,15 @@ print("Embedding shape:", embeddings.shape)
 # -------------------------
 # FAISS index
 # -------------------------
-
 dimension = embeddings.shape[1]
 
 index = faiss.IndexFlatIP(dimension)
 
 index.add(embeddings)
 
-faiss.write_index(index, "parser/context_data/repo_index.faiss")
+faiss.write_index(index, f"{CONTEXT_DATA_PATH}repo_index.faiss")
 
-with open("parser/context_data/repo_metadata.json", "w", encoding="utf-8") as f:
+with open(f"{CONTEXT_DATA_PATH}repo_metadata.json", "w", encoding="utf-8") as f:
     json.dump(metadata, f, indent=2)
 
 print("✅ Embeddings + FAISS index saved.")

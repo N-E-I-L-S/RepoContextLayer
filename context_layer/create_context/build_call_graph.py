@@ -1,11 +1,15 @@
 import json
 import os
 
-BASE = "./context_data/"
+configPath = os.path.join(os.path.dirname(__file__), "config.json")
+with open(configPath, "r") as f:
+    config = json.load(f)
+
+CONTEXT_DATA_PATH = config["context_data"]["path"]
 
 
 def load(name):
-    with open(os.path.join(BASE, name), "r", encoding="utf-8") as f:
+    with open(os.path.join(CONTEXT_DATA_PATH, name), "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -302,7 +306,7 @@ output = {
     "reverse": reverse
 }
 
-with open(os.path.join(BASE, "call_graph.json"), "w", encoding="utf-8") as f:
+with open(os.path.join(CONTEXT_DATA_PATH, "call_graph.json"), "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2)
 
 print("✅ call_graph.json generated")

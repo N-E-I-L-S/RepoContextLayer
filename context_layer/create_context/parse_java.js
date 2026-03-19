@@ -3,12 +3,16 @@ const path = require("path");
 const Parser = require("tree-sitter");
 const Java = require("tree-sitter-java");
 
+const configPath = path.join(__dirname, "config.json");
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+const CONTEXT_DATA_PATH = config["context_data"]["path"];
+
 const parser = new Parser();
 parser.setLanguage(Java);
 
 const repoNodes = [];
 const files = JSON.parse(
-    fs.readFileSync("context_data/files.json", "utf8")
+    fs.readFileSync(`${CONTEXT_DATA_PATH}files.json`, "utf8")
 );
 /* ---------------- UTIL ---------------- */
 
@@ -417,10 +421,10 @@ function runPass() {
         analyzeJavaFile(filePath);
     }
 
-    fs.mkdirSync("context_data", { recursive: true });
+    fs.mkdirSync(CONTEXT_DATA_PATH, { recursive: true });
 
     fs.writeFileSync(
-        "context_data/repo-context.json",
+        `${CONTEXT_DATA_PATH}repo-context.json`,
         JSON.stringify(repoNodes, null, 2)
     );
     console.log("repo-context.json generated successfully.");
@@ -501,7 +505,7 @@ function generateRepoContextDoc(nodes) {
     }
 
     fs.writeFileSync(
-        "context_data/repo-context.md",
+        `${CONTEXT_DATA_PATH}repo-context.md`,
         md
     );
 
